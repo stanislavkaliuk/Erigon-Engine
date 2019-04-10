@@ -1,0 +1,3 @@
+[submodule "ErigonEngine/vendor/spdlog"]
+	path = ErigonEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog
