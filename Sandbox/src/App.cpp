@@ -1,10 +1,20 @@
+#include <ErigonEngine.h>
 
-namespace ErigonEngine
+class Sandbox : public ErigonEngine::Application
 {
-	__declspec(dllimport) void Print();
-}
+public:
+	Sandbox()
+	{
 
-void main()
+	}
+	~Sandbox()
+	{
+
+	}
+};
+
+
+ErigonEngine::Application* ErigonEngine::CreateApplication()
 {
-	ErigonEngine::Print();
+	return new Sandbox();
 }

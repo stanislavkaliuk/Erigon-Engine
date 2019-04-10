@@ -13,6 +13,8 @@
   <ItemGroup>
     <ClInclude Include="src\ErigonEngine\Application.h" />
     <ClInclude Include="src\ErigonEngine\Core.h" />
+    <ClInclude Include="src\ErigonEngine.h" />
+    <ClInclude Include="src\ErigonEngine\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Application.cpp" />

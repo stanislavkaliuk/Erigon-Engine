@@ -14,6 +14,6 @@ namespace ErigonEngine
 
 	void Application::Run()
 	{
-
+		while (true);
 	}
 }

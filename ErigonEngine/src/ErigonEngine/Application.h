@@ -2,6 +2,7 @@
 
 #include "Core.h"
 
+
 namespace ErigonEngine
 {
 	class ERIGON_API Application
@@ -12,4 +13,6 @@ namespace ErigonEngine
 
 		void Run();
 	};
+
+	Application* CreateApplication();
 }
