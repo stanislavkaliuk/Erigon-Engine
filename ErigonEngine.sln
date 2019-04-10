@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{6D0853BC-B955-44A9-98FC-E8F51AB4C8E3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ErigonEngine", "ErigonEngine\ErigonEngine.vcxproj", "{00F77800-2B89-4108-BC1F-47397B41AD43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00F77800-2B89-4108-BC1F-47397B41AD43}.Debug|x64.ActiveCfg = Debug|x64
+		{00F77800-2B89-4108-BC1F-47397B41AD43}.Debug|x64.Build.0 = Debug|x64
+		{00F77800-2B89-4108-BC1F-47397B41AD43}.Release|x64.ActiveCfg = Release|x64
+		{00F77800-2B89-4108-BC1F-47397B41AD43}.Release|x64.Build.0 = Release|x64
+		{6D0853BC-B955-44A9-98FC-E8F51AB4C8E3}.Debug|x64.ActiveCfg = Debug|x64
+		{6D0853BC-B955-44A9-98FC-E8F51AB4C8E3}.Debug|x64.Build.0 = Debug|x64
+		{6D0853BC-B955-44A9-98FC-E8F51AB4C8E3}.Release|x64.ActiveCfg = Release|x64
+		{6D0853BC-B955-44A9-98FC-E8F51AB4C8E3}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2410FD0C-B839-43EC-B12D-74269D4EF09F}
+	EndGlobalSection
+EndGlobal
