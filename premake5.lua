@@ -10,6 +10,11 @@ workspace "ErigonEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "ErigonEngine/vendor/GLFW/include"
+
+include "ErigonEngine/vendor/GLFW"
+
 project "ErigonEngine"
 	location "ErigonEngine"
 	kind "SharedLib"
@@ -17,6 +22,9 @@ project "ErigonEngine"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "eepch.h"
+	pchsource "ErigonEngine/src/eepch.cpp"
 
 	files
 	{
@@ -26,7 +34,15 @@ project "ErigonEngine"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+	 	"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%(IncludeDir.GLFW)"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

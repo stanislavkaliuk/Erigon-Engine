@@ -1,3 +1,6 @@
 [submodule "ErigonEngine/vendor/spdlog"]
 	path = ErigonEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "ErigonEngine/vendor/GLFW"]
+	path = ErigonEngine/vendor/GLFW
+	url = https://github.com/stanislavkaliuk/glfw

@@ -4,6 +4,15 @@
     <Filter Include="ErigonEngine">
       <UniqueIdentifier>{1FD0F0A0-0B33-8045-B4B8-B8FBA0FA4BC8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ErigonEngine\Events">
+      <UniqueIdentifier>{23435517-8FA4-3225-1812-79D7847269E4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{a2e8398f-2b67-40bf-9197-3b584ef077bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{56d720b4-7a36-4456-ba87-e385e42821a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ErigonEngine.h" />
@@ -16,9 +25,24 @@
     <ClInclude Include="src\ErigonEngine\EntryPoint.h">
       <Filter>ErigonEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h">
+      <Filter>ErigonEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Events\Event.h">
+      <Filter>ErigonEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h">
+      <Filter>ErigonEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Events\MouseEvent.h">
+      <Filter>ErigonEngine\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\ErigonEngine\Log.h">
       <Filter>ErigonEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\eepch.h" />
+    <ClInclude Include="src\ErigonEngine\Window.h" />
+    <ClInclude Include="src\Platform\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Application.cpp">
@@ -27,5 +51,7 @@
     <ClCompile Include="src\ErigonEngine\Log.cpp">
       <Filter>ErigonEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\eepch.cpp" />
+    <ClCompile Include="src\Platform\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
