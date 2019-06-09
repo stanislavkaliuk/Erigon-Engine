@@ -12,8 +12,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "ErigonEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "ErigonEngine/vendor/Glad/include"
+IncludeDir["ImGui"] = "ErigonEngine/vendor/imgui"
 
 include "ErigonEngine/vendor/GLFW"
+include "ErigonEngine/vendor/Glad"
+include "ErigonEngine/vendor/imgui"
 
 project "ErigonEngine"
 	location "ErigonEngine"
@@ -36,12 +40,16 @@ project "ErigonEngine"
 	{
 	 	"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%(IncludeDir.GLFW)"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -53,7 +61,8 @@ project "ErigonEngine"
 		defines
 		{
 			"ERIGON_WINDOWS",
-			"ERIGON_DLL"
+			"ERIGON_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -62,14 +71,17 @@ project "ErigonEngine"
 		}
 	filter "configurations:Debug"
 		defines "EE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 		
 	filter "configurations:Release"
 		defines "EE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EE_DIST"
+		buildoptions "/MD"
 		optimize "On"
 	
 project "Sandbox"
@@ -107,12 +119,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "EE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 		
 	filter "configurations:Release"
 		defines "EE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "EE_DIST"
+		buildoptions "/MD"
 		optimize "On"

@@ -7,11 +7,17 @@
     <Filter Include="ErigonEngine\Events">
       <UniqueIdentifier>{23435517-8FA4-3225-1812-79D7847269E4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ErigonEngine\ImGUI">
+      <UniqueIdentifier>{499CA2AB-3580-6301-9EE0-5D548AE34D83}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
-      <UniqueIdentifier>{a2e8398f-2b67-40bf-9197-3b584ef077bb}</UniqueIdentifier>
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
-      <UniqueIdentifier>{56d720b4-7a36-4456-ba87-e385e42821a4}</UniqueIdentifier>
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,21 +43,54 @@
     <ClInclude Include="src\ErigonEngine\Events\MouseEvent.h">
       <Filter>ErigonEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\ImGUI\ImGUILayer.h">
+      <Filter>ErigonEngine\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Layer.h">
+      <Filter>ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\LayerStack.h">
+      <Filter>ErigonEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\ErigonEngine\Log.h">
       <Filter>ErigonEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Window.h">
+      <Filter>ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\imGUIOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\eepch.h" />
-    <ClInclude Include="src\ErigonEngine\Window.h" />
-    <ClInclude Include="src\Platform\WindowsWindow.h" />
+    <ClInclude Include="src\ErigonEngine\Input.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Application.cpp">
       <Filter>ErigonEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\ImGUI\ImGUILayer.cpp">
+      <Filter>ErigonEngine\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Layer.cpp">
+      <Filter>ErigonEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\LayerStack.cpp">
+      <Filter>ErigonEngine</Filter>
+    </ClCompile>
     <ClCompile Include="src\ErigonEngine\Log.cpp">
       <Filter>ErigonEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\imGUIOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\eepch.cpp" />
-    <ClCompile Include="src\Platform\WindowsWindow.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>
