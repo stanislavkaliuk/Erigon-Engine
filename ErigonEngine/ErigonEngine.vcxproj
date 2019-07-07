@@ -161,10 +161,12 @@
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\ErigonEngine\ImGUI\ImGUILayer.h" />
-    <ClInclude Include="src\ErigonEngine\Input.h" />
+    <ClInclude Include="src\ErigonEngine\Input\Input.h" />
+    <ClInclude Include="src\ErigonEngine\Input\KeyCodes.h" />
     <ClInclude Include="src\ErigonEngine\Layer.h" />
     <ClInclude Include="src\ErigonEngine\LayerStack.h" />
     <ClInclude Include="src\ErigonEngine\Log.h" />
+    <ClInclude Include="src\ErigonEngine\Input\MouseButtonCodes.h" />
     <ClInclude Include="src\ErigonEngine\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\imGUIOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />

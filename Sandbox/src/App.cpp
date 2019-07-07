@@ -7,12 +7,24 @@ public:
 	ExampleLayer() : Layer("Example"){}
 	void OnUpdate() override
 	{
-		EE_INFO("Example layer::Update");
+		if (ErigonEngine::Input::IsKeyPressed(EE_KEY_TAB))
+		{
+			EE_INFO("Example layer: Tab pressed (poll)");
+		}
 	}
 
 	void OnEvent(ErigonEngine::Event& event) override
 	{
-		EE_TRACE(event.ToString());
+		//EE_TRACE(event.ToString());
+		if (event.GetEventType() == ErigonEngine::EventType::KeyPressed)
+		{
+			ErigonEngine::KeyPressedEvent& e = (ErigonEngine::KeyPressedEvent&) event;
+			if (ErigonEngine::Input::IsKeyPressed(EE_KEY_TAB))
+			{
+				EE_INFO("Example layer: Tab pressed (poll)");
+			}
+			EE_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 

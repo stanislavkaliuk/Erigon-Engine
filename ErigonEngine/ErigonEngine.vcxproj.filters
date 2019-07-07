@@ -19,6 +19,9 @@
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ErigonEngine\Input">
+      <UniqueIdentifier>{aaee4791-e8b5-4d19-8588-3bbc49b3ef31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ErigonEngine.h" />
@@ -65,8 +68,18 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\eepch.h" />
-    <ClInclude Include="src\ErigonEngine\Input.h" />
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Input\MouseButtonCodes.h">
+      <Filter>ErigonEngine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Input\KeyCodes.h">
+      <Filter>ErigonEngine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Input\Input.h">
+      <Filter>ErigonEngine\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Application.cpp">
@@ -91,6 +104,8 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\eepch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

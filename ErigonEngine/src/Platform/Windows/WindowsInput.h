@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ErigonEngine/Input.h"
+#include "ErigonEngine/Input/Input.h"
 
 namespace ErigonEngine
 {
