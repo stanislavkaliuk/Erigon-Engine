@@ -17,6 +17,9 @@ namespace ErigonEngine
 		s_Instance = this;
 		m_Window = std::unique_ptr<IWindow>(IWindow::Create());
 		m_Window->SetEventCallback(BIND_EVENT(Application::OnEvent));
+
+		m_ImGuiLayer = new ImGUILayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	void Application::OnEvent(Event& e)
@@ -52,6 +55,10 @@ namespace ErigonEngine
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

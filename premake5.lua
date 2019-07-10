@@ -14,6 +14,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "ErigonEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "ErigonEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "ErigonEngine/vendor/imgui"
+IncludeDir["Glm"] = "ErigonEngine/vendor/glm"
 
 include "ErigonEngine/vendor/GLFW"
 include "ErigonEngine/vendor/Glad"
@@ -33,7 +34,9 @@ project "ErigonEngine"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -42,7 +45,8 @@ project "ErigonEngine"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.Glm}"
 	}
 
 	links
@@ -93,13 +97,15 @@ project "Sandbox"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
 	}
 
 	includedirs
 	{
 		"ErigonEngine/vendor/spdlog/include",
-		"ErigonEngine/src"
+		"ErigonEngine/src",
+		"ErigonEngine/vendor",
+		"%{IncludeDir.Glm}"
 	}
 
 	links

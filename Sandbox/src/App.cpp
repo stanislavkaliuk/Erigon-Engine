@@ -1,5 +1,5 @@
 #include <ErigonEngine.h>
-
+#include "imgui/imgui.h"
 
 class ExampleLayer : public ErigonEngine::Layer
 {
@@ -11,6 +11,13 @@ public:
 		{
 			EE_INFO("Example layer: Tab pressed (poll)");
 		}
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello!!");
+		ImGui::End();
 	}
 
 	void OnEvent(ErigonEngine::Event& event) override
@@ -35,7 +42,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new ErigonEngine::ImGUILayer());
 	}
 	~Sandbox()
 	{

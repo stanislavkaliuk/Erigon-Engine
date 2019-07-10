@@ -5,7 +5,6 @@ namespace ErigonEngine
 {
 	LayerStack::LayerStack()
 	{
-		m_LayerInsert = m_Layers.begin();
 	}
 
 	LayerStack::~LayerStack()
@@ -16,7 +15,8 @@ namespace ErigonEngine
 
 	void LayerStack::PushLayer(Layer* layer)
 	{
-		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);
+		m_Layers.emplace(m_Layers.begin() + m_LayerStackInserts, layer);
+		m_LayerStackInserts++;
 	}
 
 	void LayerStack::PushOverlay(Layer* layer)
@@ -30,7 +30,7 @@ namespace ErigonEngine
 		if (it != m_Layers.end())
 		{
 			m_Layers.erase(it);
-			m_LayerInsert--;
+			m_LayerStackInserts--;
 		}
 	}
 

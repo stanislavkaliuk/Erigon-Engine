@@ -7,3 +7,6 @@
 [submodule "ErigonEngine/vendor/imgui"]
 	path = ErigonEngine/vendor/imgui
 	url = https://github.com/stanislavkaliuk/imgui
+[submodule "ErigonEngine/vendor/glm"]
+	path = ErigonEngine/vendor/glm
+	url = https://github.com/g-truc/glm

@@ -5,7 +5,7 @@
 #include "ErigonEngine/LayerStack.h"
 #include "ErigonEngine/Events/Event.h"
 #include "ErigonEngine/Events/ApplicationEvent.h"
-
+#include "ErigonEngine/ImGUI/ImGUILayer.h"
 
 namespace ErigonEngine
 {
@@ -27,6 +27,7 @@ namespace ErigonEngine
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		std::unique_ptr<IWindow> m_Window;
+		ImGUILayer*  m_ImGuiLayer;
 		bool m_Running = true;
 		bool OnWindowClosed(WindowCloseEvent& e);
 		LayerStack m_LayerStack;
