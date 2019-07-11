@@ -50,7 +50,7 @@ namespace ErigonEngine
 	{
 		while (m_Running)
 		{
-			glClearColor(0.2, 0, 1, 1);
+			glClearColor(0.2f, 0.f, 1.f, 1.f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack)

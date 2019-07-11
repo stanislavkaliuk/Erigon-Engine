@@ -7,7 +7,7 @@
 
 namespace ErigonEngine
 {
-	class ERIGON_API ImGUILayer : public Layer
+	class ImGUILayer : public Layer
 	{
 	public:
 		ImGUILayer();

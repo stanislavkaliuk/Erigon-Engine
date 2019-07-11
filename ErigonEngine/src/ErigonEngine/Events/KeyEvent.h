@@ -5,7 +5,7 @@
 
 namespace ErigonEngine
 {
-	class ERIGON_API KeyEvent :public Event
+	class KeyEvent :public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -17,7 +17,7 @@ namespace ErigonEngine
 		int m_KeyCode;
 	};
 
-	class ERIGON_API KeyPressedEvent : public KeyEvent
+	class KeyPressedEvent : public KeyEvent
 	{
 		public: 
 			KeyPressedEvent(int keycode, int repeatCount) :m_RepeatCount(repeatCount),KeyEvent(keycode)
@@ -37,7 +37,7 @@ namespace ErigonEngine
 		int m_RepeatCount;
 	};
 
-	class ERIGON_API KeyReleasedEvent : public KeyEvent
+	class KeyReleasedEvent : public KeyEvent
 	{
 	public:
 
@@ -52,7 +52,7 @@ namespace ErigonEngine
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class ERIGON_API KeyTypedEvent : public KeyEvent
+	class KeyTypedEvent : public KeyEvent
 	{
 		public: 
 			KeyTypedEvent(int keycode) : KeyEvent(keycode)

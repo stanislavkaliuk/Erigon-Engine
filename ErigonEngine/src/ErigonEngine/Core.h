@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef ERIGON_WINDOWS
-#ifdef ERIGON_DLL
-#define ERIGON_API __declspec(dllexport)
-#else // ERIGON_DLL
-#define ERIGON_API __declspec(dllimport)
-#endif
+	#if EE_DLL_LINK
+		#ifdef ERIGON_DLL
+		#define ERIGON_API __declspec(dllexport)
+		#else // ERIGON_DLL
+		#define ERIGON_API __declspec(dllimport)
+		#endif
+	#else
+		#define ERIGON_API
+	#endif
 #else
 #error Erigon Engine supports Windows only
 #endif // ERIGON_WINDOWS

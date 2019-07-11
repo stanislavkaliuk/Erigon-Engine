@@ -6,7 +6,7 @@
 
 namespace ErigonEngine
 {
-	class ERIGON_API Layer
+	class Layer
 	{
 	public:
 		Layer(const std::string& name = "Layer");

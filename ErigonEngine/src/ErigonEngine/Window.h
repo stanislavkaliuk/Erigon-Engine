@@ -19,7 +19,7 @@ namespace ErigonEngine
 			: Title(title), Width(width),Height(height){}
 	};
 
-	class ERIGON_API IWindow
+	class IWindow
 	{
 	public:
 		using EventCallback = std::function<void(Event&)>;

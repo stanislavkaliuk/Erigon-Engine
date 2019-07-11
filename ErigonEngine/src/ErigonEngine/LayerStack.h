@@ -8,7 +8,7 @@
 
 namespace ErigonEngine
 {
-	class ERIGON_API LayerStack
+	class LayerStack
 	{
 		public:
 			LayerStack();
