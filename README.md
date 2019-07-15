@@ -1,2 +1,5 @@
-# Erigon-Engine
-Erigon Game Engine
+# Erigon Game Engine
+
+# Features
+
+- Based on OpenGL 4.1
