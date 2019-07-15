@@ -1,6 +1,7 @@
 #pragma once
 
-#include "ErigonEngine/Renderer/Buffer.h"
+#include "ErigonEngine/Renderer/VertexBuffer.h"
+#include "ErigonEngine/Renderer/IndexBuffer.h"
 
 namespace ErigonEngine
 {

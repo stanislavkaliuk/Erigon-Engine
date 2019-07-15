@@ -1,21 +1,22 @@
 #include "eepch.h"
 #include "Buffer.h"
-#include "Renderer.h"
-
+#include "RendererAPI.h"
+#include "IndexBuffer.h"
+#include "VertexBuffer.h"
 #include "OpenGL/OpenGLBuffer.h"
 
 namespace ErigonEngine
 {
 	VertexBuffer* ErigonEngine::VertexBuffer::Create(float* vertices, uint32_t size)
 	{
-		switch (Renderer::GetAPI())
+		switch (RendererAPI::GetAPI())
 		{
-			case RendererAPI::None: 
+		case RendererAPI::API::None: 
 			{ 
 				EE_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); 
 				return nullptr;
 			}
-			case RendererAPI::OpenGL: return new OpenGLVertexBuffer(vertices, size);
+			case RendererAPI::API::OpenGL: return new OpenGLVertexBuffer(vertices, size);
 		}
 		EE_CORE_ASSERT(false, "Unknown Renderer API");
 		return nullptr;
@@ -23,14 +24,14 @@ namespace ErigonEngine
 
 	IndexBuffer* ErigonEngine::IndexBuffer::Create(uint32_t* indices, uint32_t size)
 	{
-		switch (Renderer::GetAPI())
+		switch (RendererAPI::GetAPI())
 		{
-			case RendererAPI::None: 
+			case RendererAPI::API::None: 
 			{ 
 				EE_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); 
 				return nullptr;
 			}
-			case RendererAPI::OpenGL: return new OpenGLIndexBuffer(indices, size);
+			case RendererAPI::API::OpenGL: return new OpenGLIndexBuffer(indices, size);
 		}
 		EE_CORE_ASSERT(false, "Unknown Renderer API");
 		return nullptr;

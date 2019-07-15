@@ -7,7 +7,9 @@
 #include "ErigonEngine/Events/ApplicationEvent.h"
 #include "ErigonEngine/ImGUI/ImGUILayer.h"
 #include "ErigonEngine/Renderer/Shader.h"
-#include "ErigonEngine/Renderer/Buffer.h"
+#include "ErigonEngine/Renderer/VertexBuffer.h"
+#include "ErigonEngine/Renderer/IndexBuffer.h"
+#include "ErigonEngine/Renderer/VertexArray.h"
 
 namespace ErigonEngine
 {
@@ -29,10 +31,12 @@ namespace ErigonEngine
 		bool m_Running = true;
 		bool OnWindowClosed(WindowCloseEvent& e);
 		LayerStack m_LayerStack;
-		unsigned int m_VertexArray;
-		std::unique_ptr<Shader> m_Shader;
-		std::unique_ptr<VertexBuffer> m_VertexBuffer;
-		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<Shader> m_ShaderBlue;
+		std::shared_ptr<VertexArray> m_VertexArray;
+		std::shared_ptr<VertexArray> m_Square;
+
 		static Application* s_Instance;
 	};
 

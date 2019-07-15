@@ -1212,6 +1212,13 @@
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\Renderer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\VertexArray.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\IndexBuffer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\VertexBuffer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp">
@@ -1252,5 +1259,10 @@
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
 </Project>
