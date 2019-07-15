@@ -2,7 +2,7 @@
 #include "ImGUILayer.h"
 #include "ErigonEngine/ImGUI/OpenGL/imGUIOpenGLRenderer.h"
 #include "ErigonEngine/ImGUI/GLFW/imGUIGLFWRender.h"
-#include "ErigonEngine/Application.h"
+#include "ErigonEngine/Core/Application.h"
 
 //temp
 #include "GLFW/glfw3.h"
@@ -79,7 +79,6 @@ namespace ErigonEngine
 
 	void ImGUILayer::OnImGuiRender()
 	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
+		
 	}
 }

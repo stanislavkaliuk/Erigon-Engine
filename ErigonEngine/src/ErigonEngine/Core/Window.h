@@ -1,12 +1,11 @@
 #pragma once
 
 #include "eepch.h"
-#include "ErigonEngine/Core.h"
+#include "ErigonEngine/Core/Core.h"
 #include "ErigonEngine/Events/Event.h"
 
 namespace ErigonEngine
 {
-
 	struct WindowProps
 	{
 		std::string Title;

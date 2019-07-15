@@ -1,7 +1,8 @@
 #pragma once
 
-#include "ErigonEngine/Window.h"
+#include "ErigonEngine/Core/Window.h"
 #include "GLFW/glfw3.h"
+#include "ErigonEngine/Renderer/GraphicsContext.h"
 
 namespace ErigonEngine
 {
@@ -27,6 +28,7 @@ namespace ErigonEngine
 		virtual void Shutdown();
 
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

@@ -1,6 +1,6 @@
 #include "eepch.h"
 #include "WindowsInput.h"
-#include "ErigonEngine/Application.h"
+#include "ErigonEngine/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace ErigonEngine

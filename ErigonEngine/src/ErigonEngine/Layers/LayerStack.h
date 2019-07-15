@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ErigonEngine/Core.h"
+#include "ErigonEngine/Core/Core.h"
 
 #include "Layer.h"
 

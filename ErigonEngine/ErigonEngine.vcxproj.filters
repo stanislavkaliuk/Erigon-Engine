@@ -54,15 +54,6 @@
     <ClInclude Include="src\ErigonEngine.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Application.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Core.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\EntryPoint.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h">
       <Filter>src\ErigonEngine\Events</Filter>
     </ClInclude>
@@ -92,18 +83,6 @@
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Input\MouseButtonCodes.h">
       <Filter>src\ErigonEngine\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Layer.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\LayerStack.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Log.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Window.h">
-      <Filter>src\ErigonEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1206,11 +1185,35 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Layers\Layer.h">
+      <Filter>src\ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Layers\LayerStack.h">
+      <Filter>src\ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\Core.h">
+      <Filter>src\ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\EntryPoint.h">
+      <Filter>src\ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\Application.h">
+      <Filter>src\ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\Window.h">
+      <Filter>src\ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Log\Log.h">
+      <Filter>src\ErigonEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\Shader.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\Buffer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ErigonEngine\Application.cpp">
-      <Filter>src\ErigonEngine</Filter>
-    </ClCompile>
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp">
       <Filter>src\ErigonEngine\ImGUI\GLFW</Filter>
     </ClCompile>
@@ -1223,15 +1226,6 @@
     <ClCompile Include="src\ErigonEngine\ImGUI\OpenGL\imGUIOpenGLRenderer.cpp">
       <Filter>src\ErigonEngine\ImGUI\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Layer.cpp">
-      <Filter>src\ErigonEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ErigonEngine\LayerStack.cpp">
-      <Filter>src\ErigonEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Log.cpp">
-      <Filter>src\ErigonEngine</Filter>
-    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1241,5 +1235,22 @@
     <ClCompile Include="src\eepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Layers\LayerStack.cpp">
+      <Filter>src\ErigonEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Layers\Layer.cpp">
+      <Filter>src\ErigonEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
+      <Filter>src\ErigonEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Log\Log.cpp">
+      <Filter>src\ErigonEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\Shader.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>

@@ -141,9 +141,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\ErigonEngine.h" />
-    <ClInclude Include="src\ErigonEngine\Application.h" />
-    <ClInclude Include="src\ErigonEngine\Core.h" />
-    <ClInclude Include="src\ErigonEngine\EntryPoint.h" />
+    <ClInclude Include="src\ErigonEngine\Core\Application.h" />
+    <ClInclude Include="src\ErigonEngine\Core\Core.h" />
+    <ClInclude Include="src\ErigonEngine\Core\EntryPoint.h" />
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\Event.h" />
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
@@ -154,10 +154,16 @@
     <ClInclude Include="src\ErigonEngine\Input\Input.h" />
     <ClInclude Include="src\ErigonEngine\Input\KeyCodes.h" />
     <ClInclude Include="src\ErigonEngine\Input\MouseButtonCodes.h" />
-    <ClInclude Include="src\ErigonEngine\Layer.h" />
-    <ClInclude Include="src\ErigonEngine\LayerStack.h" />
-    <ClInclude Include="src\ErigonEngine\Log.h" />
-    <ClInclude Include="src\ErigonEngine\Window.h" />
+    <ClInclude Include="src\ErigonEngine\Layers\Layer.h" />
+    <ClInclude Include="src\ErigonEngine\Layers\LayerStack.h" />
+    <ClInclude Include="src\ErigonEngine\Log\Log.h" />
+    <ClInclude Include="src\ErigonEngine\Core\Window.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\Buffer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\Renderer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\Shader.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\eepch.h" />
@@ -527,14 +533,19 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ErigonEngine\Application.cpp" />
+    <ClCompile Include="src\ErigonEngine\Core\Application.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGUILayer.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGuiBuild.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\OpenGL\imGUIOpenGLRenderer.cpp" />
-    <ClCompile Include="src\ErigonEngine\Layer.cpp" />
-    <ClCompile Include="src\ErigonEngine\LayerStack.cpp" />
-    <ClCompile Include="src\ErigonEngine\Log.cpp" />
+    <ClCompile Include="src\ErigonEngine\Layers\Layer.cpp" />
+    <ClCompile Include="src\ErigonEngine\Layers\LayerStack.cpp" />
+    <ClCompile Include="src\ErigonEngine\Log\Log.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\Shader.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\eepch.cpp">
