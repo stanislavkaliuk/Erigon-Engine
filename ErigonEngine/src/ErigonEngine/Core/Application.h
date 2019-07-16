@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Window.h"
+#include "ErigonEngine/Core/Timestep.h"
 #include "ErigonEngine/Layers/LayerStack.h"
 #include "ErigonEngine/Events/Event.h"
 #include "ErigonEngine/Events/ApplicationEvent.h"
@@ -10,14 +11,15 @@
 #include "ErigonEngine/Renderer/VertexBuffer.h"
 #include "ErigonEngine/Renderer/IndexBuffer.h"
 #include "ErigonEngine/Renderer/VertexArray.h"
+#include "ErigonEngine/Renderer/OrtographicCamera.h"
 
 namespace ErigonEngine
 {
-	class  Application
+	class Application
 	{
 	public:
 		Application();
-		virtual ~Application();
+		virtual ~Application() = default;
 		void Run();
 		void OnEvent(Event& e);
 		void PushLayer(Layer* layer);
@@ -31,12 +33,7 @@ namespace ErigonEngine
 		bool m_Running = true;
 		bool OnWindowClosed(WindowCloseEvent& e);
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<Shader> m_ShaderBlue;
-		std::shared_ptr<VertexArray> m_VertexArray;
-		std::shared_ptr<VertexArray> m_Square;
-
+		float m_LastFrameTime = 0.0f;
 		static Application* s_Instance;
 	};
 

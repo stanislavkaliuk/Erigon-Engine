@@ -2,7 +2,7 @@
 
 #include "ErigonEngine/Core/Core.h"
 #include "ErigonEngine/Events/Event.h"
-
+#include "ErigonEngine/Core/Timestep.h"
 
 namespace ErigonEngine
 {
@@ -14,7 +14,7 @@ namespace ErigonEngine
 
 		virtual void OnAttach() {};
 		virtual void OnDetach() {};
-		virtual void OnUpdate() {};
+		virtual void OnUpdate(Timestep timestep) {};
 		virtual void OnImGuiRender() {};
 		virtual void OnEvent(Event& event) {}
 
