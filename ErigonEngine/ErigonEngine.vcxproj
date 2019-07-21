@@ -144,7 +144,9 @@
     <ClInclude Include="src\ErigonEngine\Core\Application.h" />
     <ClInclude Include="src\ErigonEngine\Core\Core.h" />
     <ClInclude Include="src\ErigonEngine\Core\EntryPoint.h" />
+    <ClInclude Include="src\ErigonEngine\Core\Random.h" />
     <ClInclude Include="src\ErigonEngine\Core\TimeStep.h" />
+    <ClInclude Include="src\ErigonEngine\Core\Types.h" />
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\Event.h" />
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
@@ -159,12 +161,17 @@
     <ClInclude Include="src\ErigonEngine\Layers\LayerStack.h" />
     <ClInclude Include="src\ErigonEngine\Log\Log.h" />
     <ClInclude Include="src\ErigonEngine\Core\Window.h" />
+    <ClInclude Include="src\ErigonEngine\Math\MathUtil.h" />
+    <ClInclude Include="src\ErigonEngine\Math\Matrix.h" />
+    <ClInclude Include="src\ErigonEngine\Math\Vector2.h" />
+    <ClInclude Include="src\ErigonEngine\Math\Vector3.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\Buffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\IndexBuffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OrtographicCamera.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\Renderer.h" />
@@ -554,6 +561,7 @@
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OrtographicCamera.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\RenderCommand.cpp" />

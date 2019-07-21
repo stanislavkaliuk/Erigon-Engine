@@ -93,8 +93,8 @@ public:
 			}
 		)";
 
-		m_ShaderBlue.reset(new ErigonEngine::Shader(vertexBlue, fragmentBlue));
-		m_Shader.reset(new ErigonEngine::Shader(vertex, fragment));
+		m_ShaderBlue.reset(ErigonEngine::Shader::Create(vertexBlue, fragmentBlue));
+		m_Shader.reset(ErigonEngine::Shader::Create(vertex, fragment));
 	}
 
 	void OnUpdate(ErigonEngine::Timestep deltaTime) override
