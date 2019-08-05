@@ -2,4 +2,4 @@
 
 # Features
 
-- Based on OpenGL 4.1
+- Based on OpenGL 4.1 and DirectX 11
