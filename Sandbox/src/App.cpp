@@ -119,7 +119,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-
+		ImGui::Begin("Test");
+		ImGui::Button("Button", ImVec2(150, 150));
+		ImGui::End();
 	}
 
 	void OnEvent(ErigonEngine::Event& event) override

@@ -1,16 +1,15 @@
 #pragma once
 
 #include "ErigonEngine/Core/Window.h"
-#include "GLFW/glfw3.h"
 #include "ErigonEngine/Renderer/GraphicsContext.h"
 
 namespace ErigonEngine
 {
-	class WindowsWindow : public IWindow
+	class WinWindow : public IWindow
 	{
 	public:
-		WindowsWindow(const WindowProps& props);
-		virtual ~WindowsWindow();
+		WinWindow(const WindowProps& props);
+		virtual ~WinWindow();
 
 		void OnUpdate() override;
 
@@ -27,7 +26,7 @@ namespace ErigonEngine
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
 
-		GLFWwindow* m_Window;
+		HWND* m_Window;
 		GraphicsContext* m_Context;
 
 		struct WindowData

@@ -1,5 +1,5 @@
 #pragma once
-#include <glm/glm.hpp>
+#include <DirectXMath.h>
 #include "VertexArray.h"
 
 namespace ErigonEngine
@@ -9,11 +9,11 @@ namespace ErigonEngine
 	public:
 		enum class API
 		{
-			None = 0, OpenGL = 1
+			None = 0, OpenGL = 1, DirectX11 = 2
 		};
 
 	public:
-		virtual void SetClearColor(const glm::vec4& color) = 0;
+		virtual void SetClearColor(const DirectX::XMFLOAT4& color) = 0;
 		virtual void Clear() = 0;
 
 		virtual void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray) = 0;

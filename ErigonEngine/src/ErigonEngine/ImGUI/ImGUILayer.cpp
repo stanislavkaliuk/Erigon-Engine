@@ -3,6 +3,7 @@
 #include "ErigonEngine/ImGUI/OpenGL/imGUIOpenGLRenderer.h"
 #include "ErigonEngine/ImGUI/GLFW/imGUIGLFWRender.h"
 #include "ErigonEngine/Core/Application.h"
+#include "spectrum.h"
 
 //temp
 #include "GLFW/glfw3.h"
@@ -28,15 +29,15 @@ namespace ErigonEngine
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+		ImGui::Spectrum::StyleColorsSpectrum();
+		//ImGui::StyleColorsDark();
 
-		ImGui::StyleColorsDark();
-
-		ImGuiStyle& style = ImGui::GetStyle();
+		/*ImGuiStyle& style = ImGui::GetStyle();
 		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 		{
 			style.WindowRounding = 0.0f;
 			style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-		}
+		}*/
 
 		Application& app = Application::Get();
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());

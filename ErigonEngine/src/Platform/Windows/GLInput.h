@@ -4,7 +4,7 @@
 
 namespace ErigonEngine
 {
-	class WindowsInput : public Input
+	class GLInput : public Input
 	{
 	protected:
 		virtual bool IsKeyPressedImpl(int keycode) override;

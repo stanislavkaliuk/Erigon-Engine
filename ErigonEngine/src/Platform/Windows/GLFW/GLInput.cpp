@@ -1,28 +1,28 @@
 #include "eepch.h"
-#include "WindowsInput.h"
+#include "GLInput.h"
 #include "ErigonEngine/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace ErigonEngine
 {
-	Input* Input::s_Instance = new WindowsInput();
+	Input* Input::s_Instance = new GLInput();
 
 
-	bool WindowsInput::IsKeyPressedImpl(int keycode)
+	bool GLInput::IsKeyPressedImpl(int keycode)
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		auto state = glfwGetKey(window, keycode);
 		return state == GLFW_PRESS || state == GLFW_REPEAT;
 	}
 
-	bool WindowsInput::IsMouseButtonPressedImpl(int button)
+	bool GLInput::IsMouseButtonPressedImpl(int button)
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		auto state = glfwGetMouseButton(window, button);
 		return state == GLFW_PRESS;
 	}
 
-	std::pair<float, float> WindowsInput::GetMousePositionImpl()
+	std::pair<float, float> GLInput::GetMousePositionImpl()
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double x, y;
@@ -31,13 +31,13 @@ namespace ErigonEngine
 		return { (float)x, (float)y };
 	}
 
-	float WindowsInput::GetMouseXImpl()
+	float GLInput::GetMouseXImpl()
 	{
 		auto [x, y] = GetMousePositionImpl();
 		return x;
 	}
 
-	float WindowsInput::GetMouseYImpl()
+	float GLInput::GetMouseYImpl()
 	{
 		auto [x, y] = GetMousePositionImpl();
 		return y;
