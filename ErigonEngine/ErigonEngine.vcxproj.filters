@@ -1221,13 +1221,6 @@
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OrtographicCamera.h" />
     <ClInclude Include="src\ErigonEngine\Core\TimeStep.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.h" />
-    <ClInclude Include="src\ErigonEngine\Core\Random.h" />
-    <ClInclude Include="src\ErigonEngine\Core\Types.h" />
-    <ClInclude Include="src\ErigonEngine\Math\MathUtil.h" />
-    <ClInclude Include="src\ErigonEngine\Math\Matrix.h" />
-    <ClInclude Include="src\ErigonEngine\Math\Vector2.h" />
-    <ClInclude Include="src\ErigonEngine\Math\Vector3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp">
@@ -1274,6 +1267,5 @@
     <ClCompile Include="src\ErigonEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OrtographicCamera.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>
