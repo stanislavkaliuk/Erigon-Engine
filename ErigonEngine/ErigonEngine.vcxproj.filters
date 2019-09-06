@@ -7,6 +7,9 @@
     <Filter Include="src\ErigonEngine">
       <UniqueIdentifier>{967611B4-826F-3006-ABA1-158B97F90F12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ErigonEngine\Core">
+      <UniqueIdentifier>{AE28CA88-1A95-8583-E388-1DE14FB4A7EB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ErigonEngine\Events">
       <UniqueIdentifier>{BA1D19E9-2655-6180-2F5F-C5A39B158879}</UniqueIdentifier>
     </Filter>
@@ -21,6 +24,18 @@
     </Filter>
     <Filter Include="src\ErigonEngine\Input">
       <UniqueIdentifier>{153F7BA2-0139-A4F4-EAA5-3A05D63E0A61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ErigonEngine\Layers">
+      <UniqueIdentifier>{9508FCF7-0140-448F-0A4A-A8B276006B88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ErigonEngine\Log">
+      <UniqueIdentifier>{67E991B6-5378-1B80-FC96-2F7BE8042C26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ErigonEngine\Renderer">
+      <UniqueIdentifier>{FC82D28A-6845-0615-B1F5-94A11DF7DEF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ErigonEngine\Renderer\OpenGL">
+      <UniqueIdentifier>{B078D6CB-9CC9-C10D-C52D-B0CFB1DD5477}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
@@ -54,6 +69,27 @@
     <ClInclude Include="src\ErigonEngine.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\Application.h">
+      <Filter>src\ErigonEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\Core.h">
+      <Filter>src\ErigonEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\EntryPoint.h">
+      <Filter>src\ErigonEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\Random.h">
+      <Filter>src\ErigonEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\TimeStep.h">
+      <Filter>src\ErigonEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\Types.h">
+      <Filter>src\ErigonEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Core\Window.h">
+      <Filter>src\ErigonEngine\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h">
       <Filter>src\ErigonEngine\Events</Filter>
     </ClInclude>
@@ -83,6 +119,57 @@
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Input\MouseButtonCodes.h">
       <Filter>src\ErigonEngine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Layers\Layer.h">
+      <Filter>src\ErigonEngine\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Layers\LayerStack.h">
+      <Filter>src\ErigonEngine\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Log\Log.h">
+      <Filter>src\ErigonEngine\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\Buffer.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\GraphicsContext.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\IndexBuffer.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.h">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.h">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.h">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\OrtographicCamera.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\RenderCommand.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\Renderer.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\RendererAPI.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\Shader.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\VertexArray.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\VertexBuffer.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -486,6 +573,12 @@
     <ClInclude Include="vendor\glm\glm\ext\scalar_int_sized.hpp">
       <Filter>vendor\glm\glm\ext</Filter>
     </ClInclude>
+    <ClInclude Include="vendor\glm\glm\ext\scalar_integer.hpp">
+      <Filter>vendor\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\ext\scalar_integer.inl">
+      <Filter>vendor\glm\glm\ext</Filter>
+    </ClInclude>
     <ClInclude Include="vendor\glm\glm\ext\scalar_relational.hpp">
       <Filter>vendor\glm\glm\ext</Filter>
     </ClInclude>
@@ -601,6 +694,12 @@
       <Filter>vendor\glm\glm\ext</Filter>
     </ClInclude>
     <ClInclude Include="vendor\glm\glm\ext\vector_int4_precision.hpp">
+      <Filter>vendor\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\ext\vector_integer.hpp">
+      <Filter>vendor\glm\glm\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\glm\glm\ext\vector_integer.inl">
       <Filter>vendor\glm\glm\ext</Filter>
     </ClInclude>
     <ClInclude Include="vendor\glm\glm\ext\vector_relational.hpp">
@@ -1185,44 +1284,11 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Layers\Layer.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Layers\LayerStack.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Core\Core.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Core\EntryPoint.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Core\Application.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Core\Window.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Log\Log.h">
-      <Filter>src\ErigonEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Renderer\GraphicsContext.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\Shader.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\Buffer.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\Renderer.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\VertexArray.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\IndexBuffer.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\VertexBuffer.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\RenderCommand.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\OrtographicCamera.h" />
-    <ClInclude Include="src\ErigonEngine\Core\TimeStep.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
+      <Filter>src\ErigonEngine\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp">
       <Filter>src\ErigonEngine\ImGUI\GLFW</Filter>
     </ClCompile>
@@ -1235,6 +1301,48 @@
     <ClCompile Include="src\ErigonEngine\ImGUI\OpenGL\imGUIOpenGLRenderer.cpp">
       <Filter>src\ErigonEngine\ImGUI\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Layers\Layer.cpp">
+      <Filter>src\ErigonEngine\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Layers\LayerStack.cpp">
+      <Filter>src\ErigonEngine\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Log\Log.cpp">
+      <Filter>src\ErigonEngine\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\Buffer.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.cpp">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\OrtographicCamera.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\RenderCommand.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\Renderer.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\RendererAPI.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\Shader.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\VertexArray.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>src\Platform\Windows</Filter>
     </ClCompile>
@@ -1244,28 +1352,5 @@
     <ClCompile Include="src\eepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Layers\LayerStack.cpp">
-      <Filter>src\ErigonEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Layers\Layer.cpp">
-      <Filter>src\ErigonEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
-      <Filter>src\ErigonEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Log\Log.cpp">
-      <Filter>src\ErigonEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Renderer\Shader.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\VertexArray.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\OrtographicCamera.cpp" />
   </ItemGroup>
 </Project>
