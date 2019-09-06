@@ -1,10 +1,8 @@
 #pragma once
 
 #include "eepch.h"
-#include "ErigonEngine/Renderer/RendererAPI.h"
 #include "ErigonEngine/Core/Core.h"
 #include "ErigonEngine/Events/Event.h"
-
 
 namespace ErigonEngine
 {

@@ -1,5 +1,5 @@
-/*#include "eepch.h"
-#include "GLWindow.h"
+#include "eepch.h"
+#include "WindowsWindow.h"
 #include "ErigonEngine/Events/ApplicationEvent.h"
 #include "ErigonEngine/Events/KeyEvent.h"
 #include "ErigonEngine/Events/MouseEvent.h"
@@ -16,17 +16,22 @@ namespace ErigonEngine
 		EE_CORE_ERROR("GLFW Error {0} : {1} ", error, description);
 	}
 
-	GLWindow::GLWindow(const WindowProps& props)
+	IWindow* IWindow::Create(const WindowProps& props)
+	{
+		return new WindowsWindow(props);
+	}
+
+	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
 		Init(props);
 	}
 
-	GLWindow::~GLWindow()
+	WindowsWindow::~WindowsWindow()
 	{
 		Shutdown();
 	}
 
-	void GLWindow::Init(const WindowProps& props)
+	void WindowsWindow::Init(const WindowProps& props)
 	{
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
@@ -137,18 +142,18 @@ namespace ErigonEngine
 		});
 	}
 
-	void GLWindow::Shutdown()
+	void WindowsWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
 	}
 
-	void GLWindow::OnUpdate()
+	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 
-	void GLWindow::SetVSync(bool enabled)
+	void WindowsWindow::SetVSync(bool enabled)
 	{
 		if (enabled)
 		{
@@ -161,8 +166,8 @@ namespace ErigonEngine
 		m_Data.VSync = enabled;
 	}
 
-	bool GLWindow::IsVSync() const
+	bool WindowsWindow::IsVSync() const
 	{
 		return m_Data.VSync;
 	}
-}*/
+}
