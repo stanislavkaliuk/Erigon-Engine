@@ -1284,6 +1284,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
@@ -1352,5 +1353,6 @@
     <ClCompile Include="src\eepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

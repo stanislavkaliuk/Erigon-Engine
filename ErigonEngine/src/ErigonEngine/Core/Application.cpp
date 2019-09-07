@@ -51,7 +51,7 @@ namespace ErigonEngine
 		while (m_Running)
 		{
 			float time = (float)glfwGetTime();
-			Timestep timestep = time - m_LastFrameTime;
+			Timestep timestep = Timestep(time, time - m_LastFrameTime);
 			m_LastFrameTime = time;
 
 			for (Layer* layer : m_LayerStack)
