@@ -15,7 +15,6 @@
 #include "ErigonEngine/Log/Log.h"
 
 
-
 #ifdef ERIGON_WINDOWS
 
 #include <Windows.h>

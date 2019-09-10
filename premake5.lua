@@ -15,6 +15,7 @@ IncludeDir["GLFW"] = "ErigonEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "ErigonEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "ErigonEngine/vendor/imgui"
 IncludeDir["Glm"] = "ErigonEngine/vendor/glm"
+IncludeDir["stb_image"] = "ErigonEngine/vendor/stb_image"
 
 include "ErigonEngine/vendor/GLFW"
 include "ErigonEngine/vendor/Glad"
@@ -37,6 +38,8 @@ project "ErigonEngine"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -53,7 +56,8 @@ project "ErigonEngine"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.Glm}"
+		"%{IncludeDir.Glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links

@@ -22,3 +22,10 @@
 //-----Render Stuff------//
 
 #include "ErigonEngine/Renderer/Renderer.h"
+#include "ErigonEngine/Renderer/RenderCommand.h"
+#include "ErigonEngine/Renderer/Buffer.h"
+#include "ErigonEngine/Renderer/Shader.h"
+#include "ErigonEngine/Renderer/Texture.h"
+#include "ErigonEngine/Renderer/VertexArray.h"
+
+#include "ErigonEngine/Renderer/OrtographicCamera.h"

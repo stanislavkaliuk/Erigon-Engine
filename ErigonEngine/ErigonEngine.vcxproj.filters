@@ -64,6 +64,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ErigonEngine.h">
@@ -147,6 +150,12 @@
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.h">
       <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.h">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLTexture.h">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.h">
       <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
     </ClInclude>
@@ -163,6 +172,9 @@
       <Filter>src\ErigonEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Renderer\Shader.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\Texture.h">
       <Filter>src\ErigonEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Renderer\VertexArray.h">
@@ -1284,7 +1296,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
@@ -1323,6 +1337,12 @@
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.cpp">
       <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.cpp">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\ErigonEngine\Renderer\OpenGL</Filter>
     </ClCompile>
@@ -1341,6 +1361,9 @@
     <ClCompile Include="src\ErigonEngine\Renderer\Shader.cpp">
       <Filter>src\ErigonEngine\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\Texture.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\ErigonEngine\Renderer\VertexArray.cpp">
       <Filter>src\ErigonEngine\Renderer</Filter>
     </ClCompile>
@@ -1353,6 +1376,8 @@
     <ClCompile Include="src\eepch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

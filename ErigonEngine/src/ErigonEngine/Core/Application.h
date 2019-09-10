@@ -28,7 +28,7 @@ namespace ErigonEngine
 		inline static Application& Get() { return *s_Instance; }
 
 	private:
-		std::unique_ptr<IWindow> m_Window;
+		Scope<IWindow> m_Window;
 		ImGUILayer*  m_ImGuiLayer;
 		bool m_Running = true;
 		bool OnWindowClosed(WindowCloseEvent& e);

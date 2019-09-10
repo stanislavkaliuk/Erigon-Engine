@@ -7,7 +7,7 @@
 class ExampleLayer : public ErigonEngine::Layer
 {
 public:
-	ExampleLayer() : Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f,0.0f,0.0f), m_CameraRotation(0.0f)
+	ExampleLayer() : Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f, 0.0f, 0.0f), m_CameraRotation(0.0f)
 	{
 		m_VertexArray.reset(ErigonEngine::VertexArray::Create());
 
@@ -18,7 +18,7 @@ public:
 			0.0f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<ErigonEngine::VertexBuffer> m_VertexBuffer;
+		ErigonEngine::Ref<ErigonEngine::VertexBuffer> m_VertexBuffer;
 		m_VertexBuffer.reset(ErigonEngine::VertexBuffer::Create(vertices, sizeof(vertices)));
 		ErigonEngine::BufferLayout inputBufferLayout = {
 			{ErigonEngine::ShaderDataType::Float3, "a_Position"}
@@ -27,31 +27,35 @@ public:
 		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
 
 		uint32_t indicies[3] = { 0, 1, 2 };
-		std::shared_ptr<ErigonEngine::IndexBuffer> m_IndexBuffer;
-m_IndexBuffer.reset(ErigonEngine::IndexBuffer::Create(indicies, sizeof(indicies)));
-m_VertexArray->SetIndexBuffer(m_IndexBuffer);
+		ErigonEngine::Ref<ErigonEngine::IndexBuffer> m_IndexBuffer;
+		m_IndexBuffer.reset(ErigonEngine::IndexBuffer::Create(indicies, sizeof(indicies)));
+		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
 
-m_Square.reset(ErigonEngine::VertexArray::Create());
+		m_Square.reset(ErigonEngine::VertexArray::Create());
 
-float squareVert[3 * 4] = {
-	-0.5f, -0.5f, 0.0f,
-	 0.5f, -0.5f, 0.0f,
-	 0.5f,  0.5f, 0.0f,
-	-0.5f,  0.5f, 0.0f
-};
+		float squareVert[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
+		};
 
-std::shared_ptr<ErigonEngine::VertexBuffer> squareVB;
-squareVB.reset(ErigonEngine::VertexBuffer::Create(squareVert, sizeof(squareVert)));
-squareVB->SetLayout({ {ErigonEngine::ShaderDataType::Float3, "a_Position"} });
-m_Square->AddVertexBuffer(squareVB);
+		ErigonEngine::Ref<ErigonEngine::VertexBuffer> squareVB;
+		squareVB.reset(ErigonEngine::VertexBuffer::Create(squareVert, sizeof(squareVert)));
+		squareVB->SetLayout(
+			{
+				{ErigonEngine::ShaderDataType::Float3, "a_Position"},
+				{ErigonEngine::ShaderDataType::Float2, "a_TexCoord"}
+			});
+		m_Square->AddVertexBuffer(squareVB);
 
-uint32_t squareIndices[6] = { 0,1,2,2,3,0 };
-std::shared_ptr<ErigonEngine::IndexBuffer> squareIB;
-squareIB.reset(ErigonEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices)));
-m_Square->SetIndexBuffer(squareIB);
+		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
+		ErigonEngine::Ref<ErigonEngine::IndexBuffer> squareIB;
+		squareIB.reset(ErigonEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices)));
+		m_Square->SetIndexBuffer(squareIB);
 
 
-std::string vertex = R"(
+		std::string vertex = R"(
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
@@ -67,8 +71,8 @@ std::string vertex = R"(
 			}
 		)";
 
-std::string fragment = R"(
-			#version 410
+		std::string fragment = R"(
+			#version 330 core
 			layout(location = 0) out vec4 color;
 			in vec3 v_Position;
 			void main()
@@ -78,8 +82,8 @@ std::string fragment = R"(
 		)";
 
 
-std::string vertexBlue = R"(
-			#version 410
+		std::string vertexBlue = R"(
+			#version 330 core
 			layout(location = 0) in vec3 a_Position;
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
@@ -89,8 +93,8 @@ std::string vertexBlue = R"(
 			}
 		)";
 
-std::string fragmentBlue = R"(
-			#version 410
+		std::string fragmentBlue = R"(
+			#version 330 core
 			layout(location = 0) out vec4 color;
 			uniform vec4 u_CustomColor;
 			void main()
@@ -99,9 +103,45 @@ std::string fragmentBlue = R"(
 			}
 		)";
 
-m_ShaderBlue.reset(ErigonEngine::Shader::Create(vertexBlue, fragmentBlue));
-m_Shader.reset(ErigonEngine::Shader::Create(vertex, fragment));
-	}
+		std::string vertexTex = R"(
+			#version 450
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+
+			out vec2 v_TexCoord;
+
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
+			}
+		)";
+
+		std::string fragmentTex = R"(
+			#version 450
+
+			layout(location = 0) out vec4 color;
+
+			in vec2 v_TexCoord;
+
+			uniform sampler2D u_Texture;
+
+			void main()
+			{
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+
+		//m_ShaderBlue.reset(ErigonEngine::Shader::Create(vertexBlue, fragmentBlue));
+		m_TextureShader.reset(ErigonEngine::Shader::Create(vertexTex, fragmentTex));
+		//m_Shader.reset(ErigonEngine::Shader::Create(vertex, fragment));
+		m_Texture = ErigonEngine::Texture2D::Create("assets/textures/texture2.png");
+		std::dynamic_pointer_cast<ErigonEngine::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<ErigonEngine::OpenGLShader>(m_TextureShader)->UploadUniformI("u_Texture", 0);
+}
 
 	void OnUpdate(ErigonEngine::Timestep deltaTime) override
 	{
@@ -116,17 +156,18 @@ m_Shader.reset(ErigonEngine::Shader::Create(vertex, fragment));
 
 		ErigonEngine::Renderer::BeginScene(m_Camera);
 
-		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(1.5f));
+		
 
-		//glm::vec4 redColor(0.8f, 0.1f, 0.0f, 1.0f);
-		glm::vec4 color(m_SquareColor, 1.0f);
+		m_Texture->Bind(0);
 
-		for (int i = 0; i < 5; i++)
+		ErigonEngine::Renderer::Submit(m_TextureShader, m_Square, scale);
+
+		/*for (int i = 0; i < 5; i++)
 		{
-			glm::vec3 pos(i * 0.11f, 0.0f, 0.0f);
-			glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-			std::dynamic_pointer_cast<ErigonEngine::OpenGLShader>(m_ShaderBlue)->UploadUniformF4("u_CustomColor", color);
-			/*
+			//glm::vec3 pos(i * 0.11f, 0.0f, 0.0f);
+			//;
+			
 			if (i % 2 == 0)
 			{
 				std::dynamic_pointer_cast<ErigonEngine::OpenGLShader>(m_ShaderBlue)->UploadUniformF4("u_CustomColor", (int)deltaTime.GetTimeSinceStart() % 2 == 0.0f ? redColor : blueColor);
@@ -135,9 +176,9 @@ m_Shader.reset(ErigonEngine::Shader::Create(vertex, fragment));
 			{
 				std::dynamic_pointer_cast<ErigonEngine::OpenGLShader>(m_ShaderBlue)->UploadUniformF4("u_CustomColor", (int)deltaTime.GetTimeSinceStart() % 2 == 0.0f ? blueColor : redColor);
 			}
-			*/		
-			ErigonEngine::Renderer::Submit(m_ShaderBlue, m_Square, transform);
-		}
+				
+			
+		}*/
 
 		//ErigonEngine::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -195,11 +236,13 @@ m_Shader.reset(ErigonEngine::Shader::Create(vertex, fragment));
 		return false;
 	}
 private:
-	std::shared_ptr<ErigonEngine::Shader> m_Shader;
-	std::shared_ptr<ErigonEngine::VertexArray> m_VertexArray;
+	ErigonEngine::Ref<ErigonEngine::Shader> m_Shader;
+	ErigonEngine::Ref<ErigonEngine::VertexArray> m_VertexArray;
 
-	std::shared_ptr<ErigonEngine::Shader> m_ShaderBlue;
-	std::shared_ptr<ErigonEngine::VertexArray> m_Square;
+	ErigonEngine::Ref<ErigonEngine::Shader> m_ShaderBlue, m_TextureShader;
+	ErigonEngine::Ref<ErigonEngine::VertexArray> m_Square;
+
+	ErigonEngine::Ref<ErigonEngine::Texture2D> m_Texture;
 
 	ErigonEngine::OrtographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
