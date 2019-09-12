@@ -19,4 +19,18 @@ namespace ErigonEngine
 		}
 	
 	}
+
+	Shader* Shader::Create(const std::string& filePath)
+	{
+		switch (Renderer::GetAPI())
+		{
+			case RendererAPI::API::None:
+			default:
+				EE_CORE_ASSERT(false, "RenderAPI is not supported!");
+				return nullptr;
+			case RendererAPI::API::OpenGL:
+				return new OpenGLShader(filePath);
+		}
+	
+	}
 }

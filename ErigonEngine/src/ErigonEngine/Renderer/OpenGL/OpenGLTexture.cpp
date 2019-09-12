@@ -3,6 +3,7 @@
 #include "OpenGLTexture.h"
 #include "stb_image.h"
 #include <glad/glad.h>
+
 namespace ErigonEngine
 {
 	OpenGLTexture2D::OpenGLTexture2D(const std::string& path) : m_Path(path)
