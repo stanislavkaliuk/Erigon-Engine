@@ -22,9 +22,15 @@ namespace ErigonEngine
 		std::string source = ReadFile(filePath);
 		auto shaderSources = PreProcess(source);
 		Compile(shaderSources);
+
+		auto lastSlash = filePath.find_last_of("/\\");
+		lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
+		auto lastDot = filePath.rfind('.');
+		auto count = lastDot == std::string::npos ? filePath.size() - lastSlash : lastDot - lastSlash;
+		m_Name = filePath.substr(lastSlash, count);
 	}
 
-	OpenGLShader::OpenGLShader(const std::string& vertexSource, const std::string& fragmentSource)
+	OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource) : m_Name(name)
 	{
 		std::unordered_map<GLenum, std::string> shaderSources;
 		shaderSources[GL_VERTEX_SHADER] = vertexSource;
@@ -54,8 +60,9 @@ namespace ErigonEngine
 			EE_CORE_ASSERT(type == "vertex" || type == "fragment" || type == "pixel", "Invalid shaderType specified!");
 
 			size_t nextLinePos = source.find_first_not_of("\r\n", eol);
+			EE_CORE_ASSERT(nextLinePos != std::string::npos, "Shader syntax error!");
 			pos = source.find(typeToken, nextLinePos);
-			shaderSources[StringToShaderType(type)] = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() - 1 : nextLinePos));
+			shaderSources[StringToShaderType(type)] = (pos == std::string::npos) ? source.substr(nextLinePos) : source.substr(nextLinePos, pos - nextLinePos);
 		}
 
 		return shaderSources;

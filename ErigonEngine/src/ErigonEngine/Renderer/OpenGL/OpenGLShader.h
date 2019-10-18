@@ -8,13 +8,13 @@ namespace ErigonEngine
 	class OpenGLShader : public Shader
 	{
 	public:
-		OpenGLShader(const std::string& vertexSource, const std::string& fragmentSource);
+		OpenGLShader(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource);
 		OpenGLShader(const std::string& filePath);
 		virtual ~OpenGLShader();
 
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
-
+		virtual const std::string& GetName() const override { return m_Name; }
 		void UploadUniformI(const std::string& name, int value);
 
 		void UploadUniformF(const std::string& name, float value);
@@ -28,5 +28,9 @@ namespace ErigonEngine
 		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
 		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
 		std::string ReadFile(const std::string& filePath);
+
+	private:
+		uint32 m_RendererId;
+		std::string m_Name;
 	};
 }

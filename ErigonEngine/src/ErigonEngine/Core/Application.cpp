@@ -32,6 +32,7 @@ namespace ErigonEngine
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT(Application::OnWindowClosed));
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT(Application::OnWindowResized));
 		//EE_CORE_INFO(e.ToString());
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
@@ -48,6 +49,13 @@ namespace ErigonEngine
 		return true;
 	}
 
+	bool Application::OnWindowResized(WindowResizeEvent& e)
+	{
+		m_Minimized = e.GetWidth() == 0 || e.GetHeight() == 0;
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+		return false;
+	}
+
 	void Application::Run()
 	{
 		while (m_Running)
@@ -56,13 +64,17 @@ namespace ErigonEngine
 			Timestep timestep = Timestep(time, time - m_LastFrameTime);
 			m_LastFrameTime = time;
 
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate(timestep);
+			if (!m_Minimized)
+			{
+				for (Layer* layer : m_LayerStack)
+					layer->OnUpdate(timestep);
+			}
 			m_ImGuiLayer->Begin();
+
 			for (Layer* layer : m_LayerStack)
 				layer->OnImGuiRender();
-			m_ImGuiLayer->End();
 
+			m_ImGuiLayer->End();
 			m_Window->OnUpdate();
 		}
 	}
