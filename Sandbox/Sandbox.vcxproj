@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ERIGON_WINDOWS;EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ErigonEngine\vendor\wxWidgets\include\msvc;..\ErigonEngine\vendor\wxWidgets\include;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -88,6 +88,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\ErigonEngine\vendor\wxWidgets\lib\vc_x64_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -132,6 +133,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\Engine2D.cpp" />
+    <ClCompile Include="src\StartupWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ErigonEngine\ErigonEngine.vcxproj">
@@ -140,6 +143,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\Texture.egl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Engine2D.h" />
+    <ClInclude Include="src\StartupWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

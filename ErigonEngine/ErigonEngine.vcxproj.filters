@@ -7,6 +7,9 @@
     <Filter Include="src\ErigonEngine">
       <UniqueIdentifier>{967611B4-826F-3006-ABA1-158B97F90F12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ErigonEngine\Controllers">
+      <UniqueIdentifier>{FC85B0B7-E840-A063-91F8-18AE7D92EAF3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ErigonEngine\Core">
       <UniqueIdentifier>{AE28CA88-1A95-8583-E388-1DE14FB4A7EB}</UniqueIdentifier>
     </Filter>
@@ -42,6 +45,9 @@
     </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ProjectSelector">
+      <UniqueIdentifier>{1401DBBC-8062-B8CA-09D0-FE7C7530EF89}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -1299,6 +1305,9 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\ProjectSelector\ProjectWindowController.h" />
+    <ClInclude Include="src\ErigonEngine\Controllers\OrthographicCameraController.h" />
+    <ClInclude Include="src\ProjectSelector\StartupWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
@@ -1379,5 +1388,8 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\ProjectSelector\ProjectWindowController.cpp" />
+    <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\ProjectSelector\StartupWindow.cpp" />
   </ItemGroup>
 </Project>

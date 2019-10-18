@@ -17,14 +17,13 @@ public:
 	}
 };
 
-class ProjectWindow : public ErigonEngine::ProjectWindowApp, public wxApp
+class ProjectWindow : public wxApp
 {
 public:
-	ProjectWindow()
+	ProjectWindow(int argc, char** argv)
 	{
 		wxApp::SetInstance(this);
-		wxEntryStart(0, nullptr);
-		wxTheApp->OnInit();
+		
 	}
 	~ProjectWindow()
 	{
@@ -34,18 +33,29 @@ public:
 	{
 		window = new StartupWindow();
 		window->Show();
+		return true;
 	}
-	bool Run() override
-	{
-		wxTheApp->OnRun();
-	}
+	
 private:
 	StartupWindow* window = nullptr;
 };
 
-ErigonEngine::ProjectWindowApp* ErigonEngine::CreateProjectSelector()
+class ProjectSelectorApp : public ErigonEngine::ProjectWindowApp
 {
-	return new ProjectWindowApp();
+	bool Run() override
+	{
+		wxTheApp->OnRun();
+		return true;
+	}
+};
+
+ErigonEngine::ProjectWindowApp* ErigonEngine::CreateProjectSelector(int argc, char** argv)
+{
+	auto windowApp = new ProjectWindow(argc, argv);
+	wxApp::SetInstance(windowApp);
+	wxEntryStart(argc, argv);
+	wxTheApp->CallOnInit();
+	return new ProjectSelectorApp();
 }
 
 ErigonEngine::Application* ErigonEngine::CreateApplication()

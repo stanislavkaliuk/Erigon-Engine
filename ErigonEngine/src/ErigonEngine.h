@@ -13,12 +13,6 @@
 #include "ErigonEngine/Input/KeyCodes.h"
 #include "ErigonEngine/Input/MouseButtonCodes.h"
 
-//---EntryPoint---
-
-#include "ErigonEngine/Core/EntryPoint.h"
-
-//----------------
-
 //-----Render Stuff------//
 
 #include "ErigonEngine/Renderer/Renderer.h"
@@ -29,3 +23,4 @@
 #include "ErigonEngine/Renderer/VertexArray.h"
 
 #include "ErigonEngine/Renderer/OrtographicCamera.h"
+#include "ErigonEngine/Controllers/OrthographicCameraController.h"
