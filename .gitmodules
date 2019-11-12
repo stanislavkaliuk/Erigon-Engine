@@ -10,6 +10,3 @@
 [submodule "ErigonEngine/vendor/glm"]
 	path = ErigonEngine/vendor/glm
 	url = https://github.com/g-truc/glm
-[submodule "ErigonEngine/vendor/wxWidget"]
-	path = ErigonEngine/vendor/wxWidget
-	url = https://github.com/stanislavkaliuk/wxWidgetErigonEngine

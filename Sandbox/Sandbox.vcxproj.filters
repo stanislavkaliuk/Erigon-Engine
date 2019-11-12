@@ -21,18 +21,9 @@
     <ClCompile Include="src\Engine2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\StartupWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="assets\shaders\Texture.egl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\StartupWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

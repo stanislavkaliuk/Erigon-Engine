@@ -40,6 +40,9 @@
     <Filter Include="src\ErigonEngine\Renderer\OpenGL">
       <UniqueIdentifier>{B078D6CB-9CC9-C10D-C52D-B0CFB1DD5477}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ErigonEngine\Tools">
+      <UniqueIdentifier>{96D342A3-82CD-6BF5-6B3A-020657D3D161}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
@@ -77,6 +80,9 @@
   <ItemGroup>
     <ClInclude Include="src\ErigonEngine.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Controllers\OrthographicCameraController.h">
+      <Filter>src\ErigonEngine\Controllers</Filter>
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Core\Application.h">
       <Filter>src\ErigonEngine\Core</Filter>
@@ -174,6 +180,9 @@
     <ClInclude Include="src\ErigonEngine\Renderer\Renderer.h">
       <Filter>src\ErigonEngine\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Renderer\Renderer2D.h">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ErigonEngine\Renderer\RendererAPI.h">
       <Filter>src\ErigonEngine\Renderer</Filter>
     </ClInclude>
@@ -188,6 +197,9 @@
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Renderer\VertexBuffer.h">
       <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Tools\Vector3.h">
+      <Filter>src\ErigonEngine\Tools</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>src\Platform\Windows</Filter>
@@ -1305,11 +1317,12 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\ProjectSelector\ProjectWindowController.h" />
-    <ClInclude Include="src\ErigonEngine\Controllers\OrthographicCameraController.h" />
-    <ClInclude Include="src\ProjectSelector\StartupWindow.h" />
+    <ClInclude Include="src\ErigonEngine\Tools\Transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp">
+      <Filter>src\ErigonEngine\Controllers</Filter>
+    </ClCompile>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
       <Filter>src\ErigonEngine\Core</Filter>
     </ClCompile>
@@ -1364,6 +1377,9 @@
     <ClCompile Include="src\ErigonEngine\Renderer\Renderer.cpp">
       <Filter>src\ErigonEngine\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Renderer\Renderer2D.cpp">
+      <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\ErigonEngine\Renderer\RendererAPI.cpp">
       <Filter>src\ErigonEngine\Renderer</Filter>
     </ClCompile>
@@ -1388,8 +1404,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\ProjectSelector\ProjectWindowController.cpp" />
-    <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp" />
-    <ClCompile Include="src\ProjectSelector\StartupWindow.cpp" />
   </ItemGroup>
 </Project>

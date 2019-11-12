@@ -16,10 +16,12 @@ IncludeDir["Glad"] = "ErigonEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "ErigonEngine/vendor/imgui"
 IncludeDir["Glm"] = "ErigonEngine/vendor/glm"
 IncludeDir["stb_image"] = "ErigonEngine/vendor/stb_image"
+IncludeDir["EECS"] = "ErigonEngine/vendor/EECS/include"
 
 include "ErigonEngine/vendor/GLFW"
 include "ErigonEngine/vendor/Glad"
 include "ErigonEngine/vendor/imgui"
+include "ErigonEngine/vendor/EECS"
 
 project "ErigonEngine"
 	location "ErigonEngine"
@@ -65,7 +67,8 @@ project "ErigonEngine"
 		"GLFW",
 		"Glad",
 		"ImGui",
-		"opengl32.lib"
+		"opengl32.lib",
+		"EECS"
 	}
 
 	filter "system:windows"
@@ -114,7 +117,8 @@ project "Sandbox"
 		"ErigonEngine/vendor/spdlog/include",
 		"ErigonEngine/src",
 		"ErigonEngine/vendor",
-		"%{IncludeDir.Glm}"
+		"%{IncludeDir.Glm}",
+		"%{IncludeDir.EECS}"
 	}
 
 	links
