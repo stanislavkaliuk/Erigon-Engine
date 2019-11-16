@@ -1,6 +1,6 @@
 #include "eepch.h"
 #include "Shader.h"
-#include "Renderer.h"
+#include "Renderer2D.h"
 
 #include "ErigonEngine/Renderer/OpenGL/OpenGLShader.h"
 
@@ -8,7 +8,7 @@ namespace ErigonEngine
 {
 	Ref<Shader> Shader::Create(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource)
 	{
-		switch (Renderer::GetAPI())
+		switch (Renderer2D::GetAPI())
 		{
 			case RendererAPI::API::None:
 			default:
@@ -22,7 +22,7 @@ namespace ErigonEngine
 
 	Ref<Shader> Shader::Create(const std::string& filePath)
 	{
-		switch (Renderer::GetAPI())
+		switch (Renderer2D::GetAPI())
 		{
 			case RendererAPI::API::None:
 			default:

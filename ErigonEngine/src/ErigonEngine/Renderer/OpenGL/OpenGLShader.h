@@ -15,6 +15,12 @@ namespace ErigonEngine
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
 		virtual const std::string& GetName() const override { return m_Name; }
+
+		virtual void SetMat4(const std::string& name, const glm::mat4& val) override;
+		virtual void SetFloat4(const std::string& name, const glm::vec4& val) override;
+		virtual void SetFloat3(const std::string& name, const glm::vec3& val) override;
+		virtual void SetInt(const std::string& name, const int val) override;
+
 		void UploadUniformI(const std::string& name, int value);
 
 		void UploadUniformF(const std::string& name, float value);

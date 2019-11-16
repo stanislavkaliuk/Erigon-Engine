@@ -154,6 +154,26 @@ namespace ErigonEngine
 		glUseProgram(0);
 	}
 
+	void OpenGLShader::SetMat4(const std::string& name, const glm::mat4& val)
+	{
+		UploadUniformMat4(name, val);
+	}
+
+	void OpenGLShader::SetFloat4(const std::string& name, const glm::vec4& val)
+	{
+		UploadUniformF4(name, val);
+	}
+
+	void OpenGLShader::SetFloat3(const std::string& name, const glm::vec3& val)
+	{
+		UploadUniformF3(name, val);
+	}
+
+	void OpenGLShader::SetInt(const std::string& name, const int val)
+	{
+		UploadUniformI(name, val);
+	}
+
 	void OpenGLShader::UploadUniformI(const std::string& name, int value)
 	{
 		GLint location = glGetUniformLocation(m_RendererID, name.c_str());

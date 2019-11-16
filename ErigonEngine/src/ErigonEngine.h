@@ -19,7 +19,6 @@
 
 //-----Render Stuff------//
 
-#include "ErigonEngine/Renderer/Renderer.h"
 #include "ErigonEngine/Renderer/Renderer2D.h"
 #include "ErigonEngine/Renderer/RenderCommand.h"
 #include "ErigonEngine/Renderer/Buffer.h"

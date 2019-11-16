@@ -7,6 +7,7 @@ namespace ErigonEngine
 	public:
 		
 		OpenGLTexture2D(const std::string& path);
+		OpenGLTexture2D();
 
 		virtual ~OpenGLTexture2D();
 

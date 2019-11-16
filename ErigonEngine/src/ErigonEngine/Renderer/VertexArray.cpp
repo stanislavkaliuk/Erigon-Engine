@@ -1,13 +1,13 @@
 #include "eepch.h"
 #include "VertexArray.h"
-#include "Renderer.h"
+#include "Renderer2D.h"
 #include "OpenGL/OpenGLVertexArray.h"
 
 namespace ErigonEngine
 {
 	Ref<VertexArray> VertexArray::Create()
 	{
-		switch (Renderer::GetAPI())
+		switch (Renderer2D::GetAPI())
 		{
 			case RendererAPI::API::None: 
 			{ 

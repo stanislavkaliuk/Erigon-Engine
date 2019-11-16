@@ -15,6 +15,7 @@ namespace ErigonEngine
 		virtual void OnAttach() {};
 		virtual void OnDetach() {};
 		virtual void OnUpdate(Timestep timestep) {};
+		virtual void OnPostUpdate(Timestep timestep) {};
 		virtual void OnImGuiRender() {};
 		virtual void OnEvent(Event& event) {}
 

@@ -19,6 +19,8 @@ namespace ErigonEngine
 		
 		void SetZoomLevel(float level) { m_ZoomLevel = level; }
 		float GetZoomLevel() const { return m_ZoomLevel; }
+
+		void UpdateProjection();
 	
 	private:
 		bool OnMouseScrolled(MouseScrolledEvent& e);

@@ -36,6 +36,7 @@ namespace ErigonEngine
 			this->z = z;
 		}
 
+	public:
 		static Vector3 Zero()
 		{
 			return Vector3(0,0);

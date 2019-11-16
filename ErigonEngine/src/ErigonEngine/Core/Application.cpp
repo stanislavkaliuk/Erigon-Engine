@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "ErigonEngine/Log/Log.h"
 #include "ErigonEngine/Input/Input.h"
-#include "ErigonEngine/Renderer/Renderer.h"
+#include "ErigonEngine/Renderer/Renderer2D.h"
 #include <GLFW/glfw3.h>
 
 namespace ErigonEngine
@@ -20,12 +20,10 @@ namespace ErigonEngine
 		m_Window = Scope<IWindow>(IWindow::Create());
 		m_Window->SetEventCallback(BIND_EVENT(Application::OnEvent));
 
-		Renderer::Init();
+		Renderer2D::Init();
 
 		m_ImGuiLayer = new ImGUILayer();
 		PushOverlay(m_ImGuiLayer);
-
-		
 	}
 
 	void Application::OnEvent(Event& e)
@@ -52,7 +50,7 @@ namespace ErigonEngine
 	bool Application::OnWindowResized(WindowResizeEvent& e)
 	{
 		m_Minimized = e.GetWidth() == 0 || e.GetHeight() == 0;
-		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+		Renderer2D::OnWindowResize(e.GetWidth(), e.GetHeight());
 		return false;
 	}
 
@@ -75,6 +73,9 @@ namespace ErigonEngine
 				layer->OnImGuiRender();
 
 			m_ImGuiLayer->End();
+			for (Layer* layer : m_LayerStack)
+					layer->OnPostUpdate(timestep);
+
 			m_Window->OnUpdate();
 		}
 	}

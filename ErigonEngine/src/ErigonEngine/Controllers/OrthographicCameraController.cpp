@@ -13,6 +13,9 @@ namespace ErigonEngine
 
 	void OrthographicCameraController::OnUpdate(Timestep deltaTime)
 	{
+		m_CameraPosition = m_Camera.GetPosition();
+		m_CameraRotation = m_Camera.GetRotation();
+
 		if (Input::IsKeyPressed(EE_KEY_A))
 		{
 			m_CameraPosition.x -= cos(glm::radians(m_CameraRotation)) * m_CameraSpeed * deltaTime;
@@ -66,18 +69,23 @@ namespace ErigonEngine
 		dispatcher.Dispatch<WindowResizeEvent>(EE_BIND_EVENT(OrthographicCameraController::OnWindowResized));
 	}
 
+	void OrthographicCameraController::UpdateProjection()
+	{
+		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+	}
+
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
 		m_ZoomLevel -= e.GetYOffset();
 		m_ZoomLevel = std::clamp(m_ZoomLevel, 0.25f, 5.0f);
-		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+		UpdateProjection();
 		return false;
 	}
 
 	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
 		m_AspectRatio = (float)e.GetWidth()/ (float)e.GetHeight();
-		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+		UpdateProjection();
 		return false;
 	}
 }
