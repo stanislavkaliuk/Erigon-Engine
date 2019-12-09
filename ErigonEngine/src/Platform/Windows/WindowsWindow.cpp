@@ -34,10 +34,10 @@ namespace ErigonEngine
 	void WindowsWindow::Init(const WindowProps& props)
 	{
 		m_Data.Title = props.Title;
-		m_Data.Width = props.Width;
-		m_Data.Height = props.Height;
+		m_Data.Width = 1920;
+		m_Data.Height = 1080;
 
-		EE_CORE_INFO("Creating window {0} ({1},{2})", props.Title, props.Width, props.Height);
+		EE_CORE_INFO("Creating window {0} ({1},{2})", props.Title, 1920, 1080);
 
 
 		if (!s_GLFWInitialized)
@@ -48,7 +48,7 @@ namespace ErigonEngine
 			s_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		m_Window = glfwCreateWindow(1920, 1080, m_Data.Title.c_str(), nullptr, nullptr);
 		m_Context = CreateScope<OpenGLContext>(m_Window);
 		m_Context->Init();
 		glfwSetWindowUserPointer(m_Window, &m_Data);

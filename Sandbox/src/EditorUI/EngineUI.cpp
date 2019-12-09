@@ -29,20 +29,20 @@ void EngineUI::DrawInspector(bool state, UITransform* transform, ErigonEngine::O
 
 	if (ImGui::TreeNodeEx("Transform", ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		auto camera = cameraController->GetCamera();
-		const glm::vec3 vecPosition = camera.GetPosition();
+		auto *camera = &(cameraController->GetCamera());
+		const glm::vec3 vecPosition = camera->GetPosition();
 		float position[3] = { vecPosition.x, vecPosition.y, vecPosition.z };
-		float value = camera.GetRotation();
+		float value = camera->GetRotation();
 		float zoom = 1.0f / cameraController->GetZoomLevel();
 
 		if (ImGui::DragFloat3("Position", position, 0.01f))
 		{
-			camera.SetTransform(glm::make_vec3(position), value);
+			camera->SetTransform(glm::make_vec3(position), value);
 		}
 
 		if (ImGui::DragFloat("Rotation", &value))
 		{
-			camera.SetTransform(glm::make_vec3(position), value);
+			camera->SetTransform(glm::make_vec3(position), value);
 		}
 
 		if (ImGui::SliderFloat("Zoom", &zoom, 0.1f, 4.0f))
