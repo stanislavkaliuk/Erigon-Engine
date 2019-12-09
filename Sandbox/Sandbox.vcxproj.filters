@@ -21,9 +21,18 @@
     <ClCompile Include="src\Engine2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\EditorUI\EngineUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\EngineUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\EngineUIData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

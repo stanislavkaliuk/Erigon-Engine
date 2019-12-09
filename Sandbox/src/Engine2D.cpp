@@ -3,8 +3,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-
-Engine2D::Engine2D() : Layer("2D Engine"), m_CameraController(1280.0f/720.0f)
+Engine2D::Engine2D() : Layer("2D Engine"), m_CameraController(1920.0f/1080.0f), EUI(new EngineUI(1920, 1080))
 {
 
 }
@@ -39,44 +38,9 @@ void Engine2D::OnPostUpdate(ErigonEngine::Timestep ts)
 
 void Engine2D::OnImGuiRender()
 {
-	bool open = true;
-	ImGui::SetNextWindowPos(ImVec2{ 1024, 0 }, ImGuiCond_Always);
-	ImGui::SetNextWindowSize(ImVec2{ 1280 - 1024, 450 }, ImGuiCond_Always);
-	ImGui::Begin("Inspector", &open, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize);
-	if (!ImGui::CollapsingHeader("Camera"))
-	{
-		ImGui::End();
-		return;
-	}
-
-	if (ImGui::TreeNodeEx("Transform", ImGuiTreeNodeFlags_DefaultOpen))
-	{
-		auto camera = m_CameraController.GetCamera();
-		const glm::vec3 vecPosition = camera.GetPosition();
-		float position[3] = { vecPosition.x, vecPosition.y, vecPosition.z };
-		float value = camera.GetRotation();
-		float zoom = m_CameraController.GetZoomLevel();
-
-		if (ImGui::DragFloat3("Position", position, 0.01f))
-		{
-			m_CameraController.GetCamera().SetTransform(glm::make_vec3(position), value);
-		}
-
-		if (ImGui::DragFloat("Rotation", &value))
-		{
-			m_CameraController.GetCamera().SetTransform(glm::make_vec3(position), value);
-		}
-
-		if (ImGui::SliderFloat("Zoom", &zoom, 0.25f, 5.0f))
-		{
-			m_CameraController.SetZoomLevel(zoom);
-			m_CameraController.UpdateProjection();
-		}
-
-		ImGui::TreePop();
-	}
-	
-	ImGui::End();
+	EUI->Draw();
+	EUI->DrawInspector(true, nullptr, &m_CameraController);
+	EUI->DrawSceneHierarchy(true, nullptr);
 }
 
 void Engine2D::OnEvent(ErigonEngine::Event& e)

@@ -1,5 +1,7 @@
 #pragma once
 #include "ErigonEngine.h"
+#include "EditorUI/EngineUI.h"
+class EngineUI;
 
 class Engine2D : public ErigonEngine::Layer
 {
@@ -18,4 +20,5 @@ private:
 	ErigonEngine::OrthographicCameraController m_CameraController;
 	ErigonEngine::ShaderLibrary m_ShaderLibrary;
 	ErigonEngine::Ref<ErigonEngine::Texture2D> texture;
+	EngineUI* EUI;
 };

@@ -73,9 +73,11 @@ namespace ErigonEngine
 				layer->OnImGuiRender();
 
 			m_ImGuiLayer->End();
-			for (Layer* layer : m_LayerStack)
+			if (!m_Minimized)
+			{
+				for (Layer* layer : m_LayerStack)
 					layer->OnPostUpdate(timestep);
-
+			}
 			m_Window->OnUpdate();
 		}
 	}

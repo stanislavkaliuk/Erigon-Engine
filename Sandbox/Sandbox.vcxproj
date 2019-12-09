@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ERIGON_WINDOWS;EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -95,7 +95,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ERIGON_WINDOWS;EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -115,7 +115,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ERIGON_WINDOWS;EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -131,11 +131,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\EditorUI\EngineUIData.h" />
     <ClInclude Include="src\Engine2D.h" />
+    <ClInclude Include="src\EditorUI\EngineUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Engine2D.cpp" />
+    <ClCompile Include="src\EditorUI\EngineUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ErigonEngine\ErigonEngine.vcxproj">
