@@ -9,11 +9,32 @@
 namespace ErigonEngine
 {
 	static bool s_GLFWInitialized = false;
-
+	static WNDPROC windowProc;
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
 		EE_CORE_ERROR("GLFW Error {0} : {1} ", error, description);
+	}
+
+	LRESULT CALLBACK menuBarWidnowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam)
+	{
+		switch (uMsg)
+		{
+			case WM_COMMAND:
+				switch (wParam)
+				{
+				case WindowsWindow::MenuBarIDs::FILE_MENU_NEW:
+					break;
+				case WindowsWindow::MenuBarIDs::FILE_MENU_OPEN:
+					break;
+				case WindowsWindow::MenuBarIDs::FILE_MENU_EXIT:
+					
+					break;
+				}
+				break;
+		}
+
+		return CallWindowProc(windowProc, window, uMsg, wParam, lParam);
 	}
 
 	IWindow* IWindow::Create(const WindowProps& props)
@@ -34,11 +55,6 @@ namespace ErigonEngine
 	void WindowsWindow::Init(const WindowProps& props)
 	{
 		m_Data.Title = props.Title;
-		m_Data.Width = props.Width;
-		m_Data.Height = props.Height;
-
-		EE_CORE_INFO("Creating window {0} ({1},{2})", props.Title, props.Width, props.Height);
-
 
 		if (!s_GLFWInitialized)
 		{
@@ -48,12 +64,17 @@ namespace ErigonEngine
 			s_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+		m_Data.Width = mode->width;
+		m_Data.Height = mode->height;
+		EE_CORE_INFO("Creating window {0} ({1},{2})", m_Data.Title, m_Data.Width, m_Data.Height);
+
+		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		m_Context = CreateScope<OpenGLContext>(m_Window);
 		m_Context->Init();
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
-
+		SetupMenuBar();
 
 		//set glfw callback
 
@@ -145,6 +166,25 @@ namespace ErigonEngine
 	void WindowsWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
+	}
+
+	void WindowsWindow::SetupMenuBar()
+	{
+		HWND nativeWindow = glfwGetWin32Window(m_Window);
+		HMENU mainMenu = CreateMenu();
+		HMENU fileMenu = CreateMenu();
+
+		AppendMenu(fileMenu, MF_STRING, FILE_MENU_NEW, L"New");
+		AppendMenu(fileMenu, MF_STRING, FILE_MENU_OPEN, L"Open");
+		AppendMenu(fileMenu, MF_SEPARATOR, NULL, NULL);
+		AppendMenu(fileMenu, MF_STRING, FILE_MENU_EXIT, L"Exit");
+
+		AppendMenu(mainMenu, MF_POPUP, (UINT_PTR)fileMenu, L"File");
+		AppendMenu(mainMenu, MF_STRING, NULL, L"Help");
+
+		SetMenu(nativeWindow, mainMenu);
+
+		windowProc = (WNDPROC)SetWindowLongPtr(nativeWindow, GWLP_WNDPROC, (LONG_PTR)&menuBarWidnowProc);
 	}
 
 	void WindowsWindow::OnUpdate()
