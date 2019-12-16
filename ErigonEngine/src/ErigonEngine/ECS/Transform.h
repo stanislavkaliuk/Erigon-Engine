@@ -1,5 +1,5 @@
 #pragma once
-#include "Vector3.h"
+#include "ErigonEngine/Tools/Vector3.h"
 #include <EECS.h>
 
 namespace ErigonEngine

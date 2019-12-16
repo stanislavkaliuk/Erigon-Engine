@@ -100,4 +100,21 @@ namespace ErigonEngine
 		data->squareVA->Bind();
 		RenderCommand::DrawIndexed(data->squareVA);
 	}
+
+	void Renderer2D::Draw(const glm::vec3& position, const glm::vec3& size, const Ref<Texture2D>& texture, const glm::vec4& color)
+	{
+		data->shader->SetFloat4("u_Color", color);
+		texture->Bind();
+
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
+		data->shader->SetMat4("u_Transform", transform);
+
+		data->squareVA->Bind();
+		RenderCommand::DrawIndexed(data->squareVA);
+	}
+
+	void Renderer2D::Draw(const glm::vec2& position, const glm::vec3& size, const Ref<Texture2D>& texture, const glm::vec4& color)
+	{
+		Draw(glm::vec3(position, 1.0f), size, texture, color);
+	}
 }

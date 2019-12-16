@@ -76,7 +76,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendor\EECS\include;src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -96,7 +96,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendor\EECS\include;src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -120,7 +120,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendor\EECS\include;src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -149,6 +149,7 @@
     <ClInclude Include="src\ErigonEngine\Core\TimeStep.h" />
     <ClInclude Include="src\ErigonEngine\Core\Types.h" />
     <ClInclude Include="src\ErigonEngine\Core\Window.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Sprite.h" />
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\Event.h" />
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
@@ -179,8 +180,10 @@
     <ClInclude Include="src\ErigonEngine\Renderer\Texture.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\VertexArray.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\VertexBuffer.h" />
-    <ClInclude Include="src\ErigonEngine\Tools\GameObject.h" />
-    <ClInclude Include="src\ErigonEngine\Tools\Transform.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\GameObject.h" />
+    <ClInclude Include="src\ErigonEngine\Tools\Color.h" />
+    <ClInclude Include="src\ErigonEngine\Tools\SceneSubsystem\SceneData.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Transform.h" />
     <ClInclude Include="src\ErigonEngine\Tools\Vector3.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -558,6 +561,7 @@
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp" />
+    <ClCompile Include="src\ErigonEngine\ECS\Sprite.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGUILayer.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGuiBuild.cpp" />

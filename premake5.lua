@@ -114,6 +114,7 @@ project "Sandbox"
 
 	includedirs
 	{
+		"Sandbox/src",
 		"ErigonEngine/vendor/spdlog/include",
 		"ErigonEngine/src",
 		"ErigonEngine/vendor",

@@ -135,5 +135,10 @@ namespace ErigonEngine
 		{
 			return x != b.x || y != b.y || z != b.z;
 		}
+
+		operator glm::vec3() const
+		{
+			return glm::vec3(x, y, z);
+		}
 	};
 }

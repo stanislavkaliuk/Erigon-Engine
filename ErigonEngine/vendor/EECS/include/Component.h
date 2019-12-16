@@ -14,7 +14,7 @@ namespace Erigon
 			static const ComponentTypeID COMPONENT_TYPE_ID;
 
 			Component() {}
-			virtual Component() {}
+			virtual ~Component() {}
 
 			inline ComponentTypeID GetComponentTypeID() const { return COMPONENT_TYPE_ID; }
 		};

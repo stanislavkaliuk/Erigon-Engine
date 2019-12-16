@@ -43,14 +43,14 @@
     <Filter Include="src\ErigonEngine\Tools">
       <UniqueIdentifier>{96D342A3-82CD-6BF5-6B3A-020657D3D161}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ErigonEngine\Tools\SceneSubsystem">
+      <UniqueIdentifier>{62325E5F-CEF6-5C4F-975C-8D1903E0F884}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platform\Windows">
       <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ProjectSelector">
-      <UniqueIdentifier>{1401DBBC-8062-B8CA-09D0-FE7C7530EF89}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -194,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Renderer\VertexBuffer.h">
       <Filter>src\ErigonEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\Tools\SceneSubsystem\SceneData.h">
+      <Filter>src\ErigonEngine\Tools\SceneSubsystem</Filter>
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Tools\Vector3.h">
       <Filter>src\ErigonEngine\Tools</Filter>
@@ -1314,8 +1317,14 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Tools\Transform.h" />
-    <ClInclude Include="src\ErigonEngine\Tools\GameObject.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\GameObject.h">
+      <Filter>src\ErigonEngine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\ECS\Transform.h">
+      <Filter>src\ErigonEngine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ErigonEngine\ECS\Sprite.h" />
+    <ClInclude Include="src\ErigonEngine\Tools\Color.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp">
@@ -1399,5 +1408,6 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\ECS\Sprite.cpp" />
   </ItemGroup>
 </Project>
