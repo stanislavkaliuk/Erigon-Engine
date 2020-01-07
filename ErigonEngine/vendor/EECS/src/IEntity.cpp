@@ -1,10 +1,12 @@
 #include "IEntity.h"
+#include "EECSController.h"
 
 namespace Erigon
 {
 	namespace ECS
 	{
-		IEntity::IEntity() :isActive(true) {}
+		IEntity::IEntity() : isActive(true), componentManager(ECS_Controller->GetComponentManager()) {}
+
 		IEntity::~IEntity() {}
 
 		void IEntity::SetActive(bool active)

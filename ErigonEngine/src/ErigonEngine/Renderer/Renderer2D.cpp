@@ -1,22 +1,26 @@
 #include "eepch.h"
 #include "Renderer2D.h"
+#include "FrameBuffer.h"
 #include <glm/gtc/matrix_transform.hpp>
+
 namespace ErigonEngine
 {
 	struct RenderData
 	{
 		Ref<VertexArray> squareVA;
 		Ref<Shader> shader;
+		Ref<Texture> frameBufferTexture;
+		Ref<FrameBuffer> frameBuffer;
 	};
 	static Ref<Texture2D> WhiteTexture;
-	static RenderData* data;
+	static RenderData data;
 
 	void Renderer2D::Init()
 	{
 		RenderCommand::Init();
-		data = new RenderData();
+		data = RenderData();
 
-		data->squareVA = VertexArray::Create();
+		data.squareVA = VertexArray::Create();
 
 		float squareVert[5 * 4] =
 		{
@@ -33,28 +37,49 @@ namespace ErigonEngine
 			{ShaderDataType::Float2, "a_TexCoord"} 
 		});
 
-		data->squareVA->AddVertexBuffer(squareVB);
+		data.squareVA->AddVertexBuffer(squareVB);
 
 		uint32_t sqIndicies[6] = { 0, 1, 2, 2, 3, 0 };
 		Ref<IndexBuffer> squareIB = IndexBuffer::Create(sqIndicies, sizeof(sqIndicies));
 		
-		data->squareVA->SetIndexBuffer(squareIB);
+		data.squareVA->SetIndexBuffer(squareIB);
 
 		WhiteTexture = Texture2D::Create();
+		
+		data.frameBufferTexture = Texture2D::Create(800,600);
+		data.frameBuffer = FrameBuffer::Create();
 
-		data->shader = Shader::Create("assets/shaders/Sprite.egl");
+		data.shader = Shader::Create("assets/shaders/Sprite.egl");
 	}
 
 	void Renderer2D::Destroy()
 	{
-		data->squareVA->~VertexArray();
-		data->shader->~Shader();
+		data.frameBufferTexture->~Texture();
+		data.frameBuffer->~FrameBuffer();
+		data.squareVA->~VertexArray();
+		data.shader->~Shader();
+	}
+
+	void Renderer2D::BeginSnap(uint32 width, uint32 height)
+	{
+		uint32 textureID = data.frameBufferTexture->GetTextureId();
+		data.frameBuffer->Bind(textureID, width, height);
+	}
+
+	void Renderer2D::EndSnap()
+	{
+		data.frameBuffer->Unbind();
+	}
+
+	uint32 Renderer2D::GetSnap()
+	{
+		return data.frameBufferTexture->GetTextureId();
 	}
 
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
 	{
-		data->shader->Bind();
-		data->shader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
+		data.shader->Bind();
+		data.shader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	}
 
 	void Renderer2D::EndScene()
@@ -74,14 +99,14 @@ namespace ErigonEngine
 
 	void Renderer2D::Draw(const glm::vec3& position, const glm::vec3& size, const glm::vec4& color)
 	{
-		data->shader->SetFloat4("u_Color", color);
+		data.shader->SetFloat4("u_Color", color);
 		WhiteTexture->Bind();
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
-		data->shader->SetMat4("u_Transform", transform);
+		data.shader->SetMat4("u_Transform", transform);
 		
-		data->squareVA->Bind();
-		RenderCommand::DrawIndexed(data->squareVA);
+		data.squareVA->Bind();
+		RenderCommand::DrawIndexed(data.squareVA);
 	}
 
 	void Renderer2D::Draw(const glm::vec2& position, const glm::vec3& size, const Ref<Texture2D>& texture)
@@ -91,26 +116,26 @@ namespace ErigonEngine
 
 	void Renderer2D::Draw(const glm::vec3& position, const glm::vec3& size, const Ref<Texture2D>& texture)
 	{
-		data->shader->SetFloat4("u_Color", glm::vec4(1.0f));
+		data.shader->SetFloat4("u_Color", glm::vec4(1.0f));
 		texture->Bind();
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
-		data->shader->SetMat4("u_Transform", transform);
+		data.shader->SetMat4("u_Transform", transform);
 		
-		data->squareVA->Bind();
-		RenderCommand::DrawIndexed(data->squareVA);
+		data.squareVA->Bind();
+		RenderCommand::DrawIndexed(data.squareVA);
 	}
 
 	void Renderer2D::Draw(const glm::vec3& position, const glm::vec3& size, const Ref<Texture2D>& texture, const glm::vec4& color)
 	{
-		data->shader->SetFloat4("u_Color", color);
+		data.shader->SetFloat4("u_Color", color);
 		texture->Bind();
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
-		data->shader->SetMat4("u_Transform", transform);
+		data.shader->SetMat4("u_Transform", transform);
 
-		data->squareVA->Bind();
-		RenderCommand::DrawIndexed(data->squareVA);
+		data.squareVA->Bind();
+		RenderCommand::DrawIndexed(data.squareVA);
 	}
 
 	void Renderer2D::Draw(const glm::vec2& position, const glm::vec3& size, const Ref<Texture2D>& texture, const glm::vec4& color)

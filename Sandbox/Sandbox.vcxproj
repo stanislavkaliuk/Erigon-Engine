@@ -78,7 +78,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>ERIGON_WINDOWS;EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -94,7 +94,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>ERIGON_WINDOWS;EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -114,7 +114,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>ERIGON_WINDOWS;EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -132,12 +132,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\EditorUI\EngineUI.h" />
-    <ClInclude Include="src\EditorUI\EngineUIData.h" />
+    <ClInclude Include="src\EditorUI\SceneViewUI.h" />
     <ClInclude Include="src\Engine2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\EditorUI\EngineUI.cpp" />
+    <ClCompile Include="src\EditorUI\SceneViewUI.cpp" />
     <ClCompile Include="src\Engine2D.cpp" />
   </ItemGroup>
   <ItemGroup>

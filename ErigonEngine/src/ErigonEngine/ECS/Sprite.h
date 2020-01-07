@@ -3,10 +3,11 @@
 #include "ErigonEngine/Renderer/Texture.h"
 #include "ErigonEngine/Tools/Color.h"
 #include "Transform.h"
+#include "IComponent.h"
 
 namespace ErigonEngine
 {
-	class Sprite : public Erigon::ECS::Component<Sprite>
+	class Sprite : public Erigon::ECS::Component<Sprite>, IComponent
 	{
 	public:
 		Sprite(const std::string& texturePath);
@@ -22,6 +23,10 @@ namespace ErigonEngine
 		inline Ref<Texture2D> GetTexture() const { return texture; }
 
 		void Update(const Transform& transform);
+
+		virtual void Serialize(YAML::Node* node) override;
+		virtual void Serialize(YAML::Emitter* emitter) override;
+		virtual void Deserialize(const YAML::Node& node) override;
 
 	private:
 		Ref<Texture2D> texture;

@@ -55,11 +55,18 @@ project "ErigonEngine"
 	{
 	 	"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/vendor/yamlcpp/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.Glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.EECS}"
+	}
+
+	libdirs
+	{
+		"%{prj.name}/vendor/yamlcpp/lib"
 	}
 
 	links
@@ -68,6 +75,7 @@ project "ErigonEngine"
 		"Glad",
 		"ImGui",
 		"opengl32.lib",
+		"yaml-cppd.lib",
 		"EECS"
 	}
 
@@ -129,11 +137,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
-
-		defines
-		{
-			"ERIGON_WINDOWS"
-		}
 
 	filter "configurations:Debug"
 		defines "EE_DEBUG"

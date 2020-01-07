@@ -9,10 +9,8 @@
     <ClInclude Include="src\EditorUI\EngineUI.h">
       <Filter>EditorUI</Filter>
     </ClInclude>
-    <ClInclude Include="src\EditorUI\EngineUIData.h">
-      <Filter>EditorUI</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine2D.h" />
+    <ClInclude Include="src\EditorUI\SceneViewUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
@@ -20,5 +18,6 @@
       <Filter>EditorUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine2D.cpp" />
+    <ClCompile Include="src\EditorUI\SceneViewUI.cpp" />
   </ItemGroup>
 </Project>

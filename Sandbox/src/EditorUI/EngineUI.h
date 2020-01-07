@@ -1,25 +1,24 @@
 #pragma once
 #include "Engine2D.h"
-#include "EngineUIData.h"
-#include <imgui/imgui.h>
+#include "Editor.h"
 
-struct TransformResult
+namespace ErigonEngine
 {
-	UITransform transform;
-	TransformTarget target;
-};
-
-class EngineUI
-{
-public:
-	bool Open = true;
-	bool Close = false;
-	EngineUI(uint32_t windowWidth, uint32_t windowHeight);
-	void Draw();
-	void DrawInspector(bool state, UITransform* transform, ErigonEngine::OrthographicCameraController* cameraController);
-	void DrawSceneHierarchy(bool state, UITransform* transform);
-private:
-	TransformResult* results;
-	void RecalculateTransforms(TransformResult* results);
-	uint32_t windowWidth, windowHeight;
-};
+	namespace Editor
+	{
+		class EngineUI
+		{
+		public:
+			bool Open = true;
+			bool Close = false;
+			EngineUI(uint32_t windowWidth, uint32_t windowHeight);
+			void Setup();
+			void Draw();
+			//void DrawInspector(bool state, ErigonEngine::OrthographicCameraController* cameraController);
+			//void DrawSceneHierarchy(bool state);
+		private:
+			uint32_t windowWidth, windowHeight;
+			std::vector<ErigonEngine::Editor::IViewUI*> views;
+		};
+	}
+}

@@ -1,5 +1,4 @@
 #pragma once
-
 #include "EECS_API.h"
 #include "tools/Handle.h"
 
@@ -41,6 +40,12 @@ namespace Erigon
 			void RemoveComponent()
 			{
 				this->componentManager->RemoveComponent<T>(this->entityID);
+			}
+
+			template<class T>
+			std::map<typeID, T*> GetAllComponents()
+			{
+				this->componentManager->GetAllComponents<T>(this->entityID);
 			}
 
 			inline bool operator==(const IEntity& other) const { return this->entityID == other.entityID; }

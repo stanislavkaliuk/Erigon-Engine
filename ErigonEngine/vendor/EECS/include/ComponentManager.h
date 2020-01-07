@@ -139,6 +139,28 @@ namespace Erigon
 					}
 				}
 			}
+			template<class T>
+			std::map<ComponentTypeID, T*> GetAllComponents(const EntityID entityId)
+			{
+				std::map<ComponentTypeID, T*> resultMap;
+				static const size_t COMPONENTS_AMOUNT = this->entityComponentMap[entityId.index].size();
+				for (ComponentTypeID componentTypeId = 0; componentTypeId < COMPONENTS_AMOUNT; ++componentTypeId)
+				{
+					const ComponentID componentId = this->entityComponentMap[entityId.index][componentTypeId];
+					if (componentId == INVALID_COMPONENT_ID)
+					{
+						continue;
+					}
+
+					IComponent* component = this->componentTable[componentId];
+					if (component != nullptr)
+					{
+						resultMap.insert(std::make_pair(componentId, static_cast<T*>(component)));
+					}
+				}
+
+				return resultMap;
+			}
 
 			template<class T>
 			T* GetComponent(const EntityID entityid)

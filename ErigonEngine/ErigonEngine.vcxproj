@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\EECS\include;src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -88,7 +88,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\yamlcpp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -97,7 +98,7 @@
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\EECS\include;src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -112,7 +113,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\yamlcpp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -121,7 +123,7 @@
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\EECS\include;src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -136,7 +138,8 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>vendor\yamlcpp\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -149,7 +152,11 @@
     <ClInclude Include="src\ErigonEngine\Core\TimeStep.h" />
     <ClInclude Include="src\ErigonEngine\Core\Types.h" />
     <ClInclude Include="src\ErigonEngine\Core\Window.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\GameObject.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\IComponent.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\IGameObject.h" />
     <ClInclude Include="src\ErigonEngine\ECS\Sprite.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Transform.h" />
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\Event.h" />
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
@@ -164,10 +171,12 @@
     <ClInclude Include="src\ErigonEngine\Layers\LayerStack.h" />
     <ClInclude Include="src\ErigonEngine\Log\Log.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\Buffer.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\FrameBuffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\IndexBuffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLFrameBuffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLTexture.h" />
@@ -180,10 +189,9 @@
     <ClInclude Include="src\ErigonEngine\Renderer\Texture.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\VertexArray.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\VertexBuffer.h" />
-    <ClInclude Include="src\ErigonEngine\ECS\GameObject.h" />
+    <ClInclude Include="src\ErigonEngine\Serialization\ISerializable.h" />
     <ClInclude Include="src\ErigonEngine\Tools\Color.h" />
     <ClInclude Include="src\ErigonEngine\Tools\SceneSubsystem\SceneData.h" />
-    <ClInclude Include="src\ErigonEngine\ECS\Transform.h" />
     <ClInclude Include="src\ErigonEngine\Tools\Vector3.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -570,8 +578,10 @@
     <ClCompile Include="src\ErigonEngine\Layers\LayerStack.cpp" />
     <ClCompile Include="src\ErigonEngine\Log\Log.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\FrameBuffer.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLTexture.cpp" />

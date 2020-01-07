@@ -6,6 +6,7 @@ namespace ErigonEngine
 	{
 	public:
 		
+		OpenGLTexture2D(uint32_t width, uint32_t height);
 		OpenGLTexture2D(const std::string& path);
 		OpenGLTexture2D();
 
@@ -14,7 +15,11 @@ namespace ErigonEngine
 		virtual uint32 GetWidth() const override { return m_Width;  }
 		virtual uint32 GetHeight() const override{ return m_Height; }
 
+		virtual void Bind(uint32 width, uint32 height) const override;
+
 		virtual void Bind(uint32 slot) const override;
+
+		virtual uint32_t GetTextureId() const override { return m_RendererID; }
 	private:
 		std::string m_Path;
 		uint32 m_Width, m_Height;

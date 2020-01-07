@@ -1,16 +1,23 @@
 #pragma once
+#include "IGameObject.h"
+#include <EECS.h>
 #include "Transform.h"
 
-using GameObjectId = Erigon::ECS::EntityID;
-using GameObjectTypeId = Erigon::ECS::EntityTypeID;
+using namespace Erigon::ECS;
 
-template<class T>
-class GameObject : public Erigon::ECS::Entity<T>
+namespace ErigonEngine
 {
-public:
-	GameObject()
+	using GameObjectId = EntityID;
+	using GameObjectTypeId = EntityTypeID;
+
+	template <class T>
+	class GameObject : public Entity<T>, public IGameObject
 	{
-		AddComponent<Transform>(Transform());
-	}
-	virtual void Update() = 0;
-};
+	public:
+		GameObject()
+		{
+			AddComponent<Transform>(Transform());
+		}
+		virtual void Update() = 0;
+	};
+}

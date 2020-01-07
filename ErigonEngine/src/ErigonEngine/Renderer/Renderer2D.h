@@ -11,7 +11,9 @@ namespace ErigonEngine
 	public:
 		static void Init();
 		static void Destroy();
-
+		static void BeginSnap(uint32 width, uint32 height);
+		static void EndSnap();
+		static uint32 GetSnap();
 		static void BeginScene(const OrthographicCamera& camera);
 		static void EndScene();
 		static void OnWindowResize(uint32_t width, uint32_t height);
