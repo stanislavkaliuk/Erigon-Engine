@@ -15,13 +15,10 @@ IncludeDir["GLFW"] = "ErigonEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "ErigonEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "ErigonEngine/vendor/imgui"
 IncludeDir["Glm"] = "ErigonEngine/vendor/glm"
-IncludeDir["stb_image"] = "ErigonEngine/vendor/stb_image"
-IncludeDir["EECS"] = "ErigonEngine/vendor/EECS/include"
 
 include "ErigonEngine/vendor/GLFW"
 include "ErigonEngine/vendor/Glad"
 include "ErigonEngine/vendor/imgui"
-include "ErigonEngine/vendor/EECS"
 
 project "ErigonEngine"
 	location "ErigonEngine"
@@ -40,8 +37,6 @@ project "ErigonEngine"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
-		"%{prj.name}/vendor/stb_image/**.h",
-		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -55,18 +50,10 @@ project "ErigonEngine"
 	{
 	 	"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/vendor/yamlcpp/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.Glm}",
-		"%{IncludeDir.stb_image}",
-		"%{IncludeDir.EECS}"
-	}
-
-	libdirs
-	{
-		"%{prj.name}/vendor/yamlcpp/lib"
+		"%{IncludeDir.Glm}"
 	}
 
 	links
@@ -74,9 +61,7 @@ project "ErigonEngine"
 		"GLFW",
 		"Glad",
 		"ImGui",
-		"opengl32.lib",
-		"yaml-cppd.lib",
-		"EECS"
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -122,12 +107,10 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Sandbox/src",
 		"ErigonEngine/vendor/spdlog/include",
 		"ErigonEngine/src",
 		"ErigonEngine/vendor",
-		"%{IncludeDir.Glm}",
-		"%{IncludeDir.EECS}"
+		"%{IncludeDir.Glm}"
 	}
 
 	links
@@ -137,6 +120,11 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
+
+		defines
+		{
+			"ERIGON_WINDOWS"
+		}
 
 	filter "configurations:Debug"
 		defines "EE_DEBUG"

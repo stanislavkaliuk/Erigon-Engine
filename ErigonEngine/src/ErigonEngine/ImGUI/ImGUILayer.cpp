@@ -3,7 +3,7 @@
 #include "ErigonEngine/ImGUI/OpenGL/imGUIOpenGLRenderer.h"
 #include "ErigonEngine/ImGUI/GLFW/imGUIGLFWRender.h"
 #include "ErigonEngine/Core/Application.h"
-#include "spectrum.h"
+
 //temp
 #include "GLFW/glfw3.h"
 #include "glad/glad.h"
@@ -29,7 +29,7 @@ namespace ErigonEngine
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
-		ImGui::Spectrum::StyleColorsSpectrum();
+		ImGui::StyleColorsDark();
 
 		ImGuiStyle& style = ImGui::GetStyle();
 		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
@@ -42,7 +42,7 @@ namespace ErigonEngine
 		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
 
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
-		ImGui_ImplOpenGL3_Init("#version 450");
+		ImGui_ImplOpenGL3_Init("#version 410");
 	}
 
 	void ImGUILayer::OnDetach()
