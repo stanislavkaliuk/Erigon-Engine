@@ -1,18 +1,15 @@
 #pragma once
 #include "IViewUI.h"
-#include "ErigonEngine.h"
+#include <ErigonEngine.h>
 
-namespace ErigonEngine
+namespace Editor
 {
-	namespace Editor
+	class SceneViewUI : public IViewUI
 	{
-		class SceneViewUI : public IViewUI
-		{
-		public:
-			virtual void Setup() override;
-			virtual void Draw() override;
-		private:
-			uint32 framebufferTextureId;
-		};
-	}
+	public:
+		virtual void Setup() override;
+		virtual void Draw() override;
+	private:
+		uint32_t framebufferTextureId;
+	};
 }

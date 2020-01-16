@@ -1,16 +1,14 @@
 #include "InspectorViewUI.h"
-namespace ErigonEngine
+
+namespace Editor
 {
-	namespace Editor
+	void InspectorViewUI::Setup()
 	{
-		void InspectorViewUI::Setup()
-		{
-			itemInspector = new ItemInspector();
-		}
+		itemInspector = new ItemInspector();
+	}
 
-		void InspectorViewUI::Draw()
-		{
+	void InspectorViewUI::Draw()
+	{
 
-		}
 	}
 }

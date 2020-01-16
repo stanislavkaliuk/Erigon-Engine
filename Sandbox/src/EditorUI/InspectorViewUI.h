@@ -2,18 +2,15 @@
 #include "IViewUI.h"
 #include "Editor\ItemInspector.h"
 
-namespace ErigonEngine
+namespace Editor
 {
-	namespace Editor
+	class InspectorViewUI : public IViewUI
 	{
-		class InspectorViewUI : public IViewUI
-		{
-		public:
-			~InspectorViewUI() { delete itemInspector; }
-			virtual void Setup() override;
-			virtual void Draw() override;
-		private:
-			ItemInspector* itemInspector;
-		};
-	}
+	public:
+		~InspectorViewUI() { delete itemInspector; }
+		virtual void Setup() override;
+		virtual void Draw() override;
+	private:
+		ItemInspector* itemInspector;
+	};
 }

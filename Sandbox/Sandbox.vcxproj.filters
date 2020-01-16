@@ -11,6 +11,14 @@
     </ClInclude>
     <ClInclude Include="src\Engine2D.h" />
     <ClInclude Include="src\EditorUI\SceneViewUI.h" />
+    <ClInclude Include="src\EditorUI\IViewUI.h" />
+    <ClInclude Include="src\EditorUI\Dockspace.h" />
+    <ClInclude Include="src\EditorUI\Editor.h" />
+    <ClInclude Include="src\EditorUI\InspectorViewUI.h" />
+    <ClInclude Include="src\Editor\ItemInspector.h" />
+    <ClInclude Include="src\EditorUI\ECS\TransformUI.h" />
+    <ClInclude Include="src\EditorUI\ECS\IComponentUI.h" />
+    <ClInclude Include="src\EditorUI\ECS\SpriteUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
@@ -19,5 +27,9 @@
     </ClCompile>
     <ClCompile Include="src\Engine2D.cpp" />
     <ClCompile Include="src\EditorUI\SceneViewUI.cpp" />
+    <ClCompile Include="src\EditorUI\Dockspace.cpp" />
+    <ClCompile Include="src\EditorUI\InspectorViewUI.cpp" />
+    <ClCompile Include="src\EditorUI\ECS\TransformUI.cpp" />
+    <ClCompile Include="src\EditorUI\ECS\SpriteUI.cpp" />
   </ItemGroup>
 </Project>

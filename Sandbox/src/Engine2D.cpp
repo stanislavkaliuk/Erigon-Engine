@@ -3,7 +3,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-Engine2D::Engine2D() : Layer("2D Engine"), m_CameraController(1920.0f/1080.0f), EUI(new ErigonEngine::Editor::EngineUI(1920, 1080))
+Engine2D::Engine2D() : Layer("2D Engine"), m_CameraController(1920.0f/1080.0f), EUI(new Editor::EngineUI(1920, 1080))
 {
 
 }
@@ -11,6 +11,7 @@ Engine2D::Engine2D() : Layer("2D Engine"), m_CameraController(1920.0f/1080.0f), 
 void Engine2D::OnAttach()
 {
 	texture = ErigonEngine::Texture2D::Create("assets/textures/texture2.png");
+	//EUI->
 }
 
 void Engine2D::OnDetach()

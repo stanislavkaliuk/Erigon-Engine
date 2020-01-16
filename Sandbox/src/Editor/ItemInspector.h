@@ -1,12 +1,9 @@
 #pragma once
 
-namespace ErigonEngine
+namespace Editor
 {
-	namespace Editor
+	class ItemInspector
 	{
-		class ItemInspector
-		{
 
-		};
-	}
+	};
 }
