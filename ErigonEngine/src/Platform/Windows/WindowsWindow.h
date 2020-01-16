@@ -28,7 +28,7 @@ namespace ErigonEngine
 		virtual void Shutdown();
 
 		GLFWwindow* m_Window;
-		Scope<GraphicsContext> m_Context;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

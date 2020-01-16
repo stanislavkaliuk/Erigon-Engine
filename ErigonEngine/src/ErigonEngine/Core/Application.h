@@ -26,14 +26,12 @@ namespace ErigonEngine
 		void PushOverlay(Layer* layer);
 		inline IWindow& GetWindow() { return *m_Window; }
 		inline static Application& Get() { return *s_Instance; }
+
 	private:
-		bool OnWindowClosed(WindowCloseEvent& e);
-		bool OnWindowResized(WindowResizeEvent& e);
-	private:
-		Scope<IWindow> m_Window;
+		std::unique_ptr<IWindow> m_Window;
 		ImGUILayer*  m_ImGuiLayer;
 		bool m_Running = true;
-		bool m_Minimized = false;
+		bool OnWindowClosed(WindowCloseEvent& e);
 		LayerStack m_LayerStack;
 		float m_LastFrameTime = 0.0f;
 		static Application* s_Instance;
