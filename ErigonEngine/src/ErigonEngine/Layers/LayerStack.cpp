@@ -10,7 +10,10 @@ namespace ErigonEngine
 	LayerStack::~LayerStack()
 	{
 		for (Layer* layer : m_Layers)
+		{
+			layer->OnDetach();
 			delete layer;
+		}
 	}
 
 	void LayerStack::PushLayer(Layer* layer)
@@ -27,7 +30,7 @@ namespace ErigonEngine
 	void LayerStack::PopLayer(Layer* layer)
 	{
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);
-		if (it != m_Layers.end())
+		if (it != m_Layers.begin() + m_LayerStackInserts)
 		{
 			m_Layers.erase(it);
 			m_LayerStackInserts--;

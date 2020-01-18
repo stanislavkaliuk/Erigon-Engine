@@ -13,12 +13,18 @@
 #include "ErigonEngine/Input/KeyCodes.h"
 #include "ErigonEngine/Input/MouseButtonCodes.h"
 
-//---EntryPoint---
+//-----Tools------//
 
-#include "ErigonEngine/Core/EntryPoint.h"
 
-//----------------
 
 //-----Render Stuff------//
 
-#include "ErigonEngine/Renderer/Renderer.h"
+#include "ErigonEngine/Renderer/Renderer2D.h"
+#include "ErigonEngine/Renderer/RenderCommand.h"
+#include "ErigonEngine/Renderer/Buffer.h"
+#include "ErigonEngine/Renderer/Shader.h"
+#include "ErigonEngine/Renderer/Texture.h"
+#include "ErigonEngine/Renderer/VertexArray.h"
+
+#include "ErigonEngine/Renderer/OrtographicCamera.h"
+#include "ErigonEngine/Controllers/OrthographicCameraController.h"
