@@ -5,13 +5,12 @@ namespace ErigonEngine
 	class Timestep
 	{
 	public: 
-		Timestep(float startupTime, float frameTime = 0.0f) : m_Time(frameTime), m_TimeSinceStartup(startupTime){}
+		Timestep(float time = 0.0f) : m_Time(time){}
+
 		operator float() const { return m_Time; }
 		float GetSeconds() const { return m_Time; }
 		float GetMilliseconds() const { return m_Time * 1000.0f; }
-		float GetTimeSinceStart() { return m_TimeSinceStartup; }
 	private :
 		float m_Time;
-		float m_TimeSinceStartup;
 	};
 }

@@ -9,11 +9,13 @@ namespace ErigonEngine
 	struct WindowProps
 	{
 		std::string Title;
+		unsigned int Width;
+		unsigned int Height;
 
-		WindowProps(const std::string& title = "Erigon Engine")
-			: Title(title)
-		{
-		}
+		WindowProps(const std::string& title = "Erigon Engine",
+					unsigned int width = 1280,
+					unsigned int height = 720)
+			: Title(title), Width(width),Height(height){}
 	};
 
 	class IWindow

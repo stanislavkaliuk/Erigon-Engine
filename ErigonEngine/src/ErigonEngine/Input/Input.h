@@ -21,6 +21,6 @@ namespace ErigonEngine
 		virtual float GetMouseYImpl() = 0;
 
 	private:
-		static Scope<Input> s_Instance;
+		static Input* s_Instance;
 	};
 }
