@@ -1,35 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Editor">
+      <UniqueIdentifier>{8C1A20B0-78BC-4A86-6177-5EDA4DB8D1D6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="EditorUI">
       <UniqueIdentifier>{CAF89038-B6C5-EB43-DFDE-D9EBCB0A21D2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EditorUI\ECS">
+      <UniqueIdentifier>{1442AF96-00A5-3E3B-A92A-77F1956C0ABE}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Editor\ItemInspector.h">
+      <Filter>Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\Dockspace.h">
+      <Filter>EditorUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\ECS\IComponentUI.h">
+      <Filter>EditorUI\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\ECS\SpriteUI.h">
+      <Filter>EditorUI\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\ECS\TransformUI.h">
+      <Filter>EditorUI\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\Editor.h">
+      <Filter>EditorUI</Filter>
+    </ClInclude>
     <ClInclude Include="src\EditorUI\EngineUI.h">
       <Filter>EditorUI</Filter>
     </ClInclude>
+    <ClInclude Include="src\EditorUI\IViewUI.h">
+      <Filter>EditorUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\InspectorViewUI.h">
+      <Filter>EditorUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditorUI\SceneViewUI.h">
+      <Filter>EditorUI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Engine2D.h" />
-    <ClInclude Include="src\EditorUI\SceneViewUI.h" />
-    <ClInclude Include="src\EditorUI\IViewUI.h" />
-    <ClInclude Include="src\EditorUI\Dockspace.h" />
-    <ClInclude Include="src\EditorUI\Editor.h" />
-    <ClInclude Include="src\EditorUI\InspectorViewUI.h" />
-    <ClInclude Include="src\Editor\ItemInspector.h" />
-    <ClInclude Include="src\EditorUI\ECS\TransformUI.h" />
-    <ClInclude Include="src\EditorUI\ECS\IComponentUI.h" />
-    <ClInclude Include="src\EditorUI\ECS\SpriteUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\EditorUI\Dockspace.cpp">
+      <Filter>EditorUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditorUI\ECS\SpriteUI.cpp">
+      <Filter>EditorUI\ECS</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditorUI\ECS\TransformUI.cpp">
+      <Filter>EditorUI\ECS</Filter>
+    </ClCompile>
     <ClCompile Include="src\EditorUI\EngineUI.cpp">
       <Filter>EditorUI</Filter>
     </ClCompile>
+    <ClCompile Include="src\EditorUI\InspectorViewUI.cpp">
+      <Filter>EditorUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditorUI\SceneViewUI.cpp">
+      <Filter>EditorUI</Filter>
+    </ClCompile>
     <ClCompile Include="src\Engine2D.cpp" />
-    <ClCompile Include="src\EditorUI\SceneViewUI.cpp" />
-    <ClCompile Include="src\EditorUI\Dockspace.cpp" />
-    <ClCompile Include="src\EditorUI\InspectorViewUI.cpp" />
-    <ClCompile Include="src\EditorUI\ECS\TransformUI.cpp" />
-    <ClCompile Include="src\EditorUI\ECS\SpriteUI.cpp" />
   </ItemGroup>
 </Project>

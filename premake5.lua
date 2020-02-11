@@ -17,11 +17,14 @@ IncludeDir["ImGui"] = "ErigonEngine/vendor/imgui"
 IncludeDir["Glm"] = "ErigonEngine/vendor/glm"
 IncludeDir["stb_image"] = "ErigonEngine/vendor/stb_image"
 IncludeDir["EECS"] = "ErigonEngine/vendor/EECS/include"
+IncludeDir["DragonBones"] = "ErigonEngine/vendor/DragonBones"
+IncludeDir["YAML"] = "ErigonEngine/vendor/yamlcpp/include"
 
 include "ErigonEngine/vendor/GLFW"
 include "ErigonEngine/vendor/Glad"
 include "ErigonEngine/vendor/imgui"
 include "ErigonEngine/vendor/EECS"
+include "ErigonEngine/vendor/DragonBones"
 
 project "ErigonEngine"
 	location "ErigonEngine"
@@ -55,13 +58,14 @@ project "ErigonEngine"
 	{
 	 	"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/vendor/yamlcpp/include",
+		"%{IncludeDir.YAML}",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.Glm}",
 		"%{IncludeDir.stb_image}",
-		"%{IncludeDir.EECS}"
+		"%{IncludeDir.EECS}",
+		"%{IncludeDir.DragonBones}"
 	}
 
 	libdirs
@@ -76,7 +80,8 @@ project "ErigonEngine"
 		"ImGui",
 		"opengl32.lib",
 		"yaml-cppd.lib",
-		"EECS"
+		"EECS",
+		"DragonBones"
 	}
 
 	filter "system:windows"
@@ -127,7 +132,8 @@ project "Sandbox"
 		"ErigonEngine/src",
 		"ErigonEngine/vendor",
 		"%{IncludeDir.Glm}",
-		"%{IncludeDir.EECS}"
+		"%{IncludeDir.EECS}",
+		"%{IncludeDir.YAML}"
 	}
 
 	links
