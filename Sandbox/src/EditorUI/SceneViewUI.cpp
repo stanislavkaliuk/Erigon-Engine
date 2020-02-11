@@ -4,6 +4,7 @@ namespace Editor
 {
 	void SceneViewUI::Setup()
 	{
+		active = true;
 		framebufferTextureId = ErigonEngine::Renderer2D::GetSnap();
 	}
 
