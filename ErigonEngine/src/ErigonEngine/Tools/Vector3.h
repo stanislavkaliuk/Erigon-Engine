@@ -67,6 +67,12 @@ namespace ErigonEngine
 			return Vector3(0, -1, 0);
 		}
 
+		float* GetUnpacked()
+		{
+			float data[3] = { x, y, z };
+			return data;
+		}
+
 		//TODO: Add functions for vectors there
 
 		Vector3& operator+=(const Vector3& b)
@@ -139,6 +145,11 @@ namespace ErigonEngine
 		operator glm::vec3() const
 		{
 			return glm::vec3(x, y, z);
+		}
+
+		Vector3 operator=(float* d) const
+		{
+			return Vector3(d[0], d[1], d[2]);
 		}
 	};
 }

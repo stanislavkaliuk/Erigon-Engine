@@ -65,12 +65,12 @@ project "ErigonEngine"
 		"%{IncludeDir.Glm}",
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.EECS}",
-		"%{IncludeDir.DragonBones}"
+		"%{IncludeDir.DragonBones}",
 	}
 
 	libdirs
 	{
-		"%{prj.name}/vendor/yamlcpp/lib"
+		"%{prj.name}/vendor/yamlcpp/lib",
 	}
 
 	links
@@ -98,7 +98,7 @@ project "ErigonEngine"
 		defines "EE_DEBUG"
 		runtime "Debug"
 		symbols "On"
-		
+
 	filter "configurations:Release"
 		defines "EE_RELEASE"
 		runtime "Release"
@@ -108,7 +108,7 @@ project "ErigonEngine"
 		defines "EE_DIST"
 		runtime "Release"
 		optimize "On"
-	
+
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
@@ -132,6 +132,7 @@ project "Sandbox"
 		"ErigonEngine/src",
 		"ErigonEngine/vendor",
 		"%{IncludeDir.Glm}",
+		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.EECS}",
 		"%{IncludeDir.YAML}"
 	}
@@ -148,7 +149,7 @@ project "Sandbox"
 		defines "EE_DEBUG"
 		runtime "Debug"
 		symbols "On"
-		
+
 	filter "configurations:Release"
 		defines "EE_RELEASE"
 		runtime "Release"

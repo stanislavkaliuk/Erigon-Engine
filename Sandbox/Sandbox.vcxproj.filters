@@ -12,58 +12,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Editor\ItemInspector.h">
-      <Filter>Editor</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\Dockspace.h">
-      <Filter>EditorUI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\ECS\IComponentUI.h">
-      <Filter>EditorUI\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\ECS\SpriteUI.h">
-      <Filter>EditorUI\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\ECS\TransformUI.h">
-      <Filter>EditorUI\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\Editor.h">
-      <Filter>EditorUI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\EngineUI.h">
-      <Filter>EditorUI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\IViewUI.h">
-      <Filter>EditorUI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\InspectorViewUI.h">
-      <Filter>EditorUI</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EditorUI\SceneViewUI.h">
-      <Filter>EditorUI</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
-    <ClCompile Include="src\EditorUI\Dockspace.cpp">
-      <Filter>EditorUI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EditorUI\ECS\SpriteUI.cpp">
-      <Filter>EditorUI\ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EditorUI\ECS\TransformUI.cpp">
-      <Filter>EditorUI\ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EditorUI\EngineUI.cpp">
-      <Filter>EditorUI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EditorUI\InspectorViewUI.cpp">
-      <Filter>EditorUI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EditorUI\SceneViewUI.cpp">
-      <Filter>EditorUI</Filter>
-    </ClCompile>
     <ClCompile Include="src\Engine2D.cpp" />
   </ItemGroup>
 </Project>

@@ -157,6 +157,26 @@
     <ClInclude Include="src\ErigonEngine\ECS\IGameObject.h" />
     <ClInclude Include="src\ErigonEngine\ECS\Sprite.h" />
     <ClInclude Include="src\ErigonEngine\ECS\Transform.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\IDetail.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\Transform.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\Dockspace.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\Editor.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\EditorUIController.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\IView.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\ENodeEditor.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\ENodeEditorInternal.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\crudejson.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiBezier.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiExtraMath.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imgui_canvas.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Builders.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Drawing.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Interop.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Math2d.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Widgets.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\NodeEditor.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\SceneView.h" />
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\Event.h" />
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
@@ -570,6 +590,17 @@
     <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp" />
     <ClCompile Include="src\ErigonEngine\ECS\Sprite.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Transform.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\Dockspace.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\EditorUIController.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\ENodeEditor.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\crudejson.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imgui_canvas.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Builders.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Drawing.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Widgets.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\NodeEditor.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\SceneView.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGUILayer.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGuiBuild.cpp" />
@@ -616,6 +647,11 @@
     <ProjectReference Include="vendor\DragonBones\DragonBones.vcxproj">
       <Project>{57E362BC-C398-DBB1-4C8D-D588B841D2B5}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiBezier.inl" />
+    <None Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiExtraMath.inl" />
+    <None Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Math2d.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

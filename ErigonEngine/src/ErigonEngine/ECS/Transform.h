@@ -2,6 +2,7 @@
 #include "ErigonEngine/Tools/Vector3.h"
 #include "IComponent.h"
 #include <EECS.h>
+
 namespace ErigonEngine
 {
 	class Transform : public Erigon::ECS::Component<Transform>, IComponent

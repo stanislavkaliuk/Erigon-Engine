@@ -2,21 +2,26 @@
 #include <imgui/imgui.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "eepch.h"
 
-Engine2D::Engine2D() : Layer("2D Engine"), m_CameraController(1920.0f/1080.0f), EUI(new Editor::EngineUI(1920, 1080))
+Engine2D::Engine2D() : Layer("2D Engine"), m_CameraController(1920.0f/1080.0f), 
+						Editor(new ErigonEngine::Editor::EditorUIController(1920,1080)),
+						nodeEditor(new ErigonEngine::Editor::NodeEditor())
 {
-
+	
 }
 
 void Engine2D::OnAttach()
 {
+	Editor->Setup(new ErigonEngine::Editor::Dockspace());
+	Editor->Setup(new ErigonEngine::Editor::SceneView());
+	nodeEditor->Attach();
 	texture = ErigonEngine::Texture2D::Create("assets/textures/texture2.png");
-	EUI->Setup();
 }
 
 void Engine2D::OnDetach()
 {
-
+	nodeEditor->Detach();
 }
 
 void Engine2D::OnUpdate(ErigonEngine::Timestep ts)
@@ -44,7 +49,8 @@ void Engine2D::OnPostUpdate(ErigonEngine::Timestep ts)
 
 void Engine2D::OnImGuiRender()
 {
-	EUI->Draw();
+	Editor->Draw();
+	nodeEditor->Update();
 }
 
 void Engine2D::OnEvent(ErigonEngine::Event& e)

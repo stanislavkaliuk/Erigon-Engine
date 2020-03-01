@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -95,7 +95,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -115,7 +115,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -131,26 +131,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Editor\ItemInspector.h" />
-    <ClInclude Include="src\EditorUI\Dockspace.h" />
-    <ClInclude Include="src\EditorUI\ECS\IComponentUI.h" />
-    <ClInclude Include="src\EditorUI\ECS\SpriteUI.h" />
-    <ClInclude Include="src\EditorUI\ECS\TransformUI.h" />
-    <ClInclude Include="src\EditorUI\Editor.h" />
-    <ClInclude Include="src\EditorUI\EngineUI.h" />
-    <ClInclude Include="src\EditorUI\IViewUI.h" />
-    <ClInclude Include="src\EditorUI\InspectorViewUI.h" />
-    <ClInclude Include="src\EditorUI\SceneViewUI.h" />
     <ClInclude Include="src\Engine2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
-    <ClCompile Include="src\EditorUI\Dockspace.cpp" />
-    <ClCompile Include="src\EditorUI\ECS\SpriteUI.cpp" />
-    <ClCompile Include="src\EditorUI\ECS\TransformUI.cpp" />
-    <ClCompile Include="src\EditorUI\EngineUI.cpp" />
-    <ClCompile Include="src\EditorUI\InspectorViewUI.cpp" />
-    <ClCompile Include="src\EditorUI\SceneViewUI.cpp" />
     <ClCompile Include="src\Engine2D.cpp" />
   </ItemGroup>
   <ItemGroup>
