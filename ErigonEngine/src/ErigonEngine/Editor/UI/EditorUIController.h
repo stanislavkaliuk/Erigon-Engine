@@ -16,6 +16,8 @@ namespace ErigonEngine
 			void Setup(IView* view);
 			void Draw();
 
+			IView* GetView(ViewType viewType);
+
 			uint32_t windowWidth, windowHeight;
 			std::vector<IView*> views;
 		};

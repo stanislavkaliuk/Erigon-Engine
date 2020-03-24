@@ -177,6 +177,7 @@
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Widgets.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\NodeEditor.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\SceneView.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\SceneViewSettings.h" />
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\Event.h" />
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
@@ -590,6 +591,7 @@
     <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp" />
     <ClCompile Include="src\ErigonEngine\ECS\Sprite.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Transform.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\Dockspace.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\EditorUIController.cpp" />

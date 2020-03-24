@@ -21,6 +21,19 @@ namespace ErigonEngine
 				}
 			}
 		}
+
+		IView* EditorUIController::GetView(ViewType viewType)
+		{
+			for (IView* view : views)
+			{
+				if (view->GetViewType() == viewType)
+				{
+					return view;
+				}
+			}
+
+			return nullptr;
+		}
 	}
 }
 

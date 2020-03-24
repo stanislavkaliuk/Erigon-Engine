@@ -1415,6 +1415,7 @@
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Drawing.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Widgets.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Interop.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\SceneViewSettings.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp">
@@ -1534,6 +1535,7 @@
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Widgets.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Drawing.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Builders.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiBezier.inl" />

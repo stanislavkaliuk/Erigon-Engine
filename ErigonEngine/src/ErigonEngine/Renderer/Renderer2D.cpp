@@ -46,8 +46,7 @@ namespace ErigonEngine
 
 		WhiteTexture = Texture2D::Create();
 		
-		data.frameBufferTexture = Texture2D::Create(800,600);
-		data.frameBuffer = FrameBuffer::Create();
+		RecreateFramebuffer(1280, 720);
 
 		data.shader = Shader::Create("assets/shaders/Sprite.egl");
 	}
@@ -58,6 +57,11 @@ namespace ErigonEngine
 		data.frameBuffer->~FrameBuffer();
 		data.squareVA->~VertexArray();
 		data.shader->~Shader();
+
+		data.frameBufferTexture.reset();
+		data.frameBuffer.reset();
+		data.squareVA.reset();
+		data.shader.reset();
 	}
 
 	void Renderer2D::BeginSnap(uint32 width, uint32 height)
@@ -89,7 +93,16 @@ namespace ErigonEngine
 
 	void Renderer2D::OnWindowResize(uint32_t width, uint32_t height)
 	{
-		RenderCommand::SetViewport(0, 0, width, height);
+		//RenderCommand::SetViewport(0, 0, width, height);
+	}
+
+	void Renderer2D::RecreateFramebuffer(uint32_t width, uint32_t heigth)
+	{
+		data.frameBufferTexture.reset();
+		data.frameBuffer.reset();
+		RenderCommand::SetViewport(0, 0, width, heigth);
+		data.frameBuffer = FrameBuffer::Create();
+		data.frameBufferTexture = Texture2D::Create(width, heigth);
 	}
 
 	void Renderer2D::Draw(const glm::vec2& position, const glm::vec3& size, const glm::vec4& color)

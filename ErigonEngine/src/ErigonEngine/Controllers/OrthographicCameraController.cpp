@@ -64,9 +64,8 @@ namespace ErigonEngine
 
 	void OrthographicCameraController::OnEvent(Event& e)
 	{
-		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<MouseScrolledEvent>(EE_BIND_EVENT(OrthographicCameraController::OnMouseScrolled));
-		dispatcher.Dispatch<WindowResizeEvent>(EE_BIND_EVENT(OrthographicCameraController::OnWindowResized));
+		//EventDispatcher dispatcher(e);
+		//dispatcher.Dispatch<MouseScrolledEvent>(EE_BIND_EVENT(OrthographicCameraController::OnMouseScrolled));
 	}
 
 	void OrthographicCameraController::UpdateProjection()
@@ -74,18 +73,11 @@ namespace ErigonEngine
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 	}
 
-	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
+	/*bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
 		m_ZoomLevel -= e.GetYOffset();
 		m_ZoomLevel = std::clamp(m_ZoomLevel, 0.25f, 5.0f);
 		UpdateProjection();
 		return false;
-	}
-
-	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
-	{
-		m_AspectRatio = (float)e.GetWidth()/ (float)e.GetHeight();
-		UpdateProjection();
-		return false;
-	}
+	}*/
 }
