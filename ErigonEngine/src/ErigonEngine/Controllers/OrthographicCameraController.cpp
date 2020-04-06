@@ -62,10 +62,19 @@ namespace ErigonEngine
 		m_Camera.SetTransform(m_CameraPosition, m_CameraRotation);
 	}
 
-	void OrthographicCameraController::OnEvent(Event& e)
+	void OrthographicCameraController::OnEvent(const Event& e)
 	{
-		//EventDispatcher dispatcher(e);
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<Editor::SceneViewSizeChangedEvent>(EE_BIND_EVENT(OrthographicCameraController::OnSceneViewChanged));
 		//dispatcher.Dispatch<MouseScrolledEvent>(EE_BIND_EVENT(OrthographicCameraController::OnMouseScrolled));
+	}
+
+	bool OrthographicCameraController::OnSceneViewChanged(Editor::SceneViewSizeChangedEvent& e)
+	{
+		glm::vec2 size = e.GetSize();
+		m_AspectRatio = size.x / size.y;
+		UpdateProjection();
+		return false;
 	}
 
 	void OrthographicCameraController::UpdateProjection()

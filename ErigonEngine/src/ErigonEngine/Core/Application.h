@@ -21,7 +21,7 @@ namespace ErigonEngine
 		Application();
 		virtual ~Application() = default;
 		void Run();
-		void OnEvent(Event& e);
+		void OnEvent(const Event& e);
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 		inline IWindow& GetWindow() { return *m_Window; }
@@ -29,6 +29,7 @@ namespace ErigonEngine
 	private:
 		bool OnWindowClosed(WindowCloseEvent& e);
 		bool OnWindowResized(WindowResizeEvent& e);
+		bool OnAppWantExit(const AppExitEvent& e);
 	private:
 		Scope<IWindow> m_Window;
 		ImGUILayer*  m_ImGuiLayer;

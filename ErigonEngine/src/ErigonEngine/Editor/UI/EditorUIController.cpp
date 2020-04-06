@@ -8,7 +8,7 @@ namespace ErigonEngine
 		void EditorUIController::Setup(IView* view)
 		{
 			views.push_back(view);
-			view->Setup();
+			view->Setup(this);
 		}
 
 		void EditorUIController::Draw()

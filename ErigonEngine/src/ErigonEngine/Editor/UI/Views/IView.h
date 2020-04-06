@@ -1,5 +1,8 @@
 #pragma once
 #include <imgui.h>
+#include <functional>
+#include "ErigonEngine/Events/ApplicationEvent.h"
+#include "ErigonEngine/Events/EditorEvent.h"
 
 namespace ErigonEngine
 {
@@ -16,7 +19,7 @@ namespace ErigonEngine
 		class IView
 		{
 		public:
-			virtual void Setup() = 0;
+			virtual void Setup(void* controller) = 0;
 			virtual void Draw() = 0;
 			inline bool IsActive() const { return active; }
 			inline bool OnFocus() const { return focused; }
@@ -30,7 +33,5 @@ namespace ErigonEngine
 			ViewType viewType;
 			bool resized;
 		};
-
-
 	}
 }

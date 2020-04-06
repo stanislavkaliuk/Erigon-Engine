@@ -26,11 +26,12 @@ namespace ErigonEngine
 		PushOverlay(m_ImGuiLayer);
 	}
 
-	void Application::OnEvent(Event& e)
+	void Application::OnEvent(const Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT(Application::OnWindowClosed));
 		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT(Application::OnWindowResized));
+		dispatcher.Dispatch<AppExitEvent>(BIND_EVENT(Application::OnAppWantExit));
 		//EE_CORE_INFO(e.ToString());
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
@@ -52,6 +53,12 @@ namespace ErigonEngine
 		m_Minimized = e.GetWidth() == 0 || e.GetHeight() == 0;
 		Renderer2D::OnWindowResize(e.GetWidth(), e.GetHeight());
 		return false;
+	}
+
+	bool Application::OnAppWantExit(const AppExitEvent& e)
+	{
+		m_Running = false;
+		return true;
 	}
 
 	void Application::Run()

@@ -11,6 +11,7 @@ namespace ErigonEngine
 		Ref<Shader> shader;
 		Ref<Texture> frameBufferTexture;
 		Ref<FrameBuffer> frameBuffer;
+		glm::vec2 framebufferSize;
 	};
 	static Ref<Texture2D> WhiteTexture;
 	static RenderData data;
@@ -32,21 +33,21 @@ namespace ErigonEngine
 
 		Ref<VertexBuffer> squareVB = VertexBuffer::Create(squareVert, sizeof(squareVert));
 		squareVB->SetLayout
-		({	
-			{ShaderDataType::Float3, "a_Position"}, 
-			{ShaderDataType::Float2, "a_TexCoord"} 
-		});
+		({
+			{ShaderDataType::Float3, "a_Position"},
+			{ShaderDataType::Float2, "a_TexCoord"}
+			});
 
 		data.squareVA->AddVertexBuffer(squareVB);
 
 		uint32_t sqIndicies[6] = { 0, 1, 2, 2, 3, 0 };
 		Ref<IndexBuffer> squareIB = IndexBuffer::Create(sqIndicies, sizeof(sqIndicies));
-		
+
 		data.squareVA->SetIndexBuffer(squareIB);
 
 		WhiteTexture = Texture2D::Create();
-		
-		RecreateFramebuffer(1280, 720);
+		data.framebufferSize = glm::vec2(1280, 720);
+		RecreateFramebuffer(data.framebufferSize.x, data.framebufferSize.y);
 
 		data.shader = Shader::Create("assets/shaders/Sprite.egl");
 	}
@@ -62,6 +63,11 @@ namespace ErigonEngine
 		data.frameBuffer.reset();
 		data.squareVA.reset();
 		data.shader.reset();
+	}
+
+	glm::vec2 Renderer2D::GetFrameBufferSize()
+	{
+		return { data.framebufferSize.x, data.framebufferSize.y };
 	}
 
 	void Renderer2D::BeginSnap(uint32 width, uint32 height)
@@ -96,13 +102,14 @@ namespace ErigonEngine
 		//RenderCommand::SetViewport(0, 0, width, height);
 	}
 
-	void Renderer2D::RecreateFramebuffer(uint32_t width, uint32_t heigth)
+	void Renderer2D::RecreateFramebuffer(uint32_t width, uint32_t height)
 	{
 		data.frameBufferTexture.reset();
 		data.frameBuffer.reset();
-		RenderCommand::SetViewport(0, 0, width, heigth);
+		RenderCommand::SetViewport(0, 0, width, height);
 		data.frameBuffer = FrameBuffer::Create();
-		data.frameBufferTexture = Texture2D::Create(width, heigth);
+		data.frameBufferTexture = Texture2D::Create(width, height);
+		data.framebufferSize = glm::vec2(width, height);
 	}
 
 	void Renderer2D::Draw(const glm::vec2& position, const glm::vec3& size, const glm::vec4& color)

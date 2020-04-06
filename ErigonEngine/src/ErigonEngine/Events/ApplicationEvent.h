@@ -60,4 +60,13 @@ namespace ErigonEngine
 		EVENT_CLASS_TYPE(AppRender)
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
+
+	class AppExitEvent : public Event
+	{
+	public:
+		AppExitEvent() {}
+
+		EVENT_CLASS_TYPE(AppExit)
+			EVENT_CLASS_CATEGORY(EventCategoryApplication)
+	};
 }

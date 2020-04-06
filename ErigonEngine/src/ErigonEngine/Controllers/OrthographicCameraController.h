@@ -3,6 +3,7 @@
 #include "ErigonEngine/Core/TimeStep.h"
 #include "ErigonEngine/Events/ApplicationEvent.h"
 #include "ErigonEngine/Events/MouseEvent.h"
+#include "ErigonEngine/Events/EditorEvent.h"
 
 namespace ErigonEngine
 {
@@ -12,13 +13,15 @@ namespace ErigonEngine
 		OrthographicCameraController(float aspectRatio);
 
 		void OnUpdate(Timestep deltaTime);
-		void OnEvent(Event& e);
+		void OnEvent(const Event& e);
 		
 		OrthographicCamera& GetCamera() { return m_Camera; }
 		const OrthographicCamera& GetCamera() const { return m_Camera; }
 		
 		void SetZoomLevel(float level) { m_ZoomLevel = level; }
 		float GetZoomLevel() const { return m_ZoomLevel; }
+
+		bool OnSceneViewChanged(Editor::SceneViewSizeChangedEvent& e);
 
 		void UpdateProjection();
 	

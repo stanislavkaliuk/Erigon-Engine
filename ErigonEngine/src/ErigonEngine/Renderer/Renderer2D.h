@@ -3,6 +3,7 @@
 #include "Shader.h"
 #include "OrtographicCamera.h"
 #include "Texture.h"
+#include <glm\glm.hpp>
 
 namespace ErigonEngine
 {
@@ -24,6 +25,7 @@ namespace ErigonEngine
 		static void Draw(const glm::vec3& position, const glm::vec3& size, const Ref<Texture2D>& texture);
 		static void Draw(const glm::vec3& position, const glm::vec3& size, const Ref<Texture2D>& texture, const glm::vec4& color);
 		static void Draw(const glm::vec2& position, const glm::vec3& size, const Ref<Texture2D>& texture, const glm::vec4& color);
+		static glm::vec2 GetFrameBufferSize();
 		inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
 	};
 }

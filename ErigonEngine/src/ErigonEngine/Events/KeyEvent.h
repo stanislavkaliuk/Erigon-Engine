@@ -5,7 +5,7 @@
 
 namespace ErigonEngine
 {
-	class KeyEvent :public Event
+	class KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }

@@ -5,7 +5,7 @@ namespace ErigonEngine
 {
 	class ISerializable
 	{
-	public:
+	protected:
 		virtual void Serialize(YAML::Node* node) = 0;
 		virtual void Serialize(YAML::Emitter* emitter) = 0;
 		virtual void Deserialize(const YAML::Node& node) = 0;
