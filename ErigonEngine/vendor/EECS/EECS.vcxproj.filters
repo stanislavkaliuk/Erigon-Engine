@@ -9,70 +9,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Component.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ComponentManager.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Core.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\EECS.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\EECSController.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\EECS_API.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Entity.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\EntityManager.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\IComponent.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\IEntity.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ISystem.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\System.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SystemManager.h">
-      <Filter>include</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\ComponentManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EECSController.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EECS_API.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EntityManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IComponent.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IEntity.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ISystem.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SystemManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
+    <ClInclude Include="src\ComponentArray.hpp" />
+    <ClInclude Include="src\ComponentManager.hpp" />
+    <ClInclude Include="src\EntityManager.hpp" />
+    <ClInclude Include="src\System.hpp" />
+    <ClInclude Include="src\SystemManager.hpp" />
+    <ClInclude Include="src\Types.hpp" />
+    <ClInclude Include="src\EECS_Controller.hpp" />
   </ItemGroup>
 </Project>
