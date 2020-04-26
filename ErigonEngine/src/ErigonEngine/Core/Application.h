@@ -11,7 +11,6 @@
 #include "ErigonEngine/Renderer/VertexBuffer.h"
 #include "ErigonEngine/Renderer/IndexBuffer.h"
 #include "ErigonEngine/Renderer/VertexArray.h"
-#include "ErigonEngine/Renderer/OrtographicCamera.h"
 #include "ErigonEngine/ECS/ECSController.h"
 
 namespace ErigonEngine

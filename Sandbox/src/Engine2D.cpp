@@ -6,9 +6,10 @@
 
 #define BIND_EVENT(x, y) std::bind(&x, y, std::placeholders::_1)
 
+extern ECS::EECS_Controller gECSController;
+
 Engine2D::Engine2D(): Layer("2D Engine"),
-						Editor(new ErigonEngine::Editor::EditorUIController(1920,1080)),
-						nodeEditor(new ErigonEngine::Editor::NodeEditor())
+						Editor(new ErigonEngine::Editor::EditorUIController(1920,1080))
 {
 	Editor->SetEventCallback(BIND_EVENT(Engine2D::OnEditorEvent, this));
 }
@@ -17,13 +18,23 @@ void Engine2D::OnAttach()
 {
 	Editor->Setup(new ErigonEngine::Editor::Dockspace());
 	Editor->Setup(new ErigonEngine::Editor::SceneView());
-	//nodeEditor->Attach();
-	texture = ErigonEngine::Texture2D::Create("assets/textures/texture2.png");
+
+	ECS::Signature cameraSignature;
+	cameraSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Camera>());
+	cameraSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Transform>());
+	cameraSystem = &ErigonEngine::Application::Get().GetECSController().SetupSystem<ErigonEngine::CameraSystem>(cameraSignature);
+	cameraSystem->Init();
+
+	ECS::Signature renderSignature;
+	renderSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Transform>());
+	renderSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Sprite>());
+	renderSystem = &ErigonEngine::Application::Get().GetECSController().SetupSystem<ErigonEngine::RenderSystem>(renderSignature);
+	renderSystem->Init(*cameraSystem);
 }
 
 void Engine2D::OnDetach()
 {
-	//nodeEditor->Detach();
+
 }
 
 void Engine2D::OnUpdate(ErigonEngine::Timestep ts)
@@ -31,23 +42,19 @@ void Engine2D::OnUpdate(ErigonEngine::Timestep ts)
 	ErigonEngine::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 	ErigonEngine::RenderCommand::Clear();
 
-	glm::vec2 framebufferSize = ErigonEngine::Renderer2D::GetFrameBufferSize();
-	ErigonEngine::Renderer2D::BeginSnap(framebufferSize.x, framebufferSize.y);
+	ErigonEngine::Renderer2D::BeginSnap();
 
 	ErigonEngine::RenderCommand::Clear();
 
-	ErigonEngine::Renderer2D::BeginScene(m_CameraController.GetCamera());
-	//ErigonEngine::Renderer2D::Draw({ 0.0f, 0.0f }, { 1.0f, 1.0f, 1.0f }, { 0.3f, 0.2f, 0.5f, 1.0f });
-	//ErigonEngine::Renderer2D::Draw({ 1.5f, 1.2f }, { 0.5f, 0.5f, 1.0f }, { 0.6f, 0.4f, 0.8f, 1.0f });
-	//ErigonEngine::Renderer2D::Draw({ 0.0f, 0.0f, -0.1f },{ 10.0f, 10.0f, 1.0f }, texture);
-	ErigonEngine::Renderer2D::EndScene();
-
+	cameraSystem->Update(ts);
+	renderSystem->Update(ts);
+	
 	ErigonEngine::Renderer2D::EndSnap();
 }
 
 void Engine2D::OnPostUpdate(ErigonEngine::Timestep ts)
 {
-	m_CameraController.OnUpdate(ts);
+	
 }
 
 void Engine2D::OnImGuiRender()
@@ -63,8 +70,6 @@ void Engine2D::OnEvent(const ErigonEngine::Event& e)
 
 void Engine2D::OnEditorEvent(const ErigonEngine::Event& e)
 {
-	m_CameraController.OnEvent(e);
-
 	ErigonEngine::EventDispatcher dispatcher(e);
 	dispatcher.Dispatch<ErigonEngine::Editor::SceneViewSizeChangedEvent>(BIND_EVENT(Engine2D::EventHandler::OnSceneViewChanged, &eventHandler));
 	dispatcher.Dispatch<ErigonEngine::Editor::SceneCreatedEvent>(BIND_EVENT(Engine2D::EventHandler::OnSceneCreated, &eventHandler));

@@ -1,7 +1,6 @@
 #pragma once
 #include "RenderCommand.h"
 #include "Shader.h"
-#include "OrtographicCamera.h"
 #include "Texture.h"
 #include <glm\glm.hpp>
 
@@ -24,11 +23,9 @@ namespace ErigonEngine
 	public:
 		static void Init();
 		static void Destroy();
-		static void BeginSnap(uint32 width, uint32 height);
+		static void BeginSnap();
 		static void EndSnap();
 		static uint32 GetSnap();
-		static void BeginScene();
-		static void EndScene();
 		static void OnWindowResize(uint32_t width, uint32_t height);
 		static void RecreateFramebuffer(uint32_t width, uint32_t heigth);
 		static void Draw(DrawCallData drawCallDataCollection);

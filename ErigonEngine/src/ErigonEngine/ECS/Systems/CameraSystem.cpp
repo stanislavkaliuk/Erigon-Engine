@@ -9,13 +9,22 @@ namespace ErigonEngine
 {
 	void CameraSystem::Init(const glm::vec2& renderWindowSize)
 	{
-		ECS::Camera camera = GetComponent<ECS::Camera>(); 
-		camera.RecalculateProjectionMatrix(renderWindowSize);
-		camera.RecalculatViewMatrix(GetComponent<ECS::Transform>().position);
+		this->renderWindowSize = renderWindowSize;
 	}
 
 	void CameraSystem::Update(float deltaTime)
 	{
+		if (entities.empty())
+		{
+			return;
+		}
+		else if (camera != nullptr)
+		{
+			GetCameraComponent();
+			camera->RecalculateProjectionMatrix(renderWindowSize);
+			camera->RecalculatViewMatrix(gECSController.GetComponent<ECS::Transform>(*entities.begin()).position);
+		}
+
 		ECS::Transform transform = gECSController.GetComponent<ECS::Transform>(*entities.begin());
 		glm::vec3 position = transform.position;
 
@@ -53,25 +62,36 @@ namespace ErigonEngine
 		dispatcher.Dispatch<Editor::SceneViewSizeChangedEvent>(EE_BIND_EVENT(CameraSystem::OnSceneViewChanged));
 	}
 
-	template<typename T>
-	T& CameraSystem::GetComponent()
+	void CameraSystem::GetCameraComponent()
 	{
-		return gECSController.GetComponent<T>(*entities.begin());
+		if (entities.empty())
+		{
+			return;
+		}
+
+		camera = &gECSController.GetComponent<ECS::Camera>(*entities.begin());
 	}
 
 	bool CameraSystem::OnSceneViewChanged(Editor::SceneViewSizeChangedEvent& e)
 	{
-		UpdateProjection(e.GetSize());
+		renderWindowSize = e.GetSize();
+		UpdateProjection(renderWindowSize);
 		return true;
 	}
 
 	void CameraSystem::UpdateProjection(const glm::vec2& size)
 	{
-		GetComponent<ECS::Camera>().RecalculateProjectionMatrix(size);
+		if (camera != nullptr)
+		{
+			camera->RecalculateProjectionMatrix(size);
+		}
 	}
 
 	void CameraSystem::UpdateView(const glm::vec3& position)
 	{
-		GetComponent<ECS::Camera>().RecalculatViewMatrix(position);
+		if (camera != nullptr)
+		{
+			camera->RecalculatViewMatrix(position);
+		}
 	}
 }

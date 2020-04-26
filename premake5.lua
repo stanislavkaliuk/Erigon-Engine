@@ -80,7 +80,6 @@ project "ErigonEngine"
 		"ImGui",
 		"opengl32.lib",
 		"yaml-cppd.lib",
-		"EECS",
 		"DragonBones"
 	}
 

@@ -12,7 +12,6 @@ namespace ErigonEngine
 		glm::vec2 framebufferSize;
 	};
 
-
 	static Ref<Texture2D> WhiteTexture;
 	static FrameBufferData frameBufferData;
 
@@ -24,8 +23,6 @@ namespace ErigonEngine
 		WhiteTexture = Texture2D::Create();
 		frameBufferData.framebufferSize = glm::vec2(1280, 720);
 		RecreateFramebuffer(frameBufferData.framebufferSize.x, frameBufferData.framebufferSize.y);
-
-		//data.shader = Shader::Create("assets/shaders/Sprite.egl");
 	}
 
 	void Renderer2D::Destroy()
@@ -42,10 +39,11 @@ namespace ErigonEngine
 		return { frameBufferData.framebufferSize.x, frameBufferData.framebufferSize.y };
 	}
 
-	void Renderer2D::BeginSnap(uint32 width, uint32 height)
+	void Renderer2D::BeginSnap()
 	{
 		uint32 textureID = frameBufferData.frameBufferTexture->GetTextureId();
-		frameBufferData.frameBuffer->Bind(textureID, width, height);
+		glm::vec2 size = GetFrameBufferSize();
+		frameBufferData.frameBuffer->Bind(textureID, size.x, size.y);
 	}
 
 	void Renderer2D::EndSnap()
@@ -56,17 +54,6 @@ namespace ErigonEngine
 	uint32 Renderer2D::GetSnap()
 	{
 		return frameBufferData.frameBufferTexture->GetTextureId();
-	}
-
-	void Renderer2D::BeginScene()
-	{
-		//data.shader->Bind();
-		//data.shader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
-	}
-
-	void Renderer2D::EndScene()
-	{
-
 	}
 
 	void Renderer2D::OnWindowResize(uint32_t width, uint32_t height)

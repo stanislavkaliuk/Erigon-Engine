@@ -32,7 +32,10 @@ public:
 private:
 	EventHandler eventHandler;
 	ErigonEngine::ShaderLibrary m_ShaderLibrary;
-	ErigonEngine::Ref<ErigonEngine::Texture2D> texture;
 	ErigonEngine::Editor::EditorUIController* Editor;
-	ErigonEngine::Editor::NodeEditor* nodeEditor;
+	
+	//ECS
+	ErigonEngine::CameraSystem* cameraSystem;
+	ErigonEngine::RenderSystem* renderSystem;
+
 };

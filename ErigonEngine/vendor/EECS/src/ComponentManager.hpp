@@ -15,7 +15,7 @@ namespace ECS
 		template<typename T>
 		void RegisterComponent()
 		{
-			const char* typeName = typeid(T).name;
+			const char* typeName = typeid(T).name();
 
 			assert(componentTypes.find(typeName) == componentTypes.end() && "Registering component more than once.");
 
@@ -28,7 +28,7 @@ namespace ECS
 		template<typename T>
 		ComponentType GetComponentType()
 		{
-			return componentTypes[typeid(T).name];
+			return componentTypes[typeid(T).name()];
 		}
 
 		template<typename T>
@@ -44,9 +44,9 @@ namespace ECS
 		}
 
 		template<typename T>
-		void GetComponent(Entity entity)
+		T GetComponent(Entity entity)
 		{
-			GetComponentArray<T>()->GetData(entity);
+			return GetComponentArray<T>()->GetData(entity);
 		}
 
 		void EntityDestroyed(Entity entity)
@@ -66,7 +66,7 @@ namespace ECS
 		template<typename T>
 		std::shared_ptr<ComponentArray<T>> GetComponentArray()
 		{
-			return std::static_pointer_cast<ComponentArray<T>>(componentArrays[typeid(T).name]);
+			return std::static_pointer_cast<ComponentArray<T>>(componentArrays[typeid(T).name()]);
 		}
 	};
 }

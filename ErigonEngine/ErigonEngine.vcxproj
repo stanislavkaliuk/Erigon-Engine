@@ -151,9 +151,6 @@
     <ClInclude Include="src\ErigonEngine\Core\TimeStep.h" />
     <ClInclude Include="src\ErigonEngine\Core\Types.h" />
     <ClInclude Include="src\ErigonEngine\Core\Window.h" />
-    <ClInclude Include="src\ErigonEngine\ECS\Components\Camera.hpp" />
-    <ClInclude Include="src\ErigonEngine\ECS\Components\Sprite.hpp" />
-    <ClInclude Include="src\ErigonEngine\ECS\Components\Transform.hpp" />
     <ClInclude Include="src\ErigonEngine\ECS\ECSController.h" />
     <ClInclude Include="src\ErigonEngine\ECS\Enitites\GameObject.h" />
     <ClInclude Include="src\ErigonEngine\ECS\Enitites\IGameObject.h" />
@@ -597,11 +594,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp" />
+    <ClCompile Include="src\ErigonEngine\ECS\ECSController.cpp" />
     <ClCompile Include="src\ErigonEngine\ECS\Systems\CameraSystem.cpp" />
     <ClCompile Include="src\ErigonEngine\ECS\Systems\RenderSystem.cpp" />
-    <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.cpp">
-      <ObjectFileName>$(IntDir)\Sprite1.obj</ObjectFileName>
-    </ClCompile>
+    <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Transform.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\EditorUIController.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\ENodeEditor.cpp" />
@@ -657,9 +653,6 @@
     </ProjectReference>
     <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
-    </ProjectReference>
-    <ProjectReference Include="vendor\EECS\EECS.vcxproj">
-      <Project>{2514847C-114B-850D-BA37-6B10A64D010F}</Project>
     </ProjectReference>
     <ProjectReference Include="vendor\DragonBones\DragonBones.vcxproj">
       <Project>{57E362BC-C398-DBB1-4C8D-D588B841D2B5}</Project>
