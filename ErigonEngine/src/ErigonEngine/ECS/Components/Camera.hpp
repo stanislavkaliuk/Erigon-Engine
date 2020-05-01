@@ -15,7 +15,8 @@ namespace ErigonEngine
 
 			void RecalculateProjectionMatrix(glm::vec2 renderViewSize)
 			{
-				projectionMatrix = glm::ortho(0.0f, renderViewSize.x, renderViewSize.y, 0.0f, nearClipPlane, farClipPlaner);
+				float aspect = renderViewSize.x / renderViewSize.y;
+				projectionMatrix = glm::ortho(-aspect, aspect, -1.0f, 1.0f, nearClipPlane, farClipPlaner);
 				viewProjectionMatrix = projectionMatrix * viewMatrix;
 			}
 

@@ -12,6 +12,13 @@ namespace ErigonEngine
 			Ref<Texture2D> texture;
 			Color spriteColor;
 			Ref<Shader> shader;
+			Sprite() = default;
+			Sprite(const Sprite& other)
+			{
+				this->texture.reset(other.texture.get());
+				this->shader.reset(other.shader.get());
+				this->spriteColor = other.spriteColor;
+			}
 
 			void SetColor(const glm::vec3& color)
 			{
@@ -40,7 +47,6 @@ namespace ErigonEngine
 
 			void SetShader(const char* path)
 			{
-				shader.reset();
 				shader = Shader::Create(path);
 			}
 

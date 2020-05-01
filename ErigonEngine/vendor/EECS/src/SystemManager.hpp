@@ -18,7 +18,7 @@ namespace ECS
 
 			assert(systems.find(typeName) == systems.end() && "Registering system more than once.");
 
-			auto system = std::make_shared<T>();
+			std::shared_ptr<T> system = std::make_shared<T>();
 			systems.insert({ typeName, system });
 			return system;
 		}

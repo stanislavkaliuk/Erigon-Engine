@@ -62,11 +62,11 @@ namespace ErigonEngine
 
 			DrawCallData data{};
 
-			data.color = spriteRenderer.GetColor();
-			data.shader = spriteRenderer.GetShader();
-			data.texture = spriteRenderer.GetTexture();
+			data.color = spriteRenderer->GetColor();
+			data.shader = spriteRenderer->GetShader();
+			data.texture = spriteRenderer->GetTexture();
 			data.vertexArray = quadVertexArray;
-			data.transform = transform.GetTransformMatrix();
+			data.transform = transform->GetTransformMatrix();
 			data.viewProjection = camera->viewProjectionMatrix;
 			
 			Renderer2D::Draw(data);

@@ -65,7 +65,7 @@ namespace ECS
 		}
 
 		template<typename T>
-		T& GetComponent(Entity entity)
+		std::shared_ptr<T> GetComponent(Entity entity)
 		{
 			return componentManager->GetComponent<T>(entity);
 		}

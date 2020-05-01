@@ -26,9 +26,9 @@ namespace ErigonEngine
 
 		delete entities;
 
-		for (auto sys : *systems)
+		for (SystemCollection::iterator it = systems->begin(); it != systems->end(); it++)
 		{
-			sys.reset();
+			it->reset();
 		}
 
 		delete systems;
@@ -36,9 +36,9 @@ namespace ErigonEngine
 
 	void ECSController::Update(float deltaTime)
 	{
-		for (auto sys : *systems)
+		for (SystemCollection::iterator it = systems->begin(); it != systems->end(); it++)
 		{
-			sys->Update(deltaTime);
+			it->get()->Update(deltaTime);
 		}
 	}
 
@@ -76,7 +76,7 @@ namespace ErigonEngine
 			{
 				glm::vec3(0,0,0), glm::vec3(), glm::vec3(1,1,1)
 			});
-		gECSController.AddComponent(entity, ECS::Camera{});
+		gECSController.AddComponent(entity, ECS::Camera());
 		controller.entities->push_back(entity);
 		return entity;
 	}
@@ -88,7 +88,9 @@ namespace ErigonEngine
 			{
 				glm::vec3(), glm::vec3(), glm::vec3(1,1,1)
 			});
-		gECSController.AddComponent(entity, ECS::Sprite{});
+		ECS::Sprite sprite = ECS::Sprite();
+		sprite.SetColor(glm::vec3(1.0f, 1.0f, 1.0f));
+		gECSController.AddComponent(entity, sprite);
 		controller.entities->push_back(entity);
 		return entity;
 	}

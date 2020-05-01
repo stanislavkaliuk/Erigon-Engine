@@ -19,17 +19,35 @@ void Engine2D::OnAttach()
 	Editor->Setup(new ErigonEngine::Editor::Dockspace());
 	Editor->Setup(new ErigonEngine::Editor::SceneView());
 
+	ErigonEngine::ECSController* ecscontroller = &ErigonEngine::Application::Get().GetECSController();
+
+
 	ECS::Signature cameraSignature;
 	cameraSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Camera>());
 	cameraSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Transform>());
-	cameraSystem = &ErigonEngine::Application::Get().GetECSController().SetupSystem<ErigonEngine::CameraSystem>(cameraSignature);
-	cameraSystem->Init();
+	cameraSystem = ecscontroller->SetupSystem<ErigonEngine::CameraSystem>(cameraSignature);
+	cameraSystem->Init(glm::vec2(1280,720));
 
 	ECS::Signature renderSignature;
 	renderSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Transform>());
 	renderSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Sprite>());
-	renderSystem = &ErigonEngine::Application::Get().GetECSController().SetupSystem<ErigonEngine::RenderSystem>(renderSignature);
+	renderSystem = ecscontroller->SetupSystem<ErigonEngine::RenderSystem>(renderSignature);
 	renderSystem->Init(*cameraSystem);
+
+	ErigonEngine::ECSController::EntityFactory factory = ErigonEngine::ECSController::EntityFactory();
+	::ECS::Entity cameraObject = factory.CreateCamera(*ecscontroller);
+	auto cameraTransform = gECSController.GetComponent<ErigonEngine::ECS::Transform>(cameraObject);
+	cameraTransform->position = glm::vec3(0, 0, 0);
+	auto cameraComponent = gECSController.GetComponent<ErigonEngine::ECS::Camera>(cameraObject);
+	cameraComponent->RecalculateProjectionMatrix(glm::vec2(1280, 720));
+
+	::ECS::Entity spriteObject = factory.CreateSprite(*ecscontroller);
+	auto spriteTransform = gECSController.GetComponent<ErigonEngine::ECS::Transform>(spriteObject);
+	spriteTransform->position = glm::vec3(0, 0, 0);
+	auto spriteComponent = gECSController.GetComponent<ErigonEngine::ECS::Sprite>(spriteObject);
+	spriteComponent->SetShader("assets/shaders/Sprite.egl");
+	spriteComponent->SetTexture("assets/textures/texture2.png");
+	spriteComponent->SetColor(glm::vec3(1.0f, 1.0f, 1.0f));
 }
 
 void Engine2D::OnDetach()

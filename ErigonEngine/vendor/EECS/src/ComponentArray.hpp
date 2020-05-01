@@ -24,7 +24,7 @@ namespace ECS
 			size_t newIndex = size;
 			entityToIndexMap[entity] = newIndex;
 			indexToEntityMap[newIndex] = entity;
-			componentArray[newIndex] = component;
+			componentArray[newIndex] = std::make_shared<T>(component);
 			size++;
 		}
 
@@ -45,7 +45,7 @@ namespace ECS
 			size--;
 		}
 
-		T& GetData(Entity entity)
+		std::shared_ptr<T> GetData(Entity entity)
 		{
 			return componentArray[entityToIndexMap[entity]];
 		}
@@ -59,7 +59,7 @@ namespace ECS
 		}
 
 	private:
-		std::array<T, MAX_ENTITIES> componentArray{};
+		std::array<std::shared_ptr<T>, MAX_ENTITIES> componentArray{};
 		std::unordered_map<Entity, size_t> entityToIndexMap{};
 		std::unordered_map<Entity, size_t> indexToEntityMap{};
 		size_t size;

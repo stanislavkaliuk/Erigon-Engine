@@ -151,6 +151,9 @@
     <ClInclude Include="src\ErigonEngine\Core\TimeStep.h" />
     <ClInclude Include="src\ErigonEngine\Core\Types.h" />
     <ClInclude Include="src\ErigonEngine\Core\Window.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Camera.hpp" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Sprite.hpp" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Transform.hpp" />
     <ClInclude Include="src\ErigonEngine\ECS\ECSController.h" />
     <ClInclude Include="src\ErigonEngine\ECS\Enitites\GameObject.h" />
     <ClInclude Include="src\ErigonEngine\ECS\Enitites\IGameObject.h" />

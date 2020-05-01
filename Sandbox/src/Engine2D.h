@@ -35,7 +35,7 @@ private:
 	ErigonEngine::Editor::EditorUIController* Editor;
 	
 	//ECS
-	ErigonEngine::CameraSystem* cameraSystem;
-	ErigonEngine::RenderSystem* renderSystem;
+	std::shared_ptr<ErigonEngine::CameraSystem> cameraSystem;
+	std::shared_ptr<ErigonEngine::RenderSystem> renderSystem;
 
 };

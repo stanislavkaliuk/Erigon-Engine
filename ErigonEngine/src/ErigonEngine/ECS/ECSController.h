@@ -19,12 +19,12 @@ namespace ErigonEngine
 		void Update(float deltaTime);
 
 		template<typename T>
-		T& SetupSystem(::ECS::Signature signature)
+		std::shared_ptr<T> SetupSystem(::ECS::Signature signature)
 		{
 			std::shared_ptr<T> t_system = gECSController.RegisterSystem<T>();
 			gECSController.SetSystemSignature<T>(signature);
 			systems->push_back(t_system);
-			return *t_system;
+			return t_system;
 		}
 		
 		class EntityFactory

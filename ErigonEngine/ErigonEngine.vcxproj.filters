@@ -1455,6 +1455,9 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Camera.hpp" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Sprite.hpp" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Transform.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp">

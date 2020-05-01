@@ -18,41 +18,37 @@ namespace ErigonEngine
 		{
 			return;
 		}
-		else if (camera != nullptr)
+		else if (camera == nullptr)
 		{
 			GetCameraComponent();
 			camera->RecalculateProjectionMatrix(renderWindowSize);
-			camera->RecalculatViewMatrix(gECSController.GetComponent<ECS::Transform>(*entities.begin()).position);
+			camera->RecalculatViewMatrix(gECSController.GetComponent<ECS::Transform>(*entities.begin())->position);
 		}
 
-		ECS::Transform transform = gECSController.GetComponent<ECS::Transform>(*entities.begin());
-		glm::vec3 position = transform.position;
+		std::shared_ptr<ECS::Transform> transform = gECSController.GetComponent<ECS::Transform>(*entities.begin());
+		glm::vec3 position = transform->position;
 
 		if (Input::IsKeyPressed(EE_KEY_A))
 		{
 			position.x -= CAMERA_MAX_SPEED * deltaTime;
-			position.y -= CAMERA_MAX_SPEED * deltaTime;
 		}
 
 		if (Input::IsKeyPressed(EE_KEY_D))
 		{
 			position.x += CAMERA_MAX_SPEED * deltaTime;
-			position.y += CAMERA_MAX_SPEED * deltaTime;
 		}
 
 		if (Input::IsKeyPressed(EE_KEY_W))
 		{
-			position.x += CAMERA_MAX_SPEED * deltaTime;
 			position.y += CAMERA_MAX_SPEED * deltaTime;
 		}
 
 		if (Input::IsKeyPressed(EE_KEY_S))
 		{
-			position.x -= CAMERA_MAX_SPEED * deltaTime;
 			position.y -= CAMERA_MAX_SPEED * deltaTime;
 		}
 
-		transform.position = position;
+		transform->position = position;
 		UpdateView(position);
 	}
 
@@ -69,7 +65,7 @@ namespace ErigonEngine
 			return;
 		}
 
-		camera = &gECSController.GetComponent<ECS::Camera>(*entities.begin());
+		camera = gECSController.GetComponent<ECS::Camera>(*entities.begin());
 	}
 
 	bool CameraSystem::OnSceneViewChanged(Editor::SceneViewSizeChangedEvent& e)

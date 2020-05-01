@@ -12,7 +12,7 @@ namespace ErigonEngine
 				EE_CORE_ASSERT(false, "RendererAPI::None is currently not supported!");
 				return nullptr;
 			case RendererAPI::API::OpenGL:
-				return std::make_shared<OpenGLTexture2D>(width, height);
+				return CreateRef<OpenGLTexture2D>(width, height);
 		}
 		EE_CORE_ASSERT(false, "Unknown Renderer API");
 		return nullptr;
@@ -27,7 +27,7 @@ namespace ErigonEngine
 				EE_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); 
 				return nullptr;
 			}
-			case RendererAPI::API::OpenGL: return std::make_shared<OpenGLTexture2D>(path);
+			case RendererAPI::API::OpenGL: return CreateRef<OpenGLTexture2D>(path);
 		}
 		EE_CORE_ASSERT(false, "Unknown Renderer API");
 		return nullptr;
