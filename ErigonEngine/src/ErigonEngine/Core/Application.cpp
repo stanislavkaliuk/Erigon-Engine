@@ -20,6 +20,8 @@ namespace ErigonEngine
 		m_Window = Scope<IWindow>(IWindow::Create());
 		m_Window->SetEventCallback(BIND_EVENT(Application::OnEvent));
 
+		m_ECS_System = Scope<ECSController>(ECSController::Create());
+		//Init ECS Here
 		Renderer2D::Init();
 
 		m_ImGuiLayer = new ImGUILayer();

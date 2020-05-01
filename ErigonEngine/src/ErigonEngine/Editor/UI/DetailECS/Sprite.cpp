@@ -5,7 +5,7 @@ namespace ErigonEngine
 {
 	namespace Editor
 	{
-		void Sprite::Setup(ErigonEngine::Sprite* component)
+		void Sprite::Setup(ErigonEngine::ECS::Sprite* component)
 		{
 			connectedComponent = component;
 			treeNodeFlags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed;
@@ -13,7 +13,7 @@ namespace ErigonEngine
 
 		void Sprite::Draw()
 		{
-			if (ImGui::CollapsingHeader("Transform", treeNodeFlags))
+			if (ImGui::CollapsingHeader("SpriteRenderer", treeNodeFlags))
 			{
 				
 			}

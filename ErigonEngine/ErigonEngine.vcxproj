@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\include;vendor\DragonBones;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\src;vendor\DragonBones;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -98,7 +98,7 @@
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\include;vendor\DragonBones;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\src;vendor\DragonBones;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -123,7 +123,7 @@
       <PrecompiledHeaderFile>eepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;ERIGON_WINDOWS;ERIGON_DLL;GLFW_INCLUDE_NONE;EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\include;vendor\DragonBones;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\yamlcpp\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\EECS\src;vendor\DragonBones;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -144,7 +144,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\ErigonEngine.h" />
-    <ClInclude Include="src\ErigonEngine\Controllers\OrthographicCameraController.h" />
     <ClInclude Include="src\ErigonEngine\Core\Application.h" />
     <ClInclude Include="src\ErigonEngine\Core\Core.h" />
     <ClInclude Include="src\ErigonEngine\Core\EntryPoint.h" />
@@ -152,34 +151,36 @@
     <ClInclude Include="src\ErigonEngine\Core\TimeStep.h" />
     <ClInclude Include="src\ErigonEngine\Core\Types.h" />
     <ClInclude Include="src\ErigonEngine\Core\Window.h" />
-    <ClInclude Include="src\ErigonEngine\ECS\GameObject.h" />
-    <ClInclude Include="src\ErigonEngine\ECS\IComponent.h" />
-    <ClInclude Include="src\ErigonEngine\ECS\IGameObject.h" />
-    <ClInclude Include="src\ErigonEngine\ECS\Sprite.h" />
-    <ClInclude Include="src\ErigonEngine\ECS\Transform.h" />
-    <ClInclude Include="src\ErigonEngine\Editor\Project\Project.h" />
-    <ClInclude Include="src\ErigonEngine\Events\EditorEvent.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Camera.hpp" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Sprite.hpp" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\Transform.hpp" />
+    <ClInclude Include="src\ErigonEngine\ECS\ECSController.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Enitites\GameObject.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Enitites\IGameObject.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Systems\CameraSystem.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Systems\RenderSystem.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\IDetail.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\Transform.h" />
-    <ClInclude Include="src\ErigonEngine\Editor\UI\Views\Dockspace.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\Editor.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\EditorUIController.h" />
-    <ClInclude Include="src\ErigonEngine\Editor\UI\Views\IView.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\ENodeEditor.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\ENodeEditorInternal.h" />
-    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\crudejson.h" />
-    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiBezier.h" />
-    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiExtraMath.h" />
-    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imgui_canvas.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Builders.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Drawing.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Interop.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Math2d.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Widgets.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\crudejson.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiBezier.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiExtraMath.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imgui_canvas.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\NodeEditor\NodeEditor.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\Views\Dockspace.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\Views\IView.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\Views\SceneView.h" />
     <ClInclude Include="src\ErigonEngine\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\ErigonEngine\Events\EditorEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\Event.h" />
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\MouseEvent.h" />
@@ -192,6 +193,13 @@
     <ClInclude Include="src\ErigonEngine\Layers\Layer.h" />
     <ClInclude Include="src\ErigonEngine\Layers\LayerStack.h" />
     <ClInclude Include="src\ErigonEngine\Log\Log.h" />
+    <ClInclude Include="src\ErigonEngine\MemoryManager\ChunkAllocator.h" />
+    <ClInclude Include="src\ErigonEngine\MemoryManager\IAllocator.h" />
+    <ClInclude Include="src\ErigonEngine\MemoryManager\IMemoryUser.h" />
+    <ClInclude Include="src\ErigonEngine\MemoryManager\LinearAllocator.h" />
+    <ClInclude Include="src\ErigonEngine\MemoryManager\MemoryManager.h" />
+    <ClInclude Include="src\ErigonEngine\MemoryManager\PoolAllocator.h" />
+    <ClInclude Include="src\ErigonEngine\MemoryManager\StackAllocator.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\Buffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\FrameBuffer.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\GraphicsContext.h" />
@@ -203,7 +211,6 @@
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLTexture.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\ErigonEngine\Renderer\OrtographicCamera.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\Renderer2D.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\RendererAPI.h" />
@@ -589,20 +596,21 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ErigonEngine\Controllers\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp" />
-    <ClCompile Include="src\ErigonEngine\ECS\Sprite.cpp" />
+    <ClCompile Include="src\ErigonEngine\ECS\ECSController.cpp" />
+    <ClCompile Include="src\ErigonEngine\ECS\Systems\CameraSystem.cpp" />
+    <ClCompile Include="src\ErigonEngine\ECS\Systems\RenderSystem.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Transform.cpp" />
-    <ClCompile Include="src\ErigonEngine\Editor\UI\Views\Dockspace.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\EditorUIController.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\ENodeEditor.cpp" />
-    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\crudejson.cpp" />
-    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imgui_canvas.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Builders.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Drawing.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Widgets.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\crudejson.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imgui_canvas.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\NodeEditor.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\Views\Dockspace.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\Views\SceneView.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGUILayer.cpp" />
@@ -611,6 +619,12 @@
     <ClCompile Include="src\ErigonEngine\Layers\Layer.cpp" />
     <ClCompile Include="src\ErigonEngine\Layers\LayerStack.cpp" />
     <ClCompile Include="src\ErigonEngine\Log\Log.cpp" />
+    <ClCompile Include="src\ErigonEngine\MemoryManager\IAllocator.cpp" />
+    <ClCompile Include="src\ErigonEngine\MemoryManager\IMemoryUser.cpp" />
+    <ClCompile Include="src\ErigonEngine\MemoryManager\LinearAllocator.cpp" />
+    <ClCompile Include="src\ErigonEngine\MemoryManager\MemoryManager.cpp" />
+    <ClCompile Include="src\ErigonEngine\MemoryManager\PoolAllocator.cpp" />
+    <ClCompile Include="src\ErigonEngine\MemoryManager\StackAllocator.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\Buffer.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\FrameBuffer.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLBuffer.cpp" />
@@ -620,7 +634,6 @@
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLTexture.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\ErigonEngine\Renderer\OrtographicCamera.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\RendererAPI.cpp" />
@@ -644,17 +657,9 @@
     <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
-    <ProjectReference Include="vendor\EECS\EECS.vcxproj">
-      <Project>{2514847C-114B-850D-BA37-6B10A64D010F}</Project>
-    </ProjectReference>
     <ProjectReference Include="vendor\DragonBones\DragonBones.vcxproj">
       <Project>{57E362BC-C398-DBB1-4C8D-D588B841D2B5}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiBezier.inl" />
-    <None Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\imguiExtraMath.inl" />
-    <None Include="src\ErigonEngine\Editor\UI\NodeEditor\ENodeEditor\Utilities\Math2d.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -16,7 +16,7 @@ IncludeDir["Glad"] = "ErigonEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "ErigonEngine/vendor/imgui"
 IncludeDir["Glm"] = "ErigonEngine/vendor/glm"
 IncludeDir["stb_image"] = "ErigonEngine/vendor/stb_image"
-IncludeDir["EECS"] = "ErigonEngine/vendor/EECS/include"
+IncludeDir["EECS"] = "ErigonEngine/vendor/EECS/src"
 IncludeDir["DragonBones"] = "ErigonEngine/vendor/DragonBones"
 IncludeDir["YAML"] = "ErigonEngine/vendor/yamlcpp/include"
 
@@ -80,7 +80,6 @@ project "ErigonEngine"
 		"ImGui",
 		"opengl32.lib",
 		"yaml-cppd.lib",
-		"EECS",
 		"DragonBones"
 	}
 

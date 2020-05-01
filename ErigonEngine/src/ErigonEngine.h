@@ -26,5 +26,6 @@
 #include "ErigonEngine/Renderer/Texture.h"
 #include "ErigonEngine/Renderer/VertexArray.h"
 
-#include "ErigonEngine/Renderer/OrtographicCamera.h"
-#include "ErigonEngine/Controllers/OrthographicCameraController.h"
+
+//-----ECS------//
+#include "ErigonEngine/ECS/ECSController.h"

@@ -5,7 +5,7 @@ namespace ErigonEngine
 {
 	namespace Editor
 	{
-		void Transform::Setup(ErigonEngine::Transform* component)
+		void Transform::Setup(ErigonEngine::ECS::Transform* component)
 		{
 			connectedComponent = component;
 			treeNodeFlags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed;
@@ -13,9 +13,9 @@ namespace ErigonEngine
 
 		void Transform::Draw()
 		{
-			if (ImGui::CollapsingHeader("Transform", treeNodeFlags))
+			/*if (ImGui::CollapsingHeader("Transform", treeNodeFlags))
 			{
-				float* position = connectedComponent->position.GetUnpacked();
+				float* position = connectedComponent->position;
 				if(ImGui::DragFloat3("Position", position))
 				{
 					if (ImGui::IsItemDeactivatedAfterEdit())
@@ -32,7 +32,7 @@ namespace ErigonEngine
 						connectedComponent->scale = scale;
 					}
 				}
-			}
+			}*/
 		}
 	}
 }

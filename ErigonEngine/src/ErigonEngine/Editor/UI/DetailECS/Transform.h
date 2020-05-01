@@ -1,15 +1,15 @@
 #pragma once
 #include "IDetail.h"
-#include "ErigonEngine\ECS\Transform.h"
+#include "ErigonEngine\ECS\Components\Transform.hpp"
 
 namespace ErigonEngine
 {
 	namespace Editor
 	{
-		class Transform : public IDetail<ErigonEngine::Transform>
+		class Transform : public IDetail<ErigonEngine::ECS::Transform>
 		{
 		public:
-			virtual void Setup(ErigonEngine::Transform* component) override;
+			virtual void Setup(ErigonEngine::ECS::Transform* component) override;
 			virtual void Draw() override;
 
 		private:

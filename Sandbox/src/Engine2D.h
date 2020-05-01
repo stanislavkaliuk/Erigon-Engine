@@ -31,9 +31,11 @@ public:
 
 private:
 	EventHandler eventHandler;
-	ErigonEngine::OrthographicCameraController m_CameraController;
 	ErigonEngine::ShaderLibrary m_ShaderLibrary;
-	ErigonEngine::Ref<ErigonEngine::Texture2D> texture;
 	ErigonEngine::Editor::EditorUIController* Editor;
-	ErigonEngine::Editor::NodeEditor* nodeEditor;
+	
+	//ECS
+	std::shared_ptr<ErigonEngine::CameraSystem> cameraSystem;
+	std::shared_ptr<ErigonEngine::RenderSystem> renderSystem;
+
 };

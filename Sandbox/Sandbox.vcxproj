@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\src;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -88,6 +88,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ErigonEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\Debug-windows-x86_64\ErigonEngine;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -95,7 +97,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\src;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -115,7 +117,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>EE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\include;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;..\ErigonEngine\vendor\spdlog\include;..\ErigonEngine\src;..\ErigonEngine\vendor;..\ErigonEngine\vendor\glm;..\ErigonEngine\vendor\imgui;..\ErigonEngine\vendor\EECS\src;..\ErigonEngine\vendor\yamlcpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>

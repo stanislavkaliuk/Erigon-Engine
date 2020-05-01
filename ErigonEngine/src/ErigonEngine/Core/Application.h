@@ -11,7 +11,7 @@
 #include "ErigonEngine/Renderer/VertexBuffer.h"
 #include "ErigonEngine/Renderer/IndexBuffer.h"
 #include "ErigonEngine/Renderer/VertexArray.h"
-#include "ErigonEngine/Renderer/OrtographicCamera.h"
+#include "ErigonEngine/ECS/ECSController.h"
 
 namespace ErigonEngine
 {
@@ -26,11 +26,13 @@ namespace ErigonEngine
 		void PushOverlay(Layer* layer);
 		inline IWindow& GetWindow() { return *m_Window; }
 		inline static Application& Get() { return *s_Instance; }
+		inline ECSController& GetECSController() { return *m_ECS_System; }
 	private:
 		bool OnWindowClosed(WindowCloseEvent& e);
 		bool OnWindowResized(WindowResizeEvent& e);
 		bool OnAppWantExit(const AppExitEvent& e);
 	private:
+		Scope<ECSController> m_ECS_System;
 		Scope<IWindow> m_Window;
 		ImGUILayer*  m_ImGuiLayer;
 		bool m_Running = true;
