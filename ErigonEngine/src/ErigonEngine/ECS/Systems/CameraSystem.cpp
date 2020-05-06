@@ -48,6 +48,16 @@ namespace ErigonEngine
 			position.y -= CAMERA_MAX_SPEED * deltaTime;
 		}
 
+		if (Input::IsKeyPressed(EE_KEY_Z))
+		{
+			position.z += CAMERA_MAX_SPEED * 0.25f * deltaTime;
+		}
+
+		if (Input::IsKeyPressed(EE_KEY_X))
+		{
+			position.z -= CAMERA_MAX_SPEED * 0.25f * deltaTime;
+		}
+
 		transform->position = position;
 		UpdateView(position);
 	}

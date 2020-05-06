@@ -3,6 +3,8 @@
 #include <string>
 #include <ErigonEngine/Core/Core.h>
 #include <ErigonEngine/Core/Types.h>
+#include "ErigonEngine/FileSystem/IContent.h"
+#include <future>
 
 namespace ErigonEngine
 {
@@ -19,9 +21,11 @@ namespace ErigonEngine
 	};
 
 
-	class Texture2D : public Texture
+	class Texture2D : public Texture, public Content::IContent
 	{
 	public:
+		static Ref<Content::IContent> LoadAsync(const char* filePath);
+		static Ref<Content::IContent> Load(const char* filePath);
 		static Ref<Texture2D> Create(uint32_t width, uint32_t height);
 		static Ref<Texture2D> Create(const std::string& path);
 		static Ref<Texture2D> Create();

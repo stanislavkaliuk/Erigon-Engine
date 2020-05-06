@@ -4,6 +4,7 @@
 #include "OpenGL/OpenGLTexture.h"
 namespace ErigonEngine
 {
+	
 	Ref<Texture2D> Texture2D::Create(uint32_t width, uint32_t height)
 	{
 		switch (Renderer2D::GetAPI())
@@ -46,4 +47,21 @@ namespace ErigonEngine
 		EE_CORE_ASSERT(false, "Unknown Renderer API");
 		return nullptr;
 	}
+
+	static std::mutex textureLoadMutex;
+
+	//Use with std::async. Will return std::future<Ref<Content::IContent>>
+	Ref<Content::IContent> Texture2D::LoadAsync(const char* filePath)
+	{
+		Ref<Content::IContent> content = std::static_pointer_cast<Content::IContent>(Texture2D::Create(filePath));
+		std::lock_guard<std::mutex> lock(textureLoadMutex);
+		return content;
+	}
+
+	Ref<Content::IContent> Texture2D::Load(const char* filePath)
+	{
+		return std::static_pointer_cast<Content::IContent>(Create(filePath));
+	}
+
+
 }

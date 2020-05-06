@@ -31,7 +31,6 @@ public:
 
 private:
 	EventHandler eventHandler;
-	ErigonEngine::ShaderLibrary m_ShaderLibrary;
 	ErigonEngine::Editor::EditorUIController* Editor;
 	
 	//ECS

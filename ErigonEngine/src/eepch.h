@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <functional>
+#include <future>
+#include <filesystem>
 
 #include "ErigonEngine/Log/Log.h"
 

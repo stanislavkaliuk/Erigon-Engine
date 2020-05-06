@@ -7,7 +7,7 @@ namespace ErigonEngine
 	MemoryManager::MemoryManager()
 	{
 		this->gMemory = malloc(MemoryManager::MEMORY_CAPACITY);
-		this->memoryAllocator = new StackAllocator(MemoryManager::MEMORY_CAPACITY, this->gMemory);
+		this->memoryAllocator = new LinearAllocator(MemoryManager::MEMORY_CAPACITY, this->gMemory);
 		this->pendingMemory.clear();
 		this->freeMemory.clear();
 	}

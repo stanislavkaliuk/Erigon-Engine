@@ -1458,6 +1458,11 @@
     <ClInclude Include="src\ErigonEngine\ECS\Components\Camera.hpp" />
     <ClInclude Include="src\ErigonEngine\ECS\Components\Sprite.hpp" />
     <ClInclude Include="src\ErigonEngine\ECS\Components\Transform.hpp" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\Content.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\IContent.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\ContentDB.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\ContentScanner.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\ContentLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
@@ -1604,5 +1609,9 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\ErigonEngine\FileSystem\Content.cpp" />
+    <ClCompile Include="src\ErigonEngine\FileSystem\ContentScanner.cpp" />
+    <ClCompile Include="src\ErigonEngine\FileSystem\ContentLoader.cpp" />
+    <ClCompile Include="src\ErigonEngine\FileSystem\ContentDB.cpp" />
   </ItemGroup>
 </Project>

@@ -6,12 +6,16 @@ class Sandbox : public ErigonEngine::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new Engine2D());
+		mainLayer = new Engine2D();
+		PushLayer(mainLayer);
 	}
 	~Sandbox()
 	{
-
+		PopLayer(mainLayer);
+		delete mainLayer;
 	}
+private:
+	Engine2D* mainLayer;
 };
 
 ErigonEngine::Application* ErigonEngine::CreateApplication()

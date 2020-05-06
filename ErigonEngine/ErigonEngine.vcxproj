@@ -184,6 +184,11 @@
     <ClInclude Include="src\ErigonEngine\Events\Event.h" />
     <ClInclude Include="src\ErigonEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\ErigonEngine\Events\MouseEvent.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\Content.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\ContentDB.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\ContentLoader.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\ContentScanner.h" />
+    <ClInclude Include="src\ErigonEngine\FileSystem\IContent.h" />
     <ClInclude Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.h" />
     <ClInclude Include="src\ErigonEngine\ImGUI\ImGUILayer.h" />
     <ClInclude Include="src\ErigonEngine\ImGUI\OpenGL\imGUIOpenGLRenderer.h" />
@@ -612,6 +617,10 @@
     <ClCompile Include="src\ErigonEngine\Editor\UI\NodeEditor\NodeEditor.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\Views\Dockspace.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\Views\SceneView.cpp" />
+    <ClCompile Include="src\ErigonEngine\FileSystem\Content.cpp" />
+    <ClCompile Include="src\ErigonEngine\FileSystem\ContentDB.cpp" />
+    <ClCompile Include="src\ErigonEngine\FileSystem\ContentLoader.cpp" />
+    <ClCompile Include="src\ErigonEngine\FileSystem\ContentScanner.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\GLFW\imGUIGLFWRender.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGUILayer.cpp" />
     <ClCompile Include="src\ErigonEngine\ImGUI\ImGuiBuild.cpp" />

@@ -7,6 +7,7 @@
 
 namespace ErigonEngine
 {
+	MemoryManager* engineMemoryManager;
 
 #define BIND_EVENT(x) std::bind(&x, this,std::placeholders::_1)
 	
@@ -20,9 +21,14 @@ namespace ErigonEngine
 		m_Window = Scope<IWindow>(IWindow::Create());
 		m_Window->SetEventCallback(BIND_EVENT(Application::OnEvent));
 
+		Content::Content::Init();
+
+		engineMemoryManager = new MemoryManager();
+
 		m_ECS_System = Scope<ECSController>(ECSController::Create());
 		//Init ECS Here
 		Renderer2D::Init();
+
 
 		m_ImGuiLayer = new ImGUILayer();
 		PushOverlay(m_ImGuiLayer);
@@ -101,5 +107,17 @@ namespace ErigonEngine
 	{
 		m_LayerStack.PushOverlay(layer);
 		layer->OnAttach();
+	}
+
+	void Application::PopLayer(Layer* layer)
+	{
+		layer->OnDetach();
+		m_LayerStack.PopLayer(layer);
+	}
+
+	void Application::PopOverlay(Layer* layer)
+	{
+		layer->OnDetach();
+		m_LayerStack.PopOverlay(layer);
 	}
 }
