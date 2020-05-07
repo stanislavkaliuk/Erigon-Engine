@@ -45,13 +45,25 @@ void Engine2D::OnAttach()
 
 	::ECS::Entity spriteObject = factory.CreateSprite(*ecscontroller);
 	auto spriteTransform = gECSController.GetComponent<ErigonEngine::ECS::Transform>(spriteObject);
-	spriteTransform->position = glm::vec3(0, 0, 0);
+	spriteTransform->position = glm::vec3(0, 0, 0.1f);
 	auto spriteComponent = gECSController.GetComponent<ErigonEngine::ECS::Sprite>(spriteObject);
 
-	ErigonEngine::Ref<ErigonEngine::Content::IContent> texture = ErigonEngine::Content::Content::Load("Icon.png");
+	auto res = ErigonEngine::Content::Content::LoadAll("textures");
+
+	ErigonEngine::Ref<ErigonEngine::Content::IContent> texture = *res.begin();
 	spriteComponent->SetShader(shader);
 	spriteComponent->SetTexture(std::static_pointer_cast<ErigonEngine::Texture2D>(texture));
 	spriteComponent->SetColor(glm::vec3(1.0f, 1.0f, 1.0f));
+
+	::ECS::Entity spriteObject2 = factory.CreateSprite(*ecscontroller);
+	auto spriteTransform2 = gECSController.GetComponent<ErigonEngine::ECS::Transform>(spriteObject2);
+	spriteTransform2->position = glm::vec3(0.5f, 0, -0.2f);
+	auto spriteComponent2 = gECSController.GetComponent<ErigonEngine::ECS::Sprite>(spriteObject2);
+
+	ErigonEngine::Ref<ErigonEngine::Content::IContent> texture2 = ErigonEngine::Content::Content::Load(std::filesystem::path("textures\\texture2.png", std::filesystem::path::format::native_format).string().c_str());
+	spriteComponent2->SetShader(shader);
+	spriteComponent2->SetTexture(std::static_pointer_cast<ErigonEngine::Texture2D>(texture2));
+	spriteComponent2->SetColor(glm::vec3(1.0f, 0.0f, 1.0f));
 }
 
 void Engine2D::OnDetach()

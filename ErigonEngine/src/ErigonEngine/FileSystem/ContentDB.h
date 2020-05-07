@@ -21,6 +21,7 @@ namespace ErigonEngine::Content::Internal
 	class ContentDB
 	{
 	public:
+		static void GetRequestedContentData(std::vector<Internal::ContentMetaData>* contentData, std::string& path);
 		static bool IsContentExists(std::string& path);
 		static ContentMetaData& GetContentData(std::string& path);
 		static std::vector<ContentMetaData>* GetContentMetaData();
