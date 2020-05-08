@@ -5,7 +5,7 @@
 #include <vector>
 #include <list>
 
-#include "StackAllocator.h"
+#include "LinearAllocator.h"
 #include "IMemoryUser.h"
 
 namespace ErigonEngine
@@ -65,7 +65,7 @@ namespace ErigonEngine
 
 	private:
 		void* gMemory;
-		StackAllocator* memoryAllocator;
+		LinearAllocator* memoryAllocator;
 		std::vector<std::pair<const char*, void*>> pendingMemory;
 		std::list<void*> freeMemory;
 

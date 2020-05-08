@@ -7,6 +7,7 @@
 #define BIND_EVENT(x, y) std::bind(&x, y, std::placeholders::_1)
 
 extern ECS::EECS_Controller gECSController;
+extern ErigonEngine::MemoryManager* engineMemoryManager;
 
 Engine2D::Engine2D(): Layer("2D Engine"),
 						Editor(new ErigonEngine::Editor::EditorUIController(1920,1080))
@@ -21,6 +22,7 @@ void Engine2D::OnAttach()
 
 	ErigonEngine::ECSController* ecscontroller = &ErigonEngine::Application::Get().GetECSController();
 
+	ErigonEngine::Ref<ErigonEngine::Shader> shader = ErigonEngine::Shader::Create("assets/shaders/Sprite.egl");
 
 	ECS::Signature cameraSignature;
 	cameraSignature.set(gECSController.GetComponentType<ErigonEngine::ECS::Camera>());
@@ -37,22 +39,38 @@ void Engine2D::OnAttach()
 	ErigonEngine::ECSController::EntityFactory factory = ErigonEngine::ECSController::EntityFactory();
 	::ECS::Entity cameraObject = factory.CreateCamera(*ecscontroller);
 	auto cameraTransform = gECSController.GetComponent<ErigonEngine::ECS::Transform>(cameraObject);
-	cameraTransform->position = glm::vec3(0, 0, 0);
+	cameraTransform->position = glm::vec3(0, 0, -0.1f);
 	auto cameraComponent = gECSController.GetComponent<ErigonEngine::ECS::Camera>(cameraObject);
 	cameraComponent->RecalculateProjectionMatrix(glm::vec2(1280, 720));
 
 	::ECS::Entity spriteObject = factory.CreateSprite(*ecscontroller);
 	auto spriteTransform = gECSController.GetComponent<ErigonEngine::ECS::Transform>(spriteObject);
-	spriteTransform->position = glm::vec3(0, 0, 0);
+	spriteTransform->position = glm::vec3(0, 0, 0.1f);
 	auto spriteComponent = gECSController.GetComponent<ErigonEngine::ECS::Sprite>(spriteObject);
-	spriteComponent->SetShader("assets/shaders/Sprite.egl");
-	spriteComponent->SetTexture("assets/textures/texture2.png");
+
+	auto res = ErigonEngine::Content::Content::LoadAll("textures");
+
+	ErigonEngine::Ref<ErigonEngine::Content::IContent> texture = *res.begin();
+	spriteComponent->SetShader(shader);
+	spriteComponent->SetTexture(std::static_pointer_cast<ErigonEngine::Texture2D>(texture));
 	spriteComponent->SetColor(glm::vec3(1.0f, 1.0f, 1.0f));
+
+	::ECS::Entity spriteObject2 = factory.CreateSprite(*ecscontroller);
+	auto spriteTransform2 = gECSController.GetComponent<ErigonEngine::ECS::Transform>(spriteObject2);
+	spriteTransform2->position = glm::vec3(0.5f, 0, -0.2f);
+	auto spriteComponent2 = gECSController.GetComponent<ErigonEngine::ECS::Sprite>(spriteObject2);
+
+	ErigonEngine::Ref<ErigonEngine::Content::IContent> texture2 = ErigonEngine::Content::Content::Load(std::filesystem::path("textures\\texture2.png", std::filesystem::path::format::native_format).string().c_str());
+	spriteComponent2->SetShader(shader);
+	spriteComponent2->SetTexture(std::static_pointer_cast<ErigonEngine::Texture2D>(texture2));
+	spriteComponent2->SetColor(glm::vec3(1.0f, 0.0f, 1.0f));
 }
 
 void Engine2D::OnDetach()
 {
-
+	delete Editor;
+	cameraSystem.reset();
+	renderSystem.reset();
 }
 
 void Engine2D::OnUpdate(ErigonEngine::Timestep ts)
@@ -88,6 +106,8 @@ void Engine2D::OnEvent(const ErigonEngine::Event& e)
 
 void Engine2D::OnEditorEvent(const ErigonEngine::Event& e)
 {
+	cameraSystem->OnEvent(e);
+
 	ErigonEngine::EventDispatcher dispatcher(e);
 	dispatcher.Dispatch<ErigonEngine::Editor::SceneViewSizeChangedEvent>(BIND_EVENT(Engine2D::EventHandler::OnSceneViewChanged, &eventHandler));
 	dispatcher.Dispatch<ErigonEngine::Editor::SceneCreatedEvent>(BIND_EVENT(Engine2D::EventHandler::OnSceneCreated, &eventHandler));

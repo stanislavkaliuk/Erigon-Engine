@@ -43,11 +43,22 @@ namespace ErigonEngine
 				texture = Texture2D::Create(texturePath);
 			}
 
+			void SetTexture(Ref<Texture2D> textureRef)
+			{
+				texture.reset();
+				texture = textureRef;
+			}
+
 			inline Ref<Texture2D> GetTexture() const { return texture; }
 
 			void SetShader(const char* path)
 			{
 				shader = Shader::Create(path);
+			}
+
+			void SetShader(Ref<Shader> shaderRef)
+			{
+				shader = shaderRef;
 			}
 
 			inline Ref<Shader> GetShader() const { return shader; }

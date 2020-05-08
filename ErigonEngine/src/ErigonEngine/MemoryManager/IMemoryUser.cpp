@@ -3,7 +3,7 @@
 
 namespace ErigonEngine
 {
-	MemoryManager* engineMemoryManager = new MemoryManager();
+	extern MemoryManager* engineMemoryManager;
 
 	IMemoryUser::IMemoryUser() : memoryManager(engineMemoryManager) {}
 

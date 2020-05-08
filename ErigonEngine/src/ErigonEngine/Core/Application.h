@@ -12,6 +12,8 @@
 #include "ErigonEngine/Renderer/IndexBuffer.h"
 #include "ErigonEngine/Renderer/VertexArray.h"
 #include "ErigonEngine/ECS/ECSController.h"
+#include "ErigonEngine/MemoryManager/MemoryManager.h"
+#include "ErigonEngine/FileSystem/Content.h"
 
 namespace ErigonEngine
 {
@@ -24,6 +26,8 @@ namespace ErigonEngine
 		void OnEvent(const Event& e);
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
+		void PopLayer(Layer* layer);
+		void PopOverlay(Layer* layer);
 		inline IWindow& GetWindow() { return *m_Window; }
 		inline static Application& Get() { return *s_Instance; }
 		inline ECSController& GetECSController() { return *m_ECS_System; }

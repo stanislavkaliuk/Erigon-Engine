@@ -9,7 +9,7 @@ namespace ErigonEngine
 		struct Camera
 		{
 			float nearClipPlane = 0.0f;
-			float farClipPlaner = 50.0f;
+			float farClipPlaner = -50.0f;
 
 			glm::mat4 viewProjectionMatrix;
 
