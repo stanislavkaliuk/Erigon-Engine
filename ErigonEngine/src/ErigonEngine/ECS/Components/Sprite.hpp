@@ -12,7 +12,11 @@ namespace ErigonEngine
 			Ref<Texture2D> texture;
 			Color spriteColor;
 			Ref<Shader> shader;
-			Sprite() = default;
+			Sprite()
+			{
+
+			}
+
 			Sprite(const Sprite& other)
 			{
 				this->texture.reset(other.texture.get());

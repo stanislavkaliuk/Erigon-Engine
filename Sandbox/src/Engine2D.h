@@ -18,23 +18,12 @@ public:
 	void OnEvent(const ErigonEngine::Event& e) override;
 	void OnEditorEvent(const ErigonEngine::Event& e);
 
-	//Event Handling
-	class EventHandler
-	{
-	public:
-		bool OnSceneViewChanged(const ErigonEngine::Editor::SceneViewSizeChangedEvent& e);
-		bool OnSceneCreated(const ErigonEngine::Editor::SceneCreatedEvent& e);
-		bool OnSceneOpened(const ErigonEngine::Editor::SceneOpenedEvent& e);
-		bool OnSceneSaved(const ErigonEngine::Editor::SceneSavedEvent& e);
-		bool OnAppExit(const ErigonEngine::AppExitEvent& e);
-	};
-
 private:
-	EventHandler eventHandler;
-	ErigonEngine::Editor::EditorUIController* Editor;
-	
 	//ECS
 	std::shared_ptr<ErigonEngine::CameraSystem> cameraSystem;
 	std::shared_ptr<ErigonEngine::RenderSystem> renderSystem;
+	ErigonEngine::GameObject* cameraObject;
+	ErigonEngine::GameObject* sprite1Object;
+	ErigonEngine::GameObject* sprite2Object;
 
 };

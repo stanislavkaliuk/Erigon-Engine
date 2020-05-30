@@ -7,8 +7,6 @@ namespace ErigonEngine
 	{
 		class EditorEvent : public Event
 		{
-		public:
-			EVENT_CLASS_CATEGORY(EventCategoryEditor)
 		};
 
 		

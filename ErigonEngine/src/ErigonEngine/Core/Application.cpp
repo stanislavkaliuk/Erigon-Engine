@@ -19,11 +19,14 @@ namespace ErigonEngine
 		s_Instance = this;
 
 		m_Window = Scope<IWindow>(IWindow::Create());
-		m_Window->SetEventCallback(BIND_EVENT(Application::OnEvent));
+		EventManager::AddListener(WindowCloseEvent::GetStaticType(), BIND_EVENT(Application::OnEvent));
+		EventManager::AddListener(WindowResizeEvent::GetStaticType(), BIND_EVENT(Application::OnEvent));
+		EventManager::AddListener(AppExitEvent::GetStaticType(), BIND_EVENT(Application::OnEvent));
+
 
 		Content::Content::Init();
 
-		engineMemoryManager = new MemoryManager();
+		//engineMemoryManager = new MemoryManager();
 
 		m_ECS_System = Scope<ECSController>(ECSController::Create());
 		//Init ECS Here

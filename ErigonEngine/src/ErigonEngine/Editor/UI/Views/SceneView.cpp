@@ -38,7 +38,7 @@ namespace ErigonEngine
 
 		void SceneView::SendCallback(const Event& event)
 		{
-			reinterpret_cast<EditorUIController*>(masterController)->eventCallback(event);
+			EventManager::InvokeEvent(event.GetEventType(), const_cast<Event&>(event));
 		}
 
 		void SceneView::DrawMenuBar()

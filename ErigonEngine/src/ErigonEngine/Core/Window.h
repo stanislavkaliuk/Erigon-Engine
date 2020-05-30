@@ -19,8 +19,6 @@ namespace ErigonEngine
 	class IWindow
 	{
 	public:
-		using EventCallback = std::function<void(Event&)>;
-
 		virtual ~IWindow() {}
 
 		virtual void OnUpdate() = 0;
@@ -28,7 +26,6 @@ namespace ErigonEngine
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;
 
-		virtual void SetEventCallback(const EventCallback& callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 

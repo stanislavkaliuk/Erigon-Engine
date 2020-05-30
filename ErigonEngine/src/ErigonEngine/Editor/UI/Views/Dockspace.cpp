@@ -99,7 +99,7 @@ namespace ErigonEngine
 
 		void Dockspace::SendCallback(const Event& event)
 		{
-			reinterpret_cast<EditorUIController*>(masterController)->eventCallback(event); 
+			EventManager::InvokeEvent(event.GetEventType(), const_cast<Event&>(event));
 		}
 	}
 }

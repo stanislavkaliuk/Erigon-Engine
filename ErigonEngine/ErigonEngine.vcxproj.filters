@@ -141,23 +141,11 @@
     <ClInclude Include="src\ErigonEngine\ECS\Enitites\GameObject.h">
       <Filter>src\ErigonEngine\ECS\Enitites</Filter>
     </ClInclude>
-    <ClInclude Include="src\ErigonEngine\ECS\Enitites\IGameObject.h">
-      <Filter>src\ErigonEngine\ECS\Enitites</Filter>
-    </ClInclude>
     <ClInclude Include="src\ErigonEngine\ECS\Systems\CameraSystem.h">
       <Filter>src\ErigonEngine\ECS\Systems</Filter>
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\ECS\Systems\RenderSystem.h">
       <Filter>src\ErigonEngine\ECS\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\IDetail.h">
-      <Filter>src\ErigonEngine\Editor\UI\DetailECS</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.h">
-      <Filter>src\ErigonEngine\Editor\UI\DetailECS</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ErigonEngine\Editor\UI\DetailECS\Transform.h">
-      <Filter>src\ErigonEngine\Editor\UI\DetailECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ErigonEngine\Editor\UI\Editor.h">
       <Filter>src\ErigonEngine\Editor\UI</Filter>
@@ -1463,6 +1451,8 @@
     <ClInclude Include="src\ErigonEngine\FileSystem\ContentDB.h" />
     <ClInclude Include="src\ErigonEngine\FileSystem\ContentScanner.h" />
     <ClInclude Include="src\ErigonEngine\FileSystem\ContentLoader.h" />
+    <ClInclude Include="src\ErigonEngine\Editor\UI\Views\Properties.h" />
+    <ClInclude Include="src\ErigonEngine\ECS\Components\ComponentMap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
@@ -1476,12 +1466,6 @@
     </ClCompile>
     <ClCompile Include="src\ErigonEngine\ECS\Systems\RenderSystem.cpp">
       <Filter>src\ErigonEngine\ECS\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Sprite.cpp">
-      <Filter>src\ErigonEngine\Editor\UI\DetailECS</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ErigonEngine\Editor\UI\DetailECS\Transform.cpp">
-      <Filter>src\ErigonEngine\Editor\UI\DetailECS</Filter>
     </ClCompile>
     <ClCompile Include="src\ErigonEngine\Editor\UI\EditorUIController.cpp">
       <Filter>src\ErigonEngine\Editor\UI</Filter>
@@ -1613,5 +1597,8 @@
     <ClCompile Include="src\ErigonEngine\FileSystem\ContentScanner.cpp" />
     <ClCompile Include="src\ErigonEngine\FileSystem\ContentLoader.cpp" />
     <ClCompile Include="src\ErigonEngine\FileSystem\ContentDB.cpp" />
+    <ClCompile Include="src\ErigonEngine\Events\Event.cpp" />
+    <ClCompile Include="src\ErigonEngine\Editor\UI\Views\Properties.cpp" />
+    <ClCompile Include="src\ErigonEngine\ECS\Enitites\GameObject.cpp" />
   </ItemGroup>
 </Project>

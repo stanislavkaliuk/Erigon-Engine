@@ -4,6 +4,7 @@
 
 #include <string>
 #include <functional>
+#include <vector>
 
 namespace ErigonEngine
 {
@@ -37,22 +38,9 @@ namespace ErigonEngine
 		SceneViewChanged = 0x0023
 	};
 
-	enum EventCategory
-	{
-		None = 0,
-		EventCategoryApplication	= BIT(0),
-		EventCategoryInput			= BIT(1),
-		EventCategoryKeyboard		= BIT(2),
-		EventCategoryMouse			= BIT(3),
-		EventCategoryMouseButton	= BIT(4),
-		EventCategoryEditor			= BIT(5)
-	};
-
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
 								virtual const char* GetName() const override { return #type; }
-
-#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags()const override {return category;}
 
 	class Event
 	{
@@ -60,13 +48,7 @@ namespace ErigonEngine
 		bool Handled = false;
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
-		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
-
-		inline bool isInCategory(EventCategory category)
-		{
-			return GetCategoryFlags() & category;
-		}
 	};
 
 	class EventDispatcher
@@ -98,4 +80,13 @@ namespace ErigonEngine
 	{
 		return os << e.ToString();
 	}
+
+	class EventManager
+	{
+	public:	
+		static void AddListener(EventType eventType, const std::function<void(const Event&)>& func);
+		static void RemoveListener(EventType eventType, const std::function<void(const Event&)> func);
+		static void RemoveAllListeners(EventType eventType);
+		static void InvokeEvent(EventType eventType, Event& event);
+	};
 }

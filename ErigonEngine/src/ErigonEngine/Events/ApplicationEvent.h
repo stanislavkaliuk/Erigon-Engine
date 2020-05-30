@@ -21,7 +21,6 @@ namespace ErigonEngine
 		}
 
 		EVENT_CLASS_TYPE(WindowResize)
-		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 			
 	private:
 		unsigned int m_Width, m_Height;
@@ -33,7 +32,6 @@ namespace ErigonEngine
 		WindowCloseEvent() {}
 
 		EVENT_CLASS_TYPE(WindowClose)
-		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
 	class AppTickEvent : public Event
@@ -42,7 +40,6 @@ namespace ErigonEngine
 		AppTickEvent() {}
 
 		EVENT_CLASS_TYPE(AppTick)
-			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 	class AppUpdateEvent : public Event
 	{
@@ -50,7 +47,6 @@ namespace ErigonEngine
 		AppUpdateEvent() {}
 
 		EVENT_CLASS_TYPE(AppUpdate)
-			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 	class AppRenderEvent : public Event
 	{
@@ -58,7 +54,6 @@ namespace ErigonEngine
 		AppRenderEvent() {}
 
 		EVENT_CLASS_TYPE(AppRender)
-			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
 	class AppExitEvent : public Event
@@ -67,6 +62,5 @@ namespace ErigonEngine
 		AppExitEvent() {}
 
 		EVENT_CLASS_TYPE(AppExit)
-			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 }

@@ -87,6 +87,21 @@ namespace ECS
 		{
 			systemManager->SetSignature<T>(signature);
 		}
+
+		std::vector<ComponentType> GetComponentTypesInEntity(Entity entity)
+		{
+			std::vector<ComponentType> components;
+			auto signature = entityManager->GetSignature(entity);
+			for (ComponentType componentType = 0; componentType < signature.count(); componentType++)
+			{
+				if (signature.test(componentType))
+				{
+					components.push_back(componentType);
+				}
+			}
+
+			return components;
+		}
 		
 	private:
 		std::unique_ptr<ComponentManager> componentManager;

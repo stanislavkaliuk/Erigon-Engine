@@ -9,8 +9,8 @@ namespace ErigonEngine
 	{
 		gECSController.Init();
 
-		gECSController.RegisterComponent<ECS::Camera>();
 		gECSController.RegisterComponent<ECS::Transform>();
+		gECSController.RegisterComponent<ECS::Camera>();
 		gECSController.RegisterComponent<ECS::Sprite>();
 
 		systems = new SystemCollection();

@@ -133,10 +133,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\EditorLayer.h" />
     <ClInclude Include="src\Engine2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\EditorLayer.cpp" />
     <ClCompile Include="src\Engine2D.cpp" />
   </ItemGroup>
   <ItemGroup>

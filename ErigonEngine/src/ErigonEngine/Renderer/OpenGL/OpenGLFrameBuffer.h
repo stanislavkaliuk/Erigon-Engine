@@ -13,5 +13,6 @@ namespace ErigonEngine
 		virtual void Unbind() const override;
 	private:
 		uint32 m_RendererID;
+		uint32 m_RenderBuffID;
 	};
 }

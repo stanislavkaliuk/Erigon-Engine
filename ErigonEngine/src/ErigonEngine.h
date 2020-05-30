@@ -29,3 +29,4 @@
 
 //-----ECS------//
 #include "ErigonEngine/ECS/ECSController.h"
+#include "ErigonEngine/ECS/Enitites/GameObject.h"

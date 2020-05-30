@@ -17,8 +17,6 @@ namespace ErigonEngine
 		inline unsigned int GetWidth() const override { return m_Data.Width; }
 		inline unsigned int GetHeight() const override { return m_Data.Height; }
 
-		inline void SetEventCallback(const EventCallback& callback) override { m_Data.EventCallback = callback; }
-
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
 
@@ -34,7 +32,6 @@ namespace ErigonEngine
 		{
 			std::string Title;
 			unsigned int Width, Height;
-			EventCallback EventCallback;
 			bool VSync;
 		};
 
