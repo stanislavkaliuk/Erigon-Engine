@@ -3,8 +3,7 @@
 
 namespace ErigonEngine
 {
-	GameObject::GameObject(::ECS::Entity entity, std::initializer_list<std::any> components) : connectedEntity(entity), connectedComponents(components)
+	GameObject::GameObject(::ECS::Entity entity, ::ECS::Signature objectSignature, std::initializer_list<std::any> components) : connectedEntity(entity), connectedComponents(components), signature(objectSignature)
 	{
-		
 	}
 }

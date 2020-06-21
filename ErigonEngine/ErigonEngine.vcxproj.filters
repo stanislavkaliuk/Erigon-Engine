@@ -1453,6 +1453,8 @@
     <ClInclude Include="src\ErigonEngine\FileSystem\ContentLoader.h" />
     <ClInclude Include="src\ErigonEngine\Editor\UI\Views\Properties.h" />
     <ClInclude Include="src\ErigonEngine\ECS\Components\ComponentMap.h" />
+    <ClInclude Include="src\ErigonEngine\SceneSystem\Scene.h" />
+    <ClInclude Include="src\ErigonEngine\SceneSystem\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ErigonEngine\Core\Application.cpp">
@@ -1600,5 +1602,7 @@
     <ClCompile Include="src\ErigonEngine\Events\Event.cpp" />
     <ClCompile Include="src\ErigonEngine\Editor\UI\Views\Properties.cpp" />
     <ClCompile Include="src\ErigonEngine\ECS\Enitites\GameObject.cpp" />
+    <ClCompile Include="src\ErigonEngine\SceneSystem\SceneManager.cpp" />
+    <ClCompile Include="src\ErigonEngine\SceneSystem\Scene.cpp" />
   </ItemGroup>
 </Project>

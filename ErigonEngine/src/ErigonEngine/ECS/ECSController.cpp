@@ -58,18 +58,20 @@ namespace ErigonEngine
 		return gECSController.GetComponentType<T>();
 	}
 
-	::ECS::Entity ECSController::EntityFactory::CreateBasicEntity(ECSController& controller)
+	ECSController::EntityFactory::EntityFactory(ECSController* controller) { connectedController = controller; }
+
+	::ECS::Entity ECSController::EntityFactory::CreateBasicEntity()
 	{
 		::ECS::Entity entity = gECSController.CreateEntity();
 		gECSController.AddComponent(entity, ECS::Transform
 			{
 				glm::vec3(), glm::vec3(), glm::vec3(1,1,1)
 			});
-		controller.entities->push_back(entity);
+		connectedController->entities->push_back(entity);
 		return entity;
 	}
 
-	::ECS::Entity ECSController::EntityFactory::CreateCamera(ECSController& controller)
+	::ECS::Entity ECSController::EntityFactory::CreateCamera()
 	{
 		::ECS::Entity entity = gECSController.CreateEntity();
 		gECSController.AddComponent(entity, ECS::Transform
@@ -77,11 +79,11 @@ namespace ErigonEngine
 				glm::vec3(0,0,0), glm::vec3(), glm::vec3(1,1,1)
 			});
 		gECSController.AddComponent(entity, ECS::Camera());
-		controller.entities->push_back(entity);
+		connectedController->entities->push_back(entity);
 		return entity;
 	}
 
-	::ECS::Entity ECSController::EntityFactory::CreateSprite(ECSController& controller)
+	::ECS::Entity ECSController::EntityFactory::CreateSprite()
 	{
 		::ECS::Entity entity = gECSController.CreateEntity();
 		gECSController.AddComponent(entity, ECS::Transform
@@ -91,7 +93,7 @@ namespace ErigonEngine
 		ECS::Sprite sprite = ECS::Sprite();
 		sprite.SetColor(glm::vec3(1.0f, 1.0f, 1.0f));
 		gECSController.AddComponent(entity, sprite);
-		controller.entities->push_back(entity);
+		connectedController->entities->push_back(entity);
 		return entity;
 	}
 }

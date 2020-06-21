@@ -221,6 +221,8 @@
     <ClInclude Include="src\ErigonEngine\Renderer\Texture.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\VertexArray.h" />
     <ClInclude Include="src\ErigonEngine\Renderer\VertexBuffer.h" />
+    <ClInclude Include="src\ErigonEngine\SceneSystem\Scene.h" />
+    <ClInclude Include="src\ErigonEngine\SceneSystem\SceneManager.h" />
     <ClInclude Include="src\ErigonEngine\Serialization\ISerializable.h" />
     <ClInclude Include="src\ErigonEngine\Tools\Color.h" />
     <ClInclude Include="src\ErigonEngine\Tools\SceneSubsystem\SceneData.h" />
@@ -648,6 +650,8 @@
     <ClCompile Include="src\ErigonEngine\Renderer\Shader.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\Texture.cpp" />
     <ClCompile Include="src\ErigonEngine\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\ErigonEngine\SceneSystem\Scene.cpp" />
+    <ClCompile Include="src\ErigonEngine\SceneSystem\SceneManager.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\eepch.cpp">

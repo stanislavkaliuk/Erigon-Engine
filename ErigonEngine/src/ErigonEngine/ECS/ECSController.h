@@ -32,11 +32,15 @@ namespace ErigonEngine
 			friend class ECSController;
 		public:
 
-			::ECS::Entity CreateBasicEntity(ECSController& controller);
+			EntityFactory(ECSController* controller);
 
-			::ECS::Entity CreateCamera(ECSController& controller);
+			::ECS::Entity CreateBasicEntity();
 
-			::ECS::Entity CreateSprite(ECSController& controller);
+			::ECS::Entity CreateCamera();
+
+			::ECS::Entity CreateSprite();
+		private:
+			ECSController* connectedController;
 		};
 		
 

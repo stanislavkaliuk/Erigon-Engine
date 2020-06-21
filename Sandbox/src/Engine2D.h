@@ -4,6 +4,7 @@
 #include "ErigonEngine\Events\Event.h"
 #include "ErigonEngine\Editor\UI\NodeEditor\NodeEditor.h"
 
+
 class Engine2D : public ErigonEngine::Layer
 {
 public:
@@ -19,11 +20,12 @@ public:
 	void OnEditorEvent(const ErigonEngine::Event& e);
 
 private:
+
 	//ECS
 	std::shared_ptr<ErigonEngine::CameraSystem> cameraSystem;
 	std::shared_ptr<ErigonEngine::RenderSystem> renderSystem;
-	ErigonEngine::GameObject* cameraObject;
-	ErigonEngine::GameObject* sprite1Object;
-	ErigonEngine::GameObject* sprite2Object;
+	ErigonEngine::Scene* scene;
 
+	void AddCamera(ErigonEngine::ECSController* controller, ErigonEngine::ECSController::EntityFactory& factory, glm::vec2 resolution);
+	void AddSprite(ErigonEngine::ECSController* controller, ErigonEngine::ECSController::EntityFactory& factory, glm::vec3 pos, const char* path, glm::vec3 color = {1.0f,1.0f,1.0f});
 };
